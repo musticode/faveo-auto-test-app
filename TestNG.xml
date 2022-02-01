@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suites" parallel="classes" thread-count="5">
+    <listeners>
+        <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
+    </listeners>
+    <test name="Test Suites">
+        <classes>
+            <class name="org.testapp.Api.RestClient.ApiTest"></class>
+            <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
