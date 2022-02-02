@@ -1,10 +1,9 @@
 package org.testapp.Api.Test;
 
-import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.ValidatableResponse;
-import io.qameta.allure.testng.TestInstanceParameter;
-import org.testapp.Api.DataProvider.MspRequestBody;
-import org.testapp.Api.DataProvider.PropertyManager;
+import io.qameta.allure.Description;
+import org.testapp.Api.DataProvider.*;
+import org.testapp.Api.PropertyManager.PropertyManager;
 import org.testapp.Api.RestClient.RestClientValidatableResponse;
 import org.testng.annotations.Test;
 
@@ -21,10 +20,22 @@ public class FaveoMspTest {
 
 
 
-    MspRequestBody mspRequestBody;
     ValidatableResponse response;
+    MspRequestBody mspRequestBody;
+    AdminRequestBody adminRequestBody;
+    CompanyRequestBody companyRequestBody;
+    RoleRequestBody roleRequestBody;
+    StaffRequestBody staffRequestBody;
+    UserRequestBody userRequestBody;
 
     @Test
+    public void testString(){
+        mspRequestBody = new MspRequestBody();
+        System.out.println(mspRequestBody.getMspCreateRequestBody(MSP_ID));
+    }
+
+    @Test
+    @Description("Creating MSP with POST operation")
     public void createMsp(){
         mspRequestBody= new MspRequestBody();
 /*        response = given()
@@ -41,19 +52,25 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
     }
+
     @Test
     public void updateMsp(){
+        mspRequestBody= new MspRequestBody();
         response = RestClientValidatableResponse.doPost(APP_URL.concat("/pim/msps/"+ID),
                 mspRequestBody.getMspUpdateBody(MSP_ID));
         RestClientValidatableResponse.responseAsString(response);
     }
     @Test
     public void holdMsp(){
-        response = RestClientValidatableResponse.doPost(APP_URL.concat("/pim/msps/"+ID+"/hold"),"asdasd");
+        mspRequestBody= new MspRequestBody();
+        response = RestClientValidatableResponse.doPost(APP_URL.concat("/pim/msps/"+ID+"/hold"),
+                mspRequestBody.getMspHoldBody(MSP_ID));
+        RestClientValidatableResponse.responseAsString(response);
 
     }
     @Test
     public void unholdMsp(){
+        mspRequestBody= new MspRequestBody();
 
     }
     @Test

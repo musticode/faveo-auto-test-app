@@ -2,6 +2,7 @@ package org.testapp.Api.DataProvider;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.testapp.Api.PropertyManager.PropertyManager;
 
 public class AdminRequestBody {
     private String API_KEY = PropertyManager.getInstance().getApiKey();

@@ -1,6 +1,7 @@
 package org.testapp.Api.DataProvider;
 
 import org.json.JSONObject;
+import org.testapp.Api.PropertyManager.PropertyManager;
 
 public class UserRequestBody {
     private String API_KEY = PropertyManager.getInstance().getApiKey();

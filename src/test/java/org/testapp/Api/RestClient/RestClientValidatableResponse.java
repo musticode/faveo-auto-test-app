@@ -3,9 +3,7 @@ package org.testapp.Api.RestClient;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.testapp.Api.DataProvider.MspRequestBody;
-import org.testapp.Api.DataProvider.PropertyManager;
-import org.testng.annotations.Test;
+import org.testapp.Api.PropertyManager.PropertyManager;
 
 import static com.jayway.restassured.RestAssured.given;
 
