@@ -1,4 +1,4 @@
-package org.testapp.Api.DataProvider;
+package org.testapp.Api.PropertyManager;
 
 import java.io.FileInputStream;
 import java.io.IOException;

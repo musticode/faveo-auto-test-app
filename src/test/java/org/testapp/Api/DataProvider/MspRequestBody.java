@@ -1,12 +1,9 @@
 package org.testapp.Api.DataProvider;
 
-import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.testapp.Api.PropertyManager.PropertyManager;
 import org.testng.annotations.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MspRequestBody {
     private String API_KEY = PropertyManager.getInstance().getApiKey();
@@ -17,17 +14,17 @@ public class MspRequestBody {
 
         JSONObject paramsObject = new JSONObject();
         paramsObject.put("id",mspId);
-        paramsObject.put("name","Zahir Test13 Company");
+        paramsObject.put("name","Company Name");
         paramsObject.put("types",typesArr);
-        paramsObject.put("contactEmail","zahirtest3029@sharklasers.com");
+        paramsObject.put("contactEmail","company@email.com");
         paramsObject.put("chapterId","");
-        paramsObject.put("subdomain","staging");
+        paramsObject.put("subdomain",mspId);
 
 
         JSONObject requestBody = new JSONObject();
         requestBody.put("requestType","event");
         requestBody.put("eventName","mspCreated");
-        requestBody.put("mspId",mspId);
+        requestBody.put("msp_id",mspId);
         requestBody.put("params",paramsObject);
         requestBody.put("eventDispatcherNameSpace","ComodoOnePortal");
         requestBody.put("targetApiKey",API_KEY);
@@ -164,7 +161,7 @@ public class MspRequestBody {
     @Test
     public void mspId(){
 //        System.out.println(getMspCreateRequestBody("test"));
-        System.out.println(getMspUpdateBody("must1"));
+        System.out.println(getMspCreateRequestBody("must111"));
     }
 
     @Test(dataProvider ="msp-request-data", dataProviderClass = TestDataProvider.class)
