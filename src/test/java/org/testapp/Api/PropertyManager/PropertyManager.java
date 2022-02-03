@@ -16,6 +16,8 @@ public class PropertyManager {
     private String companyId;
     private String staffUniqueId;
     private String userUniqueId;
+    private String staffIdurl;
+    private String userIdurl;
 
     public static PropertyManager getInstance(){
         if(instance == null){
@@ -41,6 +43,8 @@ public class PropertyManager {
         companyId = properties.getProperty("company_id");
         staffUniqueId = properties.getProperty("staff_unique_id");
         userUniqueId = properties.getProperty("user_unique_id");
+        staffIdurl = properties.getProperty("staff_id_url");
+        userIdurl = properties.getProperty("user_id_url");
 
     }
 
@@ -55,6 +59,9 @@ public class PropertyManager {
     public String getCompanyId(){return companyId;}
     public String getStaffUniqueId(){return staffUniqueId;}
     public String getUserUniqueId(){return userUniqueId;}
+    public String getStaffIdUrl(){return staffIdurl;}
+    public String getUserIdUrl(){return userIdurl;}
+
 
 
 }

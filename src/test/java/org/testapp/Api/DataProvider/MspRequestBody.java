@@ -17,14 +17,14 @@ public class MspRequestBody {
         paramsObject.put("name","Company Name");
         paramsObject.put("types",typesArr);
         paramsObject.put("contactEmail","company@email.com");
-        paramsObject.put("chapterId","");
+        paramsObject.put("chapterId","mspId");
         paramsObject.put("subdomain",mspId);
 
 
         JSONObject requestBody = new JSONObject();
         requestBody.put("requestType","event");
         requestBody.put("eventName","mspCreated");
-        requestBody.put("msp_id",mspId);
+        requestBody.put("mspId",mspId);
         requestBody.put("params",paramsObject);
         requestBody.put("eventDispatcherNameSpace","ComodoOnePortal");
         requestBody.put("targetApiKey",API_KEY);
@@ -39,9 +39,9 @@ public class MspRequestBody {
         JSONObject paramsObject = new JSONObject();
         paramsObject.put("id",mspId);
         paramsObject.put("name","test_update_name");
-        paramsObject.put("subdomain","test_update_subdomainaabb_must4__2edit");
+        paramsObject.put("subdomain","test_update_subdomainaabb_testToplanti11"+mspId);
         paramsObject.put("types",typesArr);
-        paramsObject.put("contactEmail","zahirtest3029@sharklasers.com");
+        paramsObject.put("contactEmail","mail@test.com");
         paramsObject.put("chapterId","mspId");
         paramsObject.put("timeZone", "GMT+03:00");
 
@@ -49,7 +49,8 @@ public class MspRequestBody {
         mspUpdateRequestBody.put("eventDispatcherNameSpace","ComodoOnePortal");
         mspUpdateRequestBody.put("targetApiKey",API_KEY);
         mspUpdateRequestBody.put("mspId",mspId);
-        mspUpdateRequestBody.put("requestType", "mspUpdated");
+        mspUpdateRequestBody.put("requestType", "event");
+        mspUpdateRequestBody.put("eventName", "mspUpdated");
         mspUpdateRequestBody.put("params",paramsObject);
 
         return mspUpdateRequestBody.toString();
@@ -97,6 +98,7 @@ public class MspRequestBody {
         mspHoldRequestBody.put("targetApiKey",API_KEY);
         mspHoldRequestBody.put("mspId",mspId);
         mspHoldRequestBody.put("requestType", "event");
+        mspHoldRequestBody.put("eventName", "mspUpdated");
         mspHoldRequestBody.put("params",paramsObject);
 
         return  mspHoldRequestBody.toString();
