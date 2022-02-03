@@ -67,7 +67,6 @@ public class MspRequestBody {
         paramsObject.put("types",typesArr);
         paramsObject.put("contactEmail","mail@test.com");
         paramsObject.put("chapterId","mspID");
-//        paramsObject.put("timeZone", "GMT+03:00");
 
         JSONObject mspDeleteRequestBody = new JSONObject();
         mspDeleteRequestBody.put("eventDispatcherNameSpace","ComodoOnePortal");

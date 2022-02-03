@@ -274,6 +274,10 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().statusCode(200);
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("MSP Deleted"));
 
     }
 
