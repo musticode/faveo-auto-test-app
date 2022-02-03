@@ -2,6 +2,8 @@ package org.testapp.Api.Test;
 
 import com.jayway.restassured.response.ValidatableResponse;
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.hamcrest.core.IsEqual;
 import org.testapp.Api.DataProvider.*;
 import org.testapp.Api.PropertyManager.PropertyManager;
@@ -36,6 +38,7 @@ public class FaveoMspTest {
     }
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Creating MSP with POST operation")
     public void createMsp(){
         mspRequestBody= new MspRequestBody();
@@ -63,6 +66,7 @@ public class FaveoMspTest {
     }
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Update MSP with PATCH operation")
     public void updateMsp(){
         mspRequestBody= new MspRequestBody();
@@ -80,6 +84,7 @@ public class FaveoMspTest {
 
     }
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Hold MSP with PATCH operation")
     public void holdMsp(){
         mspRequestBody= new MspRequestBody();
@@ -98,6 +103,7 @@ public class FaveoMspTest {
 
     }
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Unhold MSP with PATCH operation")
     public void unholdMsp(){
         mspRequestBody= new MspRequestBody();
@@ -265,6 +271,8 @@ public class FaveoMspTest {
     }
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Delete MSP with DELETE operation")
     public void deleteMsp(){
         mspRequestBody= new MspRequestBody();
 
