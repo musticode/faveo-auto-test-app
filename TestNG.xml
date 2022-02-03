@@ -6,8 +6,44 @@
     </listeners>
     <test name="Test Suites">
         <classes>
-            <class name="org.testapp.Api.Test.FaveoMspTest"></class>
-            <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>
+<!--            <class name="org.testapp.Api.Test.FaveoMspTest"></class>-->
+<!--            <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>-->
         </classes>
     </test> <!-- Test -->
+
+
+<!--    specific test run-->
+    <test name="API MSP Operations" >
+        <classes>
+            <class name="org.testapp.Api.Test.FaveoMspTest">
+                <methods>
+                    <include name="createMsp" />
+                    <include name="updateMsp" />
+                    <include name="holdMsp" />
+                    <include name="unholdMsp" />
+                    <include name="deleteMsp" />
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+<!--    <test name="TEst req" >
+        <classes>
+            <class name="org.testapp.Api.RestClient.Api">
+                <methods>
+                    <include name="testReqres" />
+&lt;!&ndash;                    <include name="updateMsp" />&ndash;&gt;
+&lt;!&ndash;                    <include name="holdMsp" />&ndash;&gt;
+&lt;!&ndash;                    <include name="unholdMsp" />&ndash;&gt;
+&lt;!&ndash;                    <include name="deleteMsp" />&ndash;&gt;
+
+                </methods>
+            </class>
+        </classes>
+    </test>-->
+
+
+
+
 </suite> <!-- Suite -->
