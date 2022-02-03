@@ -2,6 +2,7 @@ package org.testapp.Api.Test;
 
 import com.jayway.restassured.response.ValidatableResponse;
 import io.qameta.allure.Description;
+import org.hamcrest.core.IsEqual;
 import org.testapp.Api.DataProvider.*;
 import org.testapp.Api.PropertyManager.PropertyManager;
 import org.testapp.Api.RestClient.RestClientValidatableResponse;
@@ -18,7 +19,7 @@ public class FaveoMspTest {
     private String STAFF_UNIQUE_ID = PropertyManager.getInstance().getStaffUniqueId();
     private String USER_UNIQUE_ID = PropertyManager.getInstance().getUserUniqueId();
 
-
+    RequestUrl requestUrl = new RequestUrl();
 
     ValidatableResponse response;
     MspRequestBody mspRequestBody;
@@ -47,81 +48,233 @@ public class FaveoMspTest {
 
         response.log().body().extract().asString();*/
 
-        response = RestClientValidatableResponse.doPost(APP_URL.concat("/pim/msps"),
+        response = RestClientValidatableResponse.doPost(requestUrl.getMspCreateRequestUrl(),
                 mspRequestBody.getMspCreateRequestBody(MSP_ID));
+
+        //sout
         RestClientValidatableResponse.responseAsString(response);
 
+        //assertions
+        response.assertThat().statusCode(200);
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("data.msp_id", IsEqual.equalTo(MSP_ID));
+        response.assertThat().body("message", IsEqual.equalTo("MSP Created"));
     }
 
     @Test
+    @Description("Update MSP with PATCH operation")
     public void updateMsp(){
         mspRequestBody= new MspRequestBody();
-        response = RestClientValidatableResponse.doPost(APP_URL.concat("/pim/msps/"+ID),
+        response = RestClientValidatableResponse.doPatch(requestUrl.getMspUpdateRequestUrl(),
                 mspRequestBody.getMspUpdateBody(MSP_ID));
+
         RestClientValidatableResponse.responseAsString(response);
-    }
-    @Test
-    public void holdMsp(){
-        mspRequestBody= new MspRequestBody();
-        response = RestClientValidatableResponse.doPost(APP_URL.concat("/pim/msps/"+ID+"/hold"),
-                mspRequestBody.getMspHoldBody(MSP_ID));
-        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
+        response.assertThat().statusCode(200);
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("MSP Updated"));
+
 
     }
     @Test
+    @Description("Hold MSP with PATCH operation")
+    public void holdMsp(){
+        mspRequestBody= new MspRequestBody();
+        response = RestClientValidatableResponse.doPatch(requestUrl.getMspHoldRequestUrl(),
+                mspRequestBody.getMspHoldBody(MSP_ID));
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
+        response.assertThat().statusCode(200);
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("MSP Disabled"));
+        response.assertThat().body("data.msp_id", IsEqual.equalTo(MSP_ID));
+
+
+    }
+    @Test
+    @Description("Unhold MSP with PATCH operation")
     public void unholdMsp(){
         mspRequestBody= new MspRequestBody();
+        response = RestClientValidatableResponse.doPatch(requestUrl.getMspUnholdRequestUrl(),
+                mspRequestBody.getMspUnholdRequestBody(MSP_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
+        response.assertThat().statusCode(200);
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("MSP Enabled"));
+        response.assertThat().body("data.msp_id", IsEqual.equalTo(MSP_ID));
 
     }
     @Test
     public void createRole(){
+        roleRequestBody = new RoleRequestBody();
+
+        //sending request
+        response = RestClientValidatableResponse.doPost(requestUrl.getRoleCreateRequestUrl(),
+                roleRequestBody.getCreateRoleRequestBody());
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
 
     }
     @Test
     public void createAdmin(){
+        adminRequestBody = new AdminRequestBody();
+
+        response = RestClientValidatableResponse.doPost(requestUrl.getAdminCreateRequestUrl(),
+                adminRequestBody.getAdminCreateRequestBody(MSP_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
 
     }
     @Test
     public void createCompany(){
+        companyRequestBody = new CompanyRequestBody();
+
+        response = RestClientValidatableResponse.doPost(requestUrl.getCompanyCreateRequestUrl(),
+                companyRequestBody.getCompanyCreateRequestBody(MSP_ID,COMPANY_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
+
 
     }
     @Test
     public void updateCompany(){
+        companyRequestBody = new CompanyRequestBody();
+
+        response = RestClientValidatableResponse.doPatch(requestUrl.getCompanyUpdateRequestUrl(),
+                companyRequestBody.getCompanyUpdateRequestBody(MSP_ID,COMPANY_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
+
 
     }
     @Test
     public void createStaff(){
+        staffRequestBody = new StaffRequestBody();
+
+        response = RestClientValidatableResponse.doPost(requestUrl.getStaffCreateRequestUrl(),
+                staffRequestBody.getStaffCreateRequestBody(MSP_ID,STAFF_UNIQUE_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
+
+
+
 
     }
     @Test
     public void updateStaff(){
+        staffRequestBody = new StaffRequestBody();
+
+        response = RestClientValidatableResponse.doPatch(requestUrl.getStaffUpdateRequestUrl(),
+                staffRequestBody.getStaffUpdateRequestBody(MSP_ID,STAFF_UNIQUE_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
 
     }
     @Test
     public void createUser(){
+        userRequestBody = new UserRequestBody();
+
+        response = RestClientValidatableResponse.doPost(requestUrl.getUserCreateRequestUrl(),
+                userRequestBody.getUserCreateRequestBody(MSP_ID,COMPANY_ID,USER_UNIQUE_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
 
     }
     @Test
     public void updateUser(){
+        userRequestBody = new UserRequestBody();
+
+        response = RestClientValidatableResponse.doPatch(requestUrl.getUserUpdateRequestUrl(),
+                userRequestBody.getUserUpdateRequestBody(MSP_ID,COMPANY_ID,USER_UNIQUE_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
 
     }
     @Test
     public void deleteUser(){
+        userRequestBody = new UserRequestBody();
 
+        response = RestClientValidatableResponse.doDelete(requestUrl.getUserDeleteRequestUrl(),
+                userRequestBody.getUserDeleteRequestBody(MSP_ID,USER_UNIQUE_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
     }
     @Test
     public void deleteStaff(){
+        staffRequestBody = new StaffRequestBody();
+
+        response = RestClientValidatableResponse.doDelete(requestUrl.getStaffDeleteRequestUrl(),
+                staffRequestBody.getStaffDeleteRequestBody(MSP_ID,STAFF_UNIQUE_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
 
     }
     @Test
     public void deleteCompany(){
 
+        companyRequestBody = new CompanyRequestBody();
+
+        response = RestClientValidatableResponse.doDelete(requestUrl.getCompanyDeleteRequestUrl(),
+                companyRequestBody.getCompanyDeleteRequestBody(MSP_ID,COMPANY_ID));
+
+        //sout
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
     }
 
     @Test
     public void deleteMsp(){
-        response = RestClientValidatableResponse.doDelete(APP_URL.concat("delete/aa"),
+        mspRequestBody= new MspRequestBody();
+
+        response = RestClientValidatableResponse.doDelete(requestUrl.getMspDeleteRequestUrl(),
                 mspRequestBody.getMspDeleteRequestBody(MSP_ID));
+
+        RestClientValidatableResponse.responseAsString(response);
+
+        //assertions
+
     }
 
 }
