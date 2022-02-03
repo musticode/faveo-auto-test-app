@@ -6,7 +6,7 @@
     </listeners>
     <test name="Test Suites">
         <classes>
-            <class name="org.testapp.Api.RestClient.ApiTest"></class>
+            <class name="org.testapp.Api.Test.FaveoMspTest"></class>
             <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>
         </classes>
     </test> <!-- Test -->
