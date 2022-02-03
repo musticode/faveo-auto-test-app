@@ -29,8 +29,6 @@ public class AdminRequestBody {
         paramsObject.put("mspId",mspId);
 
 
-
-
         JSONObject requestBody = new JSONObject();
         requestBody.put("requestType","event");
         requestBody.put("eventName","adminCreated");
