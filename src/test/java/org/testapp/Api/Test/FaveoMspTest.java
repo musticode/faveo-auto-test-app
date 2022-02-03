@@ -127,12 +127,16 @@ public class FaveoMspTest {
 
         //sending request
         response = RestClientValidatableResponse.doPost(requestUrl.getRoleCreateRequestUrl(),
-                roleRequestBody.getCreateRoleRequestBody());
+                roleRequestBody.getCreateRoleRequestBody(MSP_ID));
 
         //sout
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().statusCode(200);
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("Role Created"));
 
     }
     @Test
