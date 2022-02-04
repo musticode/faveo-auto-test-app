@@ -48,7 +48,8 @@ public class FaveoTestCases extends BaseTest{
         newTicketPage = new NewTicketPage(driver);
 
         newTicketPage.getTicketCreate();
-        newTicketPage.fillUserDetails("mustafa@yopmail.com",
+        newTicketPage.fillUserDetails(
+                "mustafa@yopmail.com",
                 "mustafa",
                 "karatas",
                 "90",
