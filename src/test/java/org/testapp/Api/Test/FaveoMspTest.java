@@ -4,8 +4,10 @@ import com.jayway.restassured.response.ValidatableResponse;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import org.hamcrest.core.IsEqual;
 import org.testapp.Api.DataProvider.*;
+import org.testapp.Api.DataProvider.DataGenerator.DataGenerator;
 import org.testapp.Api.PropertyManager.PropertyManager;
 import org.testapp.Api.RestClient.RestClientValidatableResponse;
 import org.testng.annotations.Test;
@@ -15,27 +17,44 @@ import static com.jayway.restassured.RestAssured.given;
 public class FaveoMspTest {
     private String API_KEY = PropertyManager.getInstance().getApiKey();
     private String APP_URL = PropertyManager.getInstance().getUrl();
-    private String MSP_ID = PropertyManager.getInstance().getMspId();
+    private static String mspId = PropertyManager.getInstance().getMspId();
     private String ID = PropertyManager.getInstance().getId();
     private String COMPANY_ID = PropertyManager.getInstance().getCompanyId();
     private String STAFF_UNIQUE_ID = PropertyManager.getInstance().getStaffUniqueId();
     private String USER_UNIQUE_ID = PropertyManager.getInstance().getUserUniqueId();
 
-    RequestUrl requestUrl = new RequestUrl();
+    //data generation for soft delete
+    DataGenerator dateData = new DataGenerator();
+    String MSP_ID = mspId + dateData.getRandomData();
 
+
+
+
+    @Test
+    public void testString(){
+        System.out.println(MSP_ID);
+
+//        String ciguli = DataGenerator.getDataGenerator().getRandomData();
+//        System.out.println(ciguli);
+
+    }
+    @Test
+    public void testString2(){
+        System.out.println(MSP_ID);
+
+    }
+
+
+
+    RequestUrl requestUrl = new RequestUrl();
     ValidatableResponse response;
     MspRequestBody mspRequestBody;
     AdminRequestBody adminRequestBody;
     CompanyRequestBody companyRequestBody;
     RoleRequestBody roleRequestBody;
     StaffRequestBody staffRequestBody;
-    UserRequestBody userRequestBody;
 
-    @Test
-    public void testString(){
-        mspRequestBody = new MspRequestBody();
-        System.out.println(mspRequestBody.getMspCreateRequestBody(MSP_ID));
-    }
+    UserRequestBody userRequestBody;
 
     @Test
     @Severity(SeverityLevel.BLOCKER)
@@ -262,7 +281,6 @@ public class FaveoMspTest {
     }
     @Test
     public void deleteCompany(){
-
         companyRequestBody = new CompanyRequestBody();
 
         response = RestClientValidatableResponse.doDelete(requestUrl.getCompanyDeleteRequestUrl(),
