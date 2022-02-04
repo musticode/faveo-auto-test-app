@@ -17,7 +17,7 @@ import static com.jayway.restassured.RestAssured.given;
 public class FaveoMspTest {
     private String API_KEY = PropertyManager.getInstance().getApiKey();
     private String APP_URL = PropertyManager.getInstance().getUrl();
-    private static String mspId = PropertyManager.getInstance().getMspId();
+    private String MSP_ID = PropertyManager.getInstance().getMspId();
     private String ID = PropertyManager.getInstance().getId();
     private String COMPANY_ID = PropertyManager.getInstance().getCompanyId();
     private String STAFF_UNIQUE_ID = PropertyManager.getInstance().getStaffUniqueId();
@@ -25,7 +25,7 @@ public class FaveoMspTest {
 
     //data generation for soft delete
     DataGenerator dateData = new DataGenerator();
-    String MSP_ID = mspId + dateData.getRandomData();
+//    String MSP_ID = mspId + dateData.getRandomData();
 
 
 
