@@ -8,11 +8,13 @@
         <classes>
 <!--            <class name="org.testapp.Api.Test.FaveoMspTest"></class>-->
 <!--            <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>-->
+            <class name="org.testapp.Ui.Test.ServiceDeskV2Test"></class>
         </classes>
     </test> <!-- Test -->
 
 
-<!--    specific test run-->
+<!--
+
     <test name="API MSP Operations" >
         <classes>
             <class name="org.testapp.Api.Test.FaveoMspTest">
@@ -27,6 +29,7 @@
             </class>
         </classes>
     </test>
+-->
 
 <!--    <test name="TEst req" >
         <classes>

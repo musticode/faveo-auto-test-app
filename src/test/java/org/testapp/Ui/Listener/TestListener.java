@@ -1,5 +1,6 @@
 package org.testapp.Ui.Listener;
 
+import io.qameta.allure.Attachment;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -24,34 +25,44 @@ public class TestListener extends BaseTest implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         System.out.println("Test Successfully Finished: " +result.getName());
     }
+
+
     public void onTestFailure(ITestResult result) {
         System.out.println("Test Failed: " +result.getName());
-        try {
-            TestUtil.captureScreenshot(result.getName().toString());
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
+        //allure attachment instances
 
 
+//            TestUtil.captureScreenshot(result.getName().toString());
 
-
-/*        String methodName=result.getName().toString().trim();
-        ITestContext context = result.getTestContext();
-        WebDriver driver = (WebDriver)context.getAttribute("driver");
-        takeScreenShot(methodName, driver);*/
+        //allure screenshot
+        TestUtil.saveScreenShotAsPNG(driver);
 
     }
-/*    public void takeScreenShot(String methodName, WebDriver driver){
-        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        //The below method will save the screen shot in d drive with test method name
-        try {
-            FileUtils.copyFile(scrFile, new File(filePath+methodName+".png"));
-            System.out.println("***Placed screen shot in "+filePath+" ***");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
+
+
+    @Attachment(value = "Page screenshot ", type = "image/png")
+    public byte [] saveScreenShotAsPNG(WebDriver driver){
+        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+    }
+
+    @Attachment(value = "{0}", type = "text/plain")
+    public static String saveTextLog(String message){
+        return message;
+    }
+
+
+
+    /*    public void takeScreenShot(String methodName, WebDriver driver){
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            //The below method will save the screen shot in d drive with test method name
+            try {
+                FileUtils.copyFile(scrFile, new File(filePath+methodName+".png"));
+                System.out.println("***Placed screen shot in "+filePath+" ***");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }*/
     public void onTestSkipped(ITestResult result) {
         System.out.println("Test Skipped: " +result.getName());
     }

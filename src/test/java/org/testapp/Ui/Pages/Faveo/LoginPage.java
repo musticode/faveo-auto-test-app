@@ -19,6 +19,7 @@ public class LoginPage extends BasePage {
 
 
     private HomePage homePage;
+    private DashboardPage dashboardPage;
     public LoginPage(WebDriver driver) {
         super(driver);
         driver.get(FAVEO_URL.concat("/auth/login"));
@@ -49,6 +50,9 @@ public class LoginPage extends BasePage {
 
     public HomePage getHomepage(){
         return homePage = new HomePage(driver);
+    }
+    public DashboardPage getDashboardPage(){
+        return dashboardPage = new DashboardPage(driver);
     }
 
 

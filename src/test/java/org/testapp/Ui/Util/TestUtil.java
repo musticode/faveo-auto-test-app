@@ -1,7 +1,9 @@
 package org.testapp.Ui.Util;
 
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.testapp.Ui.Test.BaseTest;
 
@@ -13,6 +15,17 @@ import java.util.GregorianCalendar;
 public class TestUtil extends BaseTest {
     public static String filePath = "src/test/java/org/testapp/Ui/ScreenShots";
     public static String screenshotpath;
+
+    @Attachment(value = "Page screenshot ", type = "image/png")
+    public static byte [] saveScreenShotAsPNG(WebDriver driver){
+        return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+    }
+
+    @Attachment(value = "{0}", type = "text/plain")
+    public static String saveTextLog(String message){
+        return message;
+    }
+
 
     public static void captureScreenshot(String methodName) throws IOException {
         //Using GregorianCalendar to fetch the time details
