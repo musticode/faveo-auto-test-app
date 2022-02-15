@@ -1,12 +1,10 @@
 package org.testapp.Ui.Test;
 
-import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.Faveo.DashboardPage;
-import org.testapp.Ui.Pages.Faveo.LandingPage;
+import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
 import org.testapp.Ui.Pages.Faveo.TicketInboxPage;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -16,21 +14,36 @@ public class FaveoTestCases extends BaseTest{
     String testEmail = "mustafa.karatas.msp@yopmail.com";
     String testPwd = "Comodo456*";
 
-    LandingPage landingPage;
+    LoginPage loginPage;
     @Test
-    public void loginWithValidCredentials(){
-        landingPage = new LandingPage(driver);
-        landingPage.login(testEmail, testPwd);
+    public void clientLoginWithInvalidCredentials(){
+        loginPage = new LoginPage(driver);
+        loginPage.clientlogin(testEmail, testPwd);
 
-        Assert.assertEquals(landingPage.getHomepage().isHomePageOpened(),
+        //invalid login assertion
+        Assert.assertEquals(loginPage.isAlertSeenAfterInvalidLogin(),
                 true,
-                "Home page is not opened");
+                "Not registered alert is not seen");
+
+        //valid login assertion
+//        Assert.assertEquals(landingPage.getHomepage().isHomePageOpened(),
+//                true,
+//                "Home page is not opened");
     }
+
+    @Test
+    public void staffLoginWithValidCredentials(){
+        loginPage = new LoginPage(driver);
+        loginPage.staffLogin(testEmail, testPwd);
+
+
+    }
+
 
     DashboardPage dashboardPage;
     @Test(dependsOnMethods = "loginWithValidCredentials")
     public void openDashboardPage(){
-        landingPage = new LandingPage(driver);
+        loginPage = new LoginPage(driver);
         dashboardPage = new DashboardPage(driver);
 
         dashboardPage.getFaveoDashboard();
@@ -44,7 +57,7 @@ public class FaveoTestCases extends BaseTest{
     NewTicketPage newTicketPage;
     @Test(dependsOnMethods = "loginWithValidCredentials")
     public void createTestTicket(){
-        landingPage = new LandingPage(driver);
+        loginPage = new LoginPage(driver);
         newTicketPage = new NewTicketPage(driver);
 
         newTicketPage.getTicketCreate();
