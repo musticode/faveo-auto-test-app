@@ -147,7 +147,10 @@
         <configuration>
           <testFailureIgnore>true</testFailureIgnore>
           <suiteXmlFiles>
-            TestNG.xml
+<!--            TestNG.xml-->
+<!--            mvn clean test -DsuiteXmlFile=ParallelTestNG.xml-->
+
+            ${suiteXmlFile}
           </suiteXmlFiles>
           <argLine>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

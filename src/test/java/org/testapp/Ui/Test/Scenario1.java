@@ -5,13 +5,13 @@ import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.DemoQAPages.DemoPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-@Listeners(TestListener.class)
-public class Scenario1 extends BaseTest{
+//@Listeners(TestListener.class)
+public class Scenario1 extends BaseRemoteTest{
     DemoPage demoPage;
     @Test
     @Description("Demo form page")
     public void scenario1(){
-        demoPage = new DemoPage(driver);
+        demoPage = new DemoPage(getDriver());
         demoPage.openPage();
         demoPage.isPageOpened();
         demoPage.setName("Mustafa");

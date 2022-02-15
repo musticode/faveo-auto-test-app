@@ -19,7 +19,7 @@ public class AdminPanelDashboardPanel extends BasePage {
     }
     @Step("is admin panel opened")
     public boolean isAdminPanelDashboardPageOpened(){
-        return getText(adminPanelTextLocator).equalsIgnoreCase("Admin Panel");
+        return getText(adminPanelTextLocator).equalsIgnoreCase("Adminaa Panel");
     }
 
 }

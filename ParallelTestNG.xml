@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel Test Suite" parallel="tests" >
+    <listeners>
+        <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
+    </listeners>
+    <test name="OS Ticket V2 Test Parallel Test" parallel="classes" thread-count="5">
+        <classes>
+
+            <class name="org.testapp.Ui.Test.ParallelTests.OSTicketParallelTest"/>
+
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="DemoPageScenarios Parallel Test" parallel="classes" thread-count="5">
+        <classes>
+            <class name="org.testapp.Ui.Test.DemoPageScenarios"/>
+        </classes>
+
+    </test>
+
+</suite> <!-- Suite -->

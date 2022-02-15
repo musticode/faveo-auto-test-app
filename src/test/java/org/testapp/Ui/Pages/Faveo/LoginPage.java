@@ -20,9 +20,11 @@ public class LoginPage extends BasePage {
 
     private HomePage homePage;
     private DashboardPage dashboardPage;
+
     public LoginPage(WebDriver driver) {
         super(driver);
         driver.get(FAVEO_URL.concat("/auth/login"));
+        driver.manage().deleteAllCookies();
     }
 
     @Step("Client login with email {email} and password {pwd}")

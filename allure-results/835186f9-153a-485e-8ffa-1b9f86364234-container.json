@@ -1,0 +1,1 @@
+{"uuid":"835186f9-153a-485e-8ffa-1b9f86364234","name":"org.testapp.Ui.Test.Scenario1","children":["e568aae4-25eb-4aa7-9b44-19d634d6af08"],"befores":[],"afters":[{"name":"terminate","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1644930162840,"stop":1644930162840}],"start":1644930146263,"stop":1644930162848}

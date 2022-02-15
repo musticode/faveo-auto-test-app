@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test Suites" parallel="classes" thread-count="5">
+<suite name="Test Suites" parallel="tests" >
     <listeners>
         <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
+
     </listeners>
-    <test name="Test Suites">
+    <test name="OS Ticket V2 Test" parallel="classes" thread-count="5">
         <classes>
 <!--            <class name="org.testapp.Api.Test.FaveoMspTest"></class>-->
 <!--            <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>-->
-            <class name="org.testapp.Ui.Test.ServiceDeskV2Test"></class>
-        </classes>
+<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2Test"></class>-->
+            <class name="org.testapp.Ui.Test.ParallelTestExample">
+                <methods>
+                    <include name="staffLoginWithValidCredentials"/>
+                    <include name="staffLoginWithInvalidCredentials"/>
+                </methods>
+<!--                <methods>
+                    <include name="scenario1"/>
+&lt;!&ndash;                    <include name="staffLoginWithInvalidCredentials"/>
+                    <include name="createTestTicket"/>
+                    <include name="navigateToAdminPanelAfterLogin"/>
+                    <include name="redirectToAdminPanelAfterLogin"/>
+                    <include name="landingPageNavigations"/>&ndash;&gt;
+                </methods>-->
+            </class>
+         </classes>
     </test> <!-- Test -->
+    <test name="org.testapp.Ui.Test.DemoPageScenarios" parallel="classes" thread-count="5">
+        <classes>
+            <class name="org.testapp.Ui.Test.DemoPageScenarios">
+<!--                <methods>
+                    <include name="textBoxTest"/>
+                    <include name="radioButtonTest"/>
+                    <include name="radioButtonTest2_ImpressiveButtonSelected"/>
+                    <include name="demoPageWebTablesTest1"/>
+                </methods>-->
+            </class>
+        </classes>
+
+
+    </test>
 
 
 <!--

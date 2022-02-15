@@ -36,4 +36,7 @@ public class BasePage {
         waitForLocator(locator);
         return findBy(locator).isDisplayed();
     }
+
+
+
 }

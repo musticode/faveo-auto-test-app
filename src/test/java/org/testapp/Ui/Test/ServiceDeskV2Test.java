@@ -21,7 +21,7 @@ public class ServiceDeskV2Test extends BaseTest{
 
     LoginPage loginPage;
 
-    @Test
+    @Test(priority = 0)
     public void staffLoginWithValidCredentials(){
         loginPage = new LoginPage(driver);
         loginPage.staffLogin(testEmail, testPwd);
@@ -30,12 +30,21 @@ public class ServiceDeskV2Test extends BaseTest{
         Assert.assertEquals(dashboardOpened,
                 true,
                 "Dashboard opened");
+    }
+    @Test(priority = 1)
+    public void staffLoginWithInvalidCredentials(){
+        loginPage = new LoginPage(driver);
+        loginPage.staffLogin(testEmail, "asdaasdasd");
 
+        boolean loginNotSuccessfully = loginPage.isAlertSeenAfterInvalidLogin();
 
+        Assert.assertEquals(loginNotSuccessfully, true, "Valid login");
     }
 
+
+
     NewTicketPage newTicketPage;
-    @Test(dependsOnMethods = "staffLoginWithValidCredentials")
+    @Test(priority = 2)
     public void createTestTicket(){
         loginPage = new LoginPage(driver);
         newTicketPage = new NewTicketPage(driver);
@@ -53,7 +62,7 @@ public class ServiceDeskV2Test extends BaseTest{
         newTicketPage.createTicket();
     }
 
-    @Test(dependsOnMethods = "staffLoginWithValidCredentials")
+    @Test(priority = 3)
     public void navigateToAdminPanelAfterLogin(){
         loginPage = new LoginPage(driver);
         boolean adminPanelOpenedStatus =
@@ -70,7 +79,7 @@ public class ServiceDeskV2Test extends BaseTest{
     }
 
     AdminPanelDashboardPanel adminPanelDashboardPanel;
-    @Test
+    @Test (priority = 4)
     public void redirectToAdminPanelAfterLogin(){
         adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
         adminPanelDashboardPanel.getAdminPanelDashboardPage();
@@ -85,11 +94,12 @@ public class ServiceDeskV2Test extends BaseTest{
 
 
     LandinPage landinPage;
-    @Test
+    @Test(priority = 5)
     public void landingPageNavigations(){
         landinPage = new LandinPage(driver);
         landinPage.navigateTo("login");
     }
+
 
 
 
