@@ -74,6 +74,7 @@ public class ServiceDeskV2Test extends BaseTest{
     public void redirectToAdminPanelAfterLogin(){
         adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
         adminPanelDashboardPanel.getAdminPanelDashboardPage();
+
         boolean adminPanelOpenedStatus = adminPanelDashboardPanel.isAdminPanelDashboardPageOpened();
 
         Assert.assertEquals(adminPanelOpenedStatus,
