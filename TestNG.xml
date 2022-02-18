@@ -5,41 +5,59 @@
         <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
 
     </listeners>
+    <test name="ServiceDeskSmokeTest" parallel="classes" thread-count="5">
+        <classes>
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest">
+                <!--                <methods>
+                                    <include name="textBoxTest"/>
+                                    <include name="radioButtonTest"/>
+                                    <include name="radioButtonTest2_ImpressiveButtonSelected"/>
+                                    <include name="demoPageWebTablesTest1"/>
+                                </methods>-->
+            </class>
+        </classes>
+
+
+    </test>
+
+<!--
     <test name="OS Ticket V2 Test" parallel="classes" thread-count="5">
         <classes>
-<!--            <class name="org.testapp.Api.Test.FaveoMspTest"></class>-->
-<!--            <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>-->
-<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2Test"></class>-->
+&lt;!&ndash;            <class name="org.testapp.Api.Test.FaveoMspTest"></class>&ndash;&gt;
+&lt;!&ndash;            <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>&ndash;&gt;
+&lt;!&ndash;            <class name="org.testapp.Ui.Test.ServiceDeskV2Test"></class>&ndash;&gt;
             <class name="org.testapp.Ui.Test.ParallelTestExample">
                 <methods>
                     <include name="staffLoginWithValidCredentials"/>
                     <include name="staffLoginWithInvalidCredentials"/>
                 </methods>
-<!--                <methods>
+&lt;!&ndash;                <methods>
                     <include name="scenario1"/>
 &lt;!&ndash;                    <include name="staffLoginWithInvalidCredentials"/>
                     <include name="createTestTicket"/>
                     <include name="navigateToAdminPanelAfterLogin"/>
                     <include name="redirectToAdminPanelAfterLogin"/>
                     <include name="landingPageNavigations"/>&ndash;&gt;
-                </methods>-->
+                </methods>&ndash;&gt;
             </class>
          </classes>
-    </test> <!-- Test -->
+    </test> &lt;!&ndash; Test &ndash;&gt;
+
     <test name="org.testapp.Ui.Test.DemoPageScenarios" parallel="classes" thread-count="5">
         <classes>
             <class name="org.testapp.Ui.Test.DemoPageScenarios">
-<!--                <methods>
+&lt;!&ndash;                <methods>
                     <include name="textBoxTest"/>
                     <include name="radioButtonTest"/>
                     <include name="radioButtonTest2_ImpressiveButtonSelected"/>
                     <include name="demoPageWebTablesTest1"/>
-                </methods>-->
+                </methods>&ndash;&gt;
             </class>
         </classes>
 
 
     </test>
+    -->
 
 
 <!--

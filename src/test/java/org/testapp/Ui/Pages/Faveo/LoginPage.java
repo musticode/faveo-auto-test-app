@@ -26,6 +26,13 @@ public class LoginPage extends BasePage {
         driver.get(APP_URL.concat("/auth/login"));
         driver.manage().deleteAllCookies();
     }
+    @Step("Navigate to login page")
+    public void getLoginPage(){
+        driver.get(APP_URL.concat("/auth/login"));
+        driver.manage().deleteAllCookies();
+    }
+
+
 
     @Step("Client login with email {email} and password {pwd}")
     public void clientlogin(String email, String pwd){

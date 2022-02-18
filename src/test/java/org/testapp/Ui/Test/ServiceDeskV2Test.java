@@ -2,10 +2,8 @@ package org.testapp.Ui.Test;
 
 import org.testapp.Ui.DataProvider.PropertyManager;
 import org.testapp.Ui.Listener.TestListener;
+import org.testapp.Ui.Pages.Faveo.*;
 import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
-import org.testapp.Ui.Pages.Faveo.LandinPage;
-import org.testapp.Ui.Pages.Faveo.LoginPage;
-import org.testapp.Ui.Pages.Faveo.NewTicketPage;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -121,6 +119,23 @@ public class ServiceDeskV2Test extends BaseTest{
         landinPage.navigateTo("login");
     }
 
+
+    DashboardPage dashboardPage;
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void signOut(){
+        dashboardPage = new DashboardPage(driver);
+        dashboardPage.getFaveoDashboard();
+        dashboardPage.signOut();
+
+    }
+
+    ProfilePage profilePage;
+    @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void getProfilePage(){
+        profilePage = new ProfilePage(driver);
+        profilePage.getProfilePage();
+        profilePage.checkProfilePageOpened();
+    }
 
 
 
