@@ -39,13 +39,6 @@ public class HomePage extends BasePage {
 
 
     public DashboardPage getDashboardPage(){
-//        click(dropdownDashboardButtonLocator);
-//        dropdown.selectByVisibleText("Dashboard"); //div olduğu için patlıyor
-//        dropdownElements.get(2).click();// out of bounds exception
-//        click(dropdownElements.get(2));
-
-
-
         click(profileDropdownLoc);
         click(dashboardLoc);
         return dashboardPage = new DashboardPage(driver);

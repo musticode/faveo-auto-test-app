@@ -12,7 +12,8 @@ public class PropertyManager {
     private String configFilePath = "src/test/resources/uiConfig.properties";
 
     private String appUrl;
-
+    private String testEmail;
+    private String testPassword;
 
     public static PropertyManager getInstance(){
         if(instance == null){
@@ -32,11 +33,14 @@ public class PropertyManager {
             System.out.println("File is not found");
         }
         appUrl = properties.getProperty("app_url");
-
+        testEmail  = properties.getProperty("test_email");
+        testPassword = properties.getProperty("test_password");
     }
 
     public String getAppUrl(){
         return appUrl;
     }
+    public String getTestEmail(){return testEmail;}
+    public String getTestPassword(){return  testPassword;}
 
 }

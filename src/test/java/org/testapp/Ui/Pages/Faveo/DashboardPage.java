@@ -30,7 +30,7 @@ public class DashboardPage extends BasePage {
 
     @Step("Navigate to dashboard page")
     public void getFaveoDashboard(){
-        driver.get(FAVEO_DASHBOARD);
+        driver.get(APP_URL.concat("/dashboard"));
     }
     @Step("Navigate to create new ticket")
     public NewTicketPage getNewCreateTicket(){

@@ -10,6 +10,7 @@ public class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
     public String APP_URL = PropertyManager.getInstance().getAppUrl();
+
     public BasePage(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver, 20);

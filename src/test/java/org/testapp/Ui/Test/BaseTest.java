@@ -11,6 +11,23 @@ public class BaseTest{
     public static DriverOptions driverOptions;
 
 
+    @BeforeTest
+    public void setUp(){
+        driverOptions = new DriverOptions();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver(driverOptions.getChromeOptions());
+        System.out.println("Driver is initialized");
+    }
+
+
+    @AfterTest
+    public void tearDown(){
+        if(driver != null){
+            driver.quit();
+            System.out.println("Driver is removed");
+        }
+    }
+/*
     @BeforeClass
     public void setUp(){
         driverOptions = new DriverOptions();
@@ -27,6 +44,7 @@ public class BaseTest{
             System.out.println("Driver is removed");
         }
     }
+*/
 
 
 }

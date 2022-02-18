@@ -23,7 +23,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        driver.get(FAVEO_URL.concat("/auth/login"));
+        driver.get(APP_URL.concat("/auth/login"));
         driver.manage().deleteAllCookies();
     }
 

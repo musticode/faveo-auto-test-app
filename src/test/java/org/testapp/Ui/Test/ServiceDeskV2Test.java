@@ -1,5 +1,6 @@
 package org.testapp.Ui.Test;
 
+import org.testapp.Ui.DataProvider.PropertyManager;
 import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
 import org.testapp.Ui.Pages.Faveo.LandinPage;
@@ -10,41 +11,40 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 @Listeners(TestListener.class)
 public class ServiceDeskV2Test extends BaseTest{
-    String testEmail = "mustafa.karatas.msp@yopmail.com";
-    String testPwd = "Comodo456*";
 
-/*
-    String c1Test8FebDomain = "https://c1test8feb.osticket.dmdemo.comodo.com/";
-    String agentMail = "mustafatest8feb@yopmail.com";
-    String agentPassword = "Comodo456*";
-*/
+    final String TEST_EMAIL = PropertyManager.getInstance().getTestEmail();
+    final String TEST_PWD = PropertyManager.getInstance().getTestPassword();
 
     LoginPage loginPage;
 
     @Test(priority = 0)
     public void staffLoginWithValidCredentials(){
         loginPage = new LoginPage(driver);
-        loginPage.staffLogin(testEmail, testPwd);
+        loginPage.staffLogin(TEST_EMAIL, TEST_PWD);
 
         boolean dashboardOpened = loginPage.getDashboardPage().isDashboardPageOpened();
         Assert.assertEquals(dashboardOpened,
                 true,
                 "Dashboard opened");
     }
+
+/*
+
     @Test(priority = 1)
     public void staffLoginWithInvalidCredentials(){
         loginPage = new LoginPage(driver);
-        loginPage.staffLogin(testEmail, "asdaasdasd");
+        loginPage.staffLogin(TEST_EMAIL, "asdaasdasd");
 
         boolean loginNotSuccessfully = loginPage.isAlertSeenAfterInvalidLogin();
 
         Assert.assertEquals(loginNotSuccessfully, true, "Valid login");
     }
+*/
 
 
 
     NewTicketPage newTicketPage;
-    @Test(priority = 2)
+    @Test()
     public void createTestTicket(){
         loginPage = new LoginPage(driver);
         newTicketPage = new NewTicketPage(driver);
@@ -62,7 +62,28 @@ public class ServiceDeskV2Test extends BaseTest{
         newTicketPage.createTicket();
     }
 
-    @Test(priority = 3)
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void createTestTicketThroughSupportDepartment(){
+        loginPage = new LoginPage(driver);
+        newTicketPage = new NewTicketPage(driver);
+
+        newTicketPage.getTicketCreate();
+        newTicketPage.fillUserDetails(
+                "mustafa@yopmail.com",
+                "mustafa",
+                "karatas",
+                "90",
+                "5434593612",
+                "123");
+
+//        newTicketPage.selectDepartment("support");
+        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.createTicket();
+    }
+
+
+
+    @Test(priority = 3, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void navigateToAdminPanelAfterLogin(){
         loginPage = new LoginPage(driver);
         boolean adminPanelOpenedStatus =
