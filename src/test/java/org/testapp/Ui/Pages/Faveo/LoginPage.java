@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testapp.Ui.Pages.BasePage;
+import org.testng.Assert;
 
 public class LoginPage extends BasePage {
     private final String FAVEO_URL = "https://sprint9stag1msp.osticket.dmdemo.comodo.com";
@@ -62,6 +63,9 @@ public class LoginPage extends BasePage {
     }
     public DashboardPage getDashboardPage(){
         return dashboardPage = new DashboardPage(driver);
+    }
+    public void checkLoginPageOpened(){
+        Assert.assertEquals(isDisplayed(staffLoginTabLocator), true, "Login page is not opened");
     }
 
 

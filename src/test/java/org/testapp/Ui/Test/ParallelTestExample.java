@@ -1,9 +1,8 @@
 package org.testapp.Ui.Test;
 
-import io.qameta.allure.Description;
 import org.testapp.Ui.Pages.DemoQAPages.DemoPageTextBox;
 import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
-import org.testapp.Ui.Pages.Faveo.LandinPage;
+import org.testapp.Ui.Pages.Faveo.LandingPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
 import org.testng.Assert;
@@ -114,10 +113,10 @@ public class ParallelTestExample extends BaseRemoteTest{
 
 
 
-    LandinPage landinPage;
+    LandingPage landinPage;
     @Test(priority = 5)
     public void landingPageNavigations(){
-        landinPage = new LandinPage(getDriver());
+        landinPage = new LandingPage(getDriver());
         landinPage.navigateTo("login");
     }
 

@@ -112,10 +112,10 @@ public class ServiceDeskV2Test extends BaseTest{
 
 
 
-    LandinPage landinPage;
+    LandingPage landinPage;
     @Test(priority = 5)
     public void landingPageNavigations(){
-        landinPage = new LandinPage(driver);
+        landinPage = new LandingPage(driver);
         landinPage.navigateTo("login");
     }
 
@@ -135,6 +135,47 @@ public class ServiceDeskV2Test extends BaseTest{
         profilePage = new ProfilePage(driver);
         profilePage.getProfilePage();
         profilePage.checkProfilePageOpened();
+    }
+
+
+
+    @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void getAdminPanel(){
+        adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
+        adminPanelDashboardPanel.getAdminPanelDashboardPage();
+        adminPanelDashboardPanel.checkAdminPanelOpened();
+    }
+
+    NavBar navBar;
+    @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void getTicketInbox(){
+        navBar = new NavBar(driver);
+        navBar.getMyTicketsPage().checkMyticketsPageOpened();
+
+    }
+
+    LandingPage landingPage;
+
+    @Test
+    public void landingPageNavigationLogin(){
+        landinPage = new LandingPage(driver);
+        loginPage = new LoginPage(driver);
+
+        landinPage.getLandingPage();
+        landinPage.navigateTo("login");
+        loginPage.checkLoginPageOpened();
+
+    }
+
+    RegisterPage registerPage;
+    @Test
+    public void landingPageNavigationRegister(){
+        landinPage = new LandingPage(driver);
+        registerPage = new RegisterPage(driver);
+
+        landinPage.getLandingPage();
+        landinPage.navigateTo("register");
+        registerPage.checkRegistrationPageOpened();
     }
 
 

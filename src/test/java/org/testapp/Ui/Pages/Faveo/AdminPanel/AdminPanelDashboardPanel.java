@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testapp.Ui.Pages.BasePage;
+import org.testng.Assert;
 
 public class AdminPanelDashboardPanel extends BasePage {
 
@@ -19,7 +20,12 @@ public class AdminPanelDashboardPanel extends BasePage {
     }
     @Step("is admin panel opened")
     public boolean isAdminPanelDashboardPageOpened(){
-        return getText(adminPanelTextLocator).equalsIgnoreCase("Adminaa Panel");
+
+        return getText(adminPanelTextLocator).equalsIgnoreCase("Admin Panel");
+    }
+
+    public void checkAdminPanelOpened(){
+        Assert.assertEquals(getText(adminPanelTextLocator), "Admin Panel", "Admin panel is not opened");
     }
 
 }

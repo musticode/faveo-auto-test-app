@@ -4,15 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testapp.Ui.Pages.BasePage;
 
-public class LandinPage extends BasePage {
+public class LandingPage extends BasePage {
 
     private By loginNavigateButton = By.xpath("//*[@id=\"wbox\"]/span[1]/a");
     private By registerNavigateButton = By.xpath("//*[@id=\"wbox\"]/span[2]/a");
     private By submitTicketNavigateLocator = By.xpath("//*[@id=\"wbox\"]/span[3]/a");
 
 
-    public LandinPage(WebDriver driver) {
+    public LandingPage(WebDriver driver) {
         super(driver);
+    }
+    public void getLandingPage(){
         driver.get(APP_URL);
     }
     private LoginPage loginPage;
