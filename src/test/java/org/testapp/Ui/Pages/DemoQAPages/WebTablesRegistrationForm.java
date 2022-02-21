@@ -2,9 +2,13 @@ package org.testapp.Ui.Pages.DemoQAPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testapp.Ui.Pages.BasePage;
 
 public class WebTablesRegistrationForm extends BasePage {
+
+
     private By firstNameLocator = By.id("firstName");
     private By lastNameLocator = By.id("lastName");
     private By emailLocator = By.id("userEmail");

@@ -3,6 +3,9 @@ package org.testapp.Ui.Pages.Faveo;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
 import org.testng.Assert;
 
@@ -18,12 +21,17 @@ public class LoginPage extends BasePage {
 
     private By alertEmailNotRegisteredLocator = By.xpath("//*[@id=\"main\"]/div/div/div[2]/div[1]");
 
+    @FindBy (id = "staff-login-tab")
+    WebElement stafEl;
+
 
     private HomePage homePage;
     private DashboardPage dashboardPage;
 
     public LoginPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
+
         driver.get(APP_URL.concat("/auth/login"));
         driver.manage().deleteAllCookies();
     }
@@ -31,6 +39,9 @@ public class LoginPage extends BasePage {
     public void getLoginPage(){
         driver.get(APP_URL.concat("/auth/login"));
         driver.manage().deleteAllCookies();
+    }
+    public void clickelTest(){
+        clickGeneric(stafEl);
     }
 
 

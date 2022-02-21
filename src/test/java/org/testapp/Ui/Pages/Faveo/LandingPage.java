@@ -2,6 +2,7 @@ package org.testapp.Ui.Pages.Faveo;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
 
 public class LandingPage extends BasePage {
@@ -13,6 +14,7 @@ public class LandingPage extends BasePage {
 
     public LandingPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
     public void getLandingPage(){
         driver.get(APP_URL);

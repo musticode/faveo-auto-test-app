@@ -16,6 +16,7 @@ public class TicketInboxPage extends BasePage {
     public String getTableElements(){
         return getText(ticketTable);
     }
+
     public void checkTable(String ticketSubject){
         char [] array = getTableElements().toCharArray();
         for(char a : array){

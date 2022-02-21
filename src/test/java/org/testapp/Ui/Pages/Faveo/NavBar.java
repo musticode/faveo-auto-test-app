@@ -2,6 +2,7 @@ package org.testapp.Ui.Pages.Faveo;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
 
 public class NavBar extends BasePage {
@@ -17,6 +18,7 @@ public class NavBar extends BasePage {
     private MyTicketsPage myTicketsPage;
     public NavBar(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
     public TicketInboxPage getTicketInboxPage(){
         click(inboxNavbarButtonLocator);

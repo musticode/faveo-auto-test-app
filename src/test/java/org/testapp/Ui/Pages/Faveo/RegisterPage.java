@@ -2,6 +2,7 @@ package org.testapp.Ui.Pages.Faveo;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
 import org.testng.Assert;
 
@@ -10,6 +11,7 @@ public class RegisterPage extends BasePage {
 
     public RegisterPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
     public void getRegisterPage(){
         driver.get(APP_URL.concat("/auth/register"));

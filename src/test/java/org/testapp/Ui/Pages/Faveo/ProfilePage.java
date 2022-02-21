@@ -3,6 +3,7 @@ package org.testapp.Ui.Pages.Faveo;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
 import org.testng.Assert;
 
@@ -11,6 +12,7 @@ public class ProfilePage extends BasePage {
 
     public ProfilePage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     @Step("Get profile page with url")

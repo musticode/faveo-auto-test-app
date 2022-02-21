@@ -25,7 +25,11 @@ public class ServiceDeskV2Test extends BaseTest{
                 true,
                 "Dashboard opened");
     }
-
+    @Test
+    public void testGenericClick(){
+        loginPage = new LoginPage(driver);
+        loginPage.clickelTest();
+    }
 /*
 
     @Test(priority = 1)

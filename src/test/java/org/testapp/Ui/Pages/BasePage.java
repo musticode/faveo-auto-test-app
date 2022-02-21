@@ -38,6 +38,42 @@ public class BasePage {
         return findBy(locator).isDisplayed();
     }
 
+    public <T> void clickGeneric(T elementAttr){
+        if(elementAttr.getClass().getName().contains("By")){
+            waitForGeneric(elementAttr);
+            driver.findElement((By)elementAttr).click();
+        }else{
+            waitForGeneric(elementAttr);
+            ((WebElement)elementAttr).click();
+        }
+    }
+    public <T> void waitForGeneric(T elementAttr){
+        if(elementAttr.getClass().getName().contains("By")){
+            wait.until(ExpectedConditions.elementToBeClickable((By) elementAttr));
+        }else{
+            wait.until(ExpectedConditions.elementToBeClickable((WebElement) elementAttr));
+        }
+    }
+    public <T> void setTextGeneric(T elementAttr, String text){
+        if(elementAttr.getClass().getName().contains("By")){
+            waitForGeneric(elementAttr);
+            driver.findElement((By)elementAttr).sendKeys(text);
+        }else{
+            waitForGeneric(elementAttr);
+            ((WebElement)elementAttr).sendKeys(text);
+        }
+    }
+
+    public <T> boolean isDisplayedGeneric(T elementAttr){
+        if(elementAttr.getClass().getName().contains("By")){
+            waitForGeneric(elementAttr);
+            return driver.findElement((By)elementAttr).isDisplayed();
+        }else{
+            waitForGeneric(elementAttr);
+            return ((WebElement)elementAttr).isDisplayed();
+        }
+    }
+
 
 
 }

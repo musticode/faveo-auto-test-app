@@ -3,16 +3,30 @@ package org.testapp.Ui.Pages.Faveo.AdminPanel;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
 import org.testng.Assert;
 
 public class AdminPanelDashboardPanel extends BasePage {
-
+    @FindBy (xpath = "a")
+    private WebElement el;
+    
+    
     private By adminPanelTextLocator = By.xpath("/html/body/div[1]/div[1]/div/div/div/div[1]/h1[2]");
+
+    @FindBy(xpath = "//a[.//p[normalize-space(text()) = 'Tickets']]")
+    public WebElement navlinkLink;
+
+    @FindBy(xpath = "//a[.//p[text()='Status']]")
+    public WebElement navlinkLink2;
 
     public AdminPanelDashboardPanel(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
+
     @Step("Get admin panel with redirection")
     public AdminPanelDashboardPanel getAdminPanelDashboardPage(){
         driver.get(APP_URL.concat("/admin"));
