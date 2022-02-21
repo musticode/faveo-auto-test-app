@@ -4,7 +4,7 @@ import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
 import org.testapp.Ui.Pages.Faveo.LandingPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
-import org.testapp.Ui.Test.BaseRemoteTest;
+import org.testapp.Ui.Test.TestBase.BaseRemoteTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

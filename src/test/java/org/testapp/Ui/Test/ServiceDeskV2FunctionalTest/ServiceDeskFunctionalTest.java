@@ -4,7 +4,7 @@ import org.testapp.Ui.DataProvider.PropertyManager;
 import org.testapp.Ui.Pages.Faveo.DashboardPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
-import org.testapp.Ui.Test.BaseTest;
+import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

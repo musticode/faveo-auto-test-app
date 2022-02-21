@@ -1,18 +1,14 @@
 package org.testapp.Ui.Listener;
 
 import io.qameta.allure.Attachment;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testapp.Ui.Test.BaseTest;
+import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testapp.Ui.Util.TestUtil;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import java.io.File;
-import java.io.IOException;
 
 public class TestListener extends BaseTest implements ITestListener {
 //    WebDriver driver;

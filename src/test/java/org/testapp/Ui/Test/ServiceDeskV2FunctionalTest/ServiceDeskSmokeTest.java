@@ -4,8 +4,7 @@ import org.testapp.Ui.DataProvider.PropertyManager;
 import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.Faveo.*;
 import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
-import org.testapp.Ui.Test.BaseTest;
-import org.testng.Assert;
+import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 

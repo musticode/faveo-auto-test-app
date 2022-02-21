@@ -4,13 +4,14 @@ import org.testapp.Ui.Pages.Faveo.DashboardPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
 import org.testapp.Ui.Pages.Faveo.TicketInboxPage;
+import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
 //@Listeners(TestListener.class)
-public class FaveoTestCases extends BaseTest{
+public class FaveoTestCases extends BaseTest {
     String testEmail = "mustafa.karatas.msp@yopmail.com";
     String testPwd = "Comodo456*";
 

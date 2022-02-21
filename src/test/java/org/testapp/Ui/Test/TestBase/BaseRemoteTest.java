@@ -1,4 +1,4 @@
-package org.testapp.Ui.Test;
+package org.testapp.Ui.Test.TestBase;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;

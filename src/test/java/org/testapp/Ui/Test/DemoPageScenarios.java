@@ -1,16 +1,15 @@
 package org.testapp.Ui.Test;
 
 import io.qameta.allure.Description;
-import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.DemoQAPages.DemoPageRadio;
 import org.testapp.Ui.Pages.DemoQAPages.DemoPageTextBox;
 import org.testapp.Ui.Pages.DemoQAPages.DemoPageWebTables;
+import org.testapp.Ui.Test.TestBase.BaseRemoteTest;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 //@Listeners(TestListener.class)
-public class DemoPageScenarios extends BaseRemoteTest{
+public class DemoPageScenarios extends BaseRemoteTest {
     String FULL_NAME = "Mustafa";
     String EMAIL = "test@yopmail.com";
     String CURRENT_ADDRESS = "current address";

@@ -1,4 +1,4 @@
-package org.testapp.Ui.Test;
+package org.testapp.Ui.Test.TestBase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
