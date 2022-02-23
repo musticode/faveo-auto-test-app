@@ -13,6 +13,7 @@ public class DriverOptions {
         chromeOptions.addArguments("start-maximized");
         chromeOptions.addArguments("ignore-certificate-errors");
 //        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--disable-popup-blocking");
         return chromeOptions;
     }
