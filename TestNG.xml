@@ -8,9 +8,8 @@
     </listeners>
     <test name="Service Desk V2 Smoke Test" parallel="classes" thread-count="5">
         <classes>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest">
-
-            </class>
+<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>-->
+            <class name="org.testapp.Ui.Test.TestWithBaseFactory"></class>
         </classes>
     </test>
 

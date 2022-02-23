@@ -14,18 +14,16 @@ import java.net.MalformedURLException;
 public class BaseTestFactory extends DriverManager {
 
     @BeforeTest
-    @Parameters("browserName")
-    public void setUp(@Optional String browserName) throws MalformedURLException {
+    @Parameters(value = "browserName")
+    public void initializeBrowser(@Optional String browserName) throws MalformedURLException {
         getDriver("chrome-local");
     }
 
 
     @AfterTest
-    public void tearDown(){
-        if(driver != null){
-            driver.quit();
-            System.out.println("Driver is removed");
-        }
+    public void terminateBrowser(){
+        tearDown();
+        System.out.println("Driver is removed");
     }
 
 }
