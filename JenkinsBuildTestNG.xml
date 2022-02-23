@@ -11,6 +11,6 @@
             <class name="org.testapp.Ui.Test.TestWithBaseFactory"/>
 
         </classes>
-    </test> <!-- Testaaaa a -->
+    </test> <!-- Testaaaa a a-->
 
 </suite> <!-- Suite -->
