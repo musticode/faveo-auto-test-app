@@ -4,6 +4,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.opera.OperaOptions;
 
 public class DriverOptions {
 
@@ -11,7 +12,7 @@ public class DriverOptions {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
         chromeOptions.addArguments("ignore-certificate-errors");
-        chromeOptions.addArguments("--headless");
+//        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--disable-popup-blocking");
         return chromeOptions;
     }
@@ -25,6 +26,10 @@ public class DriverOptions {
         profile.setPreference("network.proxy.type", 0);
         //Set Firefox profile to capabilities
         options.setCapability(FirefoxDriver.PROFILE, profile);
+        return options;
+    }
+    public static OperaOptions getOperaOptions(){
+        OperaOptions options = new OperaOptions();
         return options;
     }
 }

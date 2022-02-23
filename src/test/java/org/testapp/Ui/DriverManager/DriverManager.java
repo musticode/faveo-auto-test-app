@@ -5,27 +5,68 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testapp.Ui.DriverManager.Selenoid.CapabilityFactorySelenoid;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class DriverManager {
     public WebDriver driver;
+    public DriverOptions driverOptions;
+    CapabilityFactorySelenoid capabilityFactorySelenoid = new CapabilityFactorySelenoid();
+    public RemoteWebDriver remoteWebDriver;
 
-    public WebDriver getDriver(String browserName){
+
+
+    public void getDriver(String browserName) throws MalformedURLException {
+        driverOptions = new DriverOptions();
+
         switch (browserName){
-            case "chrome":
+            case "chrome-local":
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(driverOptions.getChromeOptions());
                 break;
-            case "firefox":
+
+            case "firefox-local":
                 WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
+                driver = new FirefoxDriver(driverOptions.getFirefoxOptions());
                 break;
-            case "opera":
+
+            case "opera-local":
                 WebDriverManager.operadriver().setup();
                 driver = new OperaDriver();
                 break;
+
+            case "chrome-grid":
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),driverOptions.getChromeOptions());
+                break;
+
+            case "firefox-grid":
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), driverOptions.getFirefoxOptions());
+                break;
+
+            case "opera-grid":
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),driverOptions.getOperaOptions());
+                break;
+
+            case "chrome-selenoid":
+                remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),
+                        capabilityFactorySelenoid.getSelenoidCapability("chrome"));
+                break;
+
+            case "firefox-selenoid":
+                remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),
+                        capabilityFactorySelenoid.getSelenoidCapability("firefox"));
+                break;
+
+            case "firefox-opera":
+                remoteWebDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),
+                        capabilityFactorySelenoid.getSelenoidCapability("opera"));
+                break;
         }
-        return driver;
     }
+
 
     public void tearDown(){
         if(driver != null ){

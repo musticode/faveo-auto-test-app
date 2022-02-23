@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
 <suite name="Test Suites" parallel="tests" >
     <listeners>
         <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
-
     </listeners>
     <test name="Service Desk V2 Smoke Test" parallel="classes" thread-count="5">
         <classes>
             <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest">
-                <!--                <methods>
-                                    <include name="textBoxTest"/>
-                                    <include name="radioButtonTest"/>
-                                    <include name="radioButtonTest2_ImpressiveButtonSelected"/>
-                                    <include name="demoPageWebTablesTest1"/>
-                                </methods>-->
+
             </class>
         </classes>
-
-
     </test>
 
 <!--
