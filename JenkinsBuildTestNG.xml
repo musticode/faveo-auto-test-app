@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Parallel Test Suite" parallel="tests" >
+<suite name="Jenkins Test Suite" parallel="tests" >
     <listeners>
         <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
     </listeners>
     <parameter name="browserName" value="chrome-headless"></parameter>
-    <test name="OS Ticket V2 Test Parallel Test" parallel="classes" thread-count="5">
+    <test name="Jenkins CI CD Tool Test Run" parallel="classes" thread-count="5">
         <classes>
 
             <class name="org.testapp.Ui.Test.TestWithBaseFactory"/>
