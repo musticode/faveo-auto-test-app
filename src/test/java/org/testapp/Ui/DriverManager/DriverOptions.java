@@ -14,6 +14,7 @@ public class DriverOptions {
         chromeOptions.addArguments("ignore-certificate-errors");
 //        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--disable-dev-shm-usage");
+        chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-popup-blocking");
         return chromeOptions;
     }
