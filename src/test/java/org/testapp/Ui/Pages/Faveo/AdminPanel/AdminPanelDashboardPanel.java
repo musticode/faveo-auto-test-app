@@ -15,17 +15,31 @@ public class AdminPanelDashboardPanel extends BasePage {
     
     
     private By adminPanelTextLocator = By.xpath("/html/body/div[1]/div[1]/div/div/div/div[1]/h1[2]");
+    private By ticketsNavbarLocator = By.xpath("");
+    private By statusNavbarLocator = By.xpath("");
 
-    @FindBy(xpath = "//a[.//p[normalize-space(text()) = 'Tickets']]")
-    public WebElement navlinkLink;
-
-    @FindBy(xpath = "//a[.//p[text()='Status']]")
-    public WebElement navlinkLink2;
-
+    private StatusPage statusPage;
     public AdminPanelDashboardPanel(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
+
+    public StatusPage getStatusPage(){
+        click(ticketsNavbarLocator);
+        click(statusNavbarLocator);
+
+        if(statusPage == null){
+            statusPage = new StatusPage(driver);
+        }
+        return statusPage;
+    }
+
+
+
+
+
+
 
     @Step("Get admin panel with redirection")
     public AdminPanelDashboardPanel getAdminPanelDashboardPage(){

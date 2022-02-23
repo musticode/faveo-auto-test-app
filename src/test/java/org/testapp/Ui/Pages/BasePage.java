@@ -38,6 +38,16 @@ public class BasePage {
         return findBy(locator).isDisplayed();
     }
 
+
+    //generic methods
+    public <T> WebElement getElement(T elementAttr){
+        if(elementAttr.getClass().getName().contains("By")){
+            return driver.findElement((By) elementAttr);
+        }else{
+            return ((WebElement) elementAttr);
+        }
+    }
+
     public <T> void clickGeneric(T elementAttr){
         if(elementAttr.getClass().getName().contains("By")){
             waitForGeneric(elementAttr);

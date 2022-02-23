@@ -2,16 +2,21 @@ package org.testapp.Ui.Pages.Faveo;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
 
 public class LandingPage extends BasePage {
+
 
     private By loginNavigateButton = By.xpath("//*[@id=\"wbox\"]/span[1]/a");
     private By registerNavigateButton = By.xpath("//*[@id=\"wbox\"]/span[2]/a");
     private By submitTicketNavigateLocator = By.xpath("//*[@id=\"wbox\"]/span[3]/a");
 
 
+    
+    
     public LandingPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -19,9 +24,13 @@ public class LandingPage extends BasePage {
     public void getLandingPage(){
         driver.get(APP_URL);
     }
+
+
+
     private LoginPage loginPage;
     private RegisterPage registerPage;
     private SubmitTicketPage submitTicketPage;
+
 
     public void navigateTo(String pageName){
         if(pageName.equalsIgnoreCase("login")){

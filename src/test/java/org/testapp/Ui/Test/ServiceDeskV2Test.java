@@ -31,6 +31,14 @@ public class ServiceDeskV2Test extends BaseTest {
         loginPage = new LoginPage(driver);
         loginPage.clickelTest();
     }
+
+
+    @Test
+    public void addStatusTicketTest(){
+        adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
+        adminPanelDashboardPanel.getStatusPage().createStatus("Delete", "3","#f1627e" );
+
+    }
 /*
 
     @Test(priority = 1)
