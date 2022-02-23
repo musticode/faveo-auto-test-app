@@ -1,7 +1,10 @@
 # faveo-auto-test-app
 Faveo Test ui-api
 
-mvn clean test
+mvn clean test -DsuiteXmlFile=TestNG.xml
+
+Allure report <br>
+mvn allure:serve
 
 ###Parallel Test Execution
 1-Install selenium standalone jar <br>

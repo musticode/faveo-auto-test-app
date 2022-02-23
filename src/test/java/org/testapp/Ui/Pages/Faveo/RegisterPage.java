@@ -1,5 +1,6 @@
 package org.testapp.Ui.Pages.Faveo;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -13,9 +14,11 @@ public class RegisterPage extends BasePage {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+    @Step("Get register page")
     public void getRegisterPage(){
         driver.get(APP_URL.concat("/auth/register"));
     }
+
     public void checkRegistrationPageOpened(){
         Assert.assertEquals(getText(registrationH3TextLocator), "Registration", "Registration page is not opened");
     }
