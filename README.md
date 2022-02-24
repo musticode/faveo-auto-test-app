@@ -11,4 +11,3 @@ mvn allure:serve
 2-Execute selenium "jar java -jar sele... standalone" <br>
 3-Execute command: mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 a
-/tree/musti-01-feb
