@@ -18,8 +18,8 @@ public class BaseTestFactory extends DriverManager {
     public void initializeBrowser(@Optional String browserName) throws MalformedURLException {
         //getDriver("chrome-headless");
         //a
-        getDriver(browserName);
-//        getDriver("opera-grid");
+//        getDriver(browserName);
+        getDriver("chrome-grid");
     }
 
 
