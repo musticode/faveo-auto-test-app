@@ -4,6 +4,7 @@
     <listeners>
         <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
     </listeners>
+    <parameter name="browserName" value="firefox-grid"></parameter>
     <test name="OS Ticket V2 Test Parallel Test" parallel="classes" thread-count="5">
         <classes>
 
@@ -13,6 +14,7 @@
     </test> <!-- Test -->
 
     <test name="DemoPageScenarios Parallel Test" parallel="classes" thread-count="5">
+        <parameter name="browserName" value="chrome-grid"></parameter>
         <classes>
             <class name="org.testapp.Ui.Test.DemoPageScenarios"/>
         </classes>

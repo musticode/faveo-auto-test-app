@@ -5,17 +5,18 @@ import org.testapp.Ui.Pages.Faveo.LandingPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
 import org.testapp.Ui.Test.TestBase.BaseRemoteTest;
+import org.testapp.Ui.Test.TestBase.BaseTestFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class OSTicketParallelTest extends BaseRemoteTest {
+public class OSTicketParallelTest extends BaseTestFactory {
     String testEmail = "mustafa.karatas.msp@yopmail.com";
     String testPwd = "Comodo456*";
 
     LoginPage loginPage;
     @Test(priority = 0)
     public void staffLoginWithValidCredentials(){
-        loginPage = new LoginPage(getDriver());
+        loginPage = new LoginPage(driver);
         loginPage.staffLogin(testEmail, testPwd);
 
         boolean dashboardOpened = loginPage.getDashboardPage().isDashboardPageOpened();
@@ -25,7 +26,7 @@ public class OSTicketParallelTest extends BaseRemoteTest {
     }
     @Test(priority = 1)
     public void staffLoginWithInvalidCredentials(){
-        loginPage = new LoginPage(getDriver());
+        loginPage = new LoginPage(driver);
         loginPage.staffLogin(testEmail, "asdaasdasd");
 
         boolean loginNotSuccessfully = loginPage.isAlertSeenAfterInvalidLogin();
@@ -38,8 +39,8 @@ public class OSTicketParallelTest extends BaseRemoteTest {
     NewTicketPage newTicketPage;
     @Test(priority = 2)
     public void createTestTicket(){
-        loginPage = new LoginPage(getDriver());
-        newTicketPage = new NewTicketPage(getDriver());
+        loginPage = new LoginPage(driver);
+        newTicketPage = new NewTicketPage(driver);
 
         newTicketPage.getTicketCreate();
         newTicketPage.fillUserDetails(
@@ -56,7 +57,7 @@ public class OSTicketParallelTest extends BaseRemoteTest {
 
     @Test(priority = 3)
     public void navigateToAdminPanelAfterLogin(){
-        loginPage = new LoginPage(getDriver());
+        loginPage = new LoginPage(driver);
         boolean adminPanelOpenedStatus =
                 loginPage
                         .getDashboardPage()
@@ -73,7 +74,7 @@ public class OSTicketParallelTest extends BaseRemoteTest {
     AdminPanelDashboardPanel adminPanelDashboardPanel;
     @Test (priority = 4)
     public void redirectToAdminPanelAfterLogin(){
-        adminPanelDashboardPanel = new AdminPanelDashboardPanel(getDriver());
+        adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
         adminPanelDashboardPanel.getAdminPanelDashboardPage();
 
         boolean adminPanelOpenedStatus = adminPanelDashboardPanel.isAdminPanelDashboardPageOpened();
@@ -88,7 +89,7 @@ public class OSTicketParallelTest extends BaseRemoteTest {
     LandingPage landinPage;
     @Test(priority = 5)
     public void landingPageNavigations(){
-        landinPage = new LandingPage(getDriver());
+        landinPage = new LandingPage(driver);
         landinPage.navigateTo("login");
     }
 

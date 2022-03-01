@@ -5,11 +5,12 @@ import org.testapp.Ui.Pages.DemoQAPages.DemoPageRadio;
 import org.testapp.Ui.Pages.DemoQAPages.DemoPageTextBox;
 import org.testapp.Ui.Pages.DemoQAPages.DemoPageWebTables;
 import org.testapp.Ui.Test.TestBase.BaseRemoteTest;
+import org.testapp.Ui.Test.TestBase.BaseTestFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 //@Listeners(TestListener.class)
-public class DemoPageScenarios extends BaseRemoteTest {
+public class DemoPageScenarios extends BaseTestFactory {
     String FULL_NAME = "Mustafa";
     String EMAIL = "test@yopmail.com";
     String CURRENT_ADDRESS = "current address";
@@ -19,7 +20,7 @@ public class DemoPageScenarios extends BaseRemoteTest {
     @Test(priority = 0)
     @Description("Demo Page text box test")
     public void textBoxTest(){
-        demoPageTextBox = new DemoPageTextBox(getDriver());
+        demoPageTextBox = new DemoPageTextBox(driver);
         demoPageTextBox.fillTextBox(FULL_NAME, EMAIL, CURRENT_ADDRESS, PARMANENT_ADDRESS);
         demoPageTextBox.submit();
         System.out.println(demoPageTextBox.getOutput());
@@ -37,7 +38,7 @@ public class DemoPageScenarios extends BaseRemoteTest {
     @Test(priority = 1)
     @Description("Radio button page: Yes radio button test")
     public void radioButtonTest(){
-        demoPageRadio = new DemoPageRadio(getDriver());
+        demoPageRadio = new DemoPageRadio(driver);
         demoPageRadio.clickRadioButton("yes");
         System.out.println(demoPageRadio.getClickedRadioButton());
 
@@ -50,7 +51,7 @@ public class DemoPageScenarios extends BaseRemoteTest {
     @Test(priority = 2)
     @Description("Radio button page: Impressive radio button test")
     public void radioButtonTest2_ImpressiveButtonSelected(){
-        demoPageRadio = new DemoPageRadio(getDriver());
+        demoPageRadio = new DemoPageRadio(driver);
         demoPageRadio.clickRadioButton("impressive");
         System.out.println(demoPageRadio.getClickedRadioButton());
 
@@ -62,7 +63,7 @@ public class DemoPageScenarios extends BaseRemoteTest {
     DemoPageWebTables demoPageWebTables;
     @Test(priority = 3)
     public void demoPageWebTablesTest1(){
-        demoPageWebTables = new DemoPageWebTables(getDriver());
+        demoPageWebTables = new DemoPageWebTables(driver);
         demoPageWebTables
                 .getWebTablesRegistrationForm()
                 .fillRegistrationForm(FULL_NAME,"Karatas", EMAIL, "13","123","eng");

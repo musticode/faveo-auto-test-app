@@ -26,6 +26,8 @@ public class ServiceDeskV2Test extends BaseTest {
                 true,
                 "Dashboard opened");
     }
+
+
     @Test
     public void testGenericClick(){
         loginPage = new LoginPage(driver);
@@ -87,7 +89,7 @@ public class ServiceDeskV2Test extends BaseTest {
                 "5434593612",
                 "123");
 
-//        newTicketPage.selectDepartment("support");
+        newTicketPage.selectDepartment("support");
         newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
 //        newTicketPage.createTicket();
     }
@@ -190,6 +192,104 @@ public class ServiceDeskV2Test extends BaseTest {
         landinPage.navigateTo("register");
         registerPage.checkRegistrationPageOpened();
     }
+
+
+    @Test
+    public void checkMyTicketsPageWithoutLogin(){
+        landinPage = new LandingPage(driver);
+        landinPage.getLandingPage();
+        landinPage.clickMytickets().checkLoginPageOpened();
+
+    }
+
+    @Test
+    public void checkKnowledgeBaseWithoutLogin(){
+        landingPage = new LandingPage(driver);
+        landingPage.getLandingPage();
+        landingPage.getKnowledgeBase().checkLoginPageOpened();
+
+    }
+
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void createTestTicketWithSelectedAreas() throws InterruptedException {
+        newTicketPage = new NewTicketPage(driver);
+
+        newTicketPage.getTicketCreate();
+        newTicketPage.fillUserDetails(
+                "mustafa@yopmail.com",
+                "mustafa",
+                "karatas",
+                "90",
+                "5434593612",
+                "123");
+
+        //ticket option selects
+        newTicketPage.selectHelpTopic("suppor1t query");
+        newTicketPage.selectStatus("open");
+        newTicketPage.selectDepartment("support");
+        newTicketPage.selectSlaPlan("6 hours");
+        newTicketPage.selectAssignToAgent("demo admin");
+        newTicketPage.selectLocation("testbug");
+        newTicketPage.selectTicketType("test type");
+
+        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+        newTicketPage.selectPriority("normal");
+//        newTicketPage.createTicket();
+    }
+
+    @Test
+    void loginViaRedirect(){
+        landingPage = new LandingPage(driver);
+        landingPage
+                .getLanding()
+                .getLoginPage()
+                .getDashboardWithStaffLogin(TEST_EMAIL,TEST_PWD)
+                .checkDashboardOpened();
+
+    }
+
+    MyTicketsPage myTicketsPage;
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void getTextOnTicketTable(){
+        myTicketsPage = new MyTicketsPage(driver);
+        dashboardPage = new DashboardPage(driver);
+        dashboardPage.getMyTicketsPage().writeTable();
+    }
+
+
+    TicketInboxPage ticketInboxPage;
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void ticketDetailsTest(){
+        ticketInboxPage = new TicketInboxPage(driver);
+
+        ticketInboxPage
+                .getTicketInboxPage()
+                .getTicketDetailsPage()
+                .checkTicketDetailsPageOpened();
+    }
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void editTicketDetailsTest(){
+        ticketInboxPage = new TicketInboxPage(driver);
+        ticketInboxPage.getTicketInboxPage().getTicketDetailsPage().closeTicketDetail("BEYZOŞ");
+    }
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void addReplyToTicketTest(){
+        ticketInboxPage = new TicketInboxPage(driver);
+        ticketInboxPage.getTicketInboxPage().getTicketDetailsPage().addReplyToTicket("Test Reply");
+    }
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void addInternalNoteToTicketTest(){
+        ticketInboxPage = new TicketInboxPage(driver);
+        ticketInboxPage.getTicketInboxPage().getTicketDetailsPage().addInternalNoteToTicket("Test Internal Note");
+    }
+
+
+
+
 
 
 

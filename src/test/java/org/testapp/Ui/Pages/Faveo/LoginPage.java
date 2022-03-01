@@ -61,6 +61,11 @@ public class LoginPage extends BasePage {
         setText(passwordTextAreaLocator, pwd);
         click(loginButtonLocator);
     }
+    public DashboardPage getDashboardWithStaffLogin(String email, String pwd){
+        staffLogin(email, pwd);
+        return new DashboardPage(driver);
+
+    }
 
 
     public boolean isAlertSeenAfterInvalidLogin(){

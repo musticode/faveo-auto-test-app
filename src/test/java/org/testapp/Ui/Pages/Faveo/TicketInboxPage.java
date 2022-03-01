@@ -7,11 +7,26 @@ import org.testapp.Ui.Pages.BasePage;
 public class TicketInboxPage extends BasePage {
     private By ticketTable = By.xpath("//*[@id=\"chumper\"]/tbody");
 
+    private By testTicketNameInTable = By.xpath("//tbody/tr[1]/td[2]/div[1]/a[1]");
+
+
+    private TicketDetailsPage ticketDetailsPage;
 
     public TicketInboxPage(WebDriver driver) {
         super(driver);
-        driver.get(APP_URL.concat("/ticket/inbox"));
+
     }
+
+    public TicketInboxPage getTicketInboxPage(){
+        driver.get(APP_URL.concat("/ticket/inbox"));
+        return this;
+    }
+
+    public TicketDetailsPage getTicketDetailsPage(){
+        click(testTicketNameInTable);
+        return new TicketDetailsPage(driver);
+    }
+
 
     public String getTableElements(){
         return getText(ticketTable);
@@ -24,3 +39,5 @@ public class TicketInboxPage extends BasePage {
         }
     }
 }
+
+

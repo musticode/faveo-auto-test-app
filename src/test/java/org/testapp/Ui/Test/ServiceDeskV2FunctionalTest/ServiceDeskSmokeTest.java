@@ -81,4 +81,42 @@ public class ServiceDeskSmokeTest extends BaseTest {
         registerPage.checkRegistrationPageOpened();
     }
 
+    @Test
+    public void checkMyTicketsPageWithoutLogin(){
+        landingPage = new LandingPage(driver);
+        landingPage.getLandingPage();
+        landingPage.clickMytickets().checkLoginPageOpened();
+    }
+
+    @Test
+    public void checkKnowledgeBaseWithoutLogin(){
+        landingPage = new LandingPage(driver);
+        landingPage.getLandingPage();
+        landingPage.getKnowledgeBase().checkLoginPageOpened();
+    }
+
+    TicketInboxPage ticketInboxPage;
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void ticketDetailsTest(){
+        ticketInboxPage = new TicketInboxPage(driver);
+
+        ticketInboxPage
+                .getTicketInboxPage()
+                .getTicketDetailsPage()
+                .checkTicketDetailsPageOpened();
+    }
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void editTicketDetailsTest(){
+        ticketInboxPage = new TicketInboxPage(driver);
+        ticketInboxPage
+                .getTicketInboxPage()
+                .getTicketDetailsPage()
+                .closeTicketDetail("SMOKE TEST");
+    }
+
+
+
+
+
 }

@@ -33,7 +33,12 @@ public class DashboardPage extends BasePage {
     private By reportFrameMyticketsButtonLocator = By.xpath("/html/body/div[1]/div[1]/section/div/div[2]/div[4]/a/div");
     private By reportFrameDueTodayButtonLocator = By.xpath("/html/body/div[1]/div[1]/section/div/div[2]/div[5]/a/div");
 
+
+    private By myTicketsNavBarLocator = By.id("load-myticket");
+
     private NewTicketPage newTicketPage;
+    private MyTicketsPage myTicketsPage;
+
     public DashboardPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -44,6 +49,12 @@ public class DashboardPage extends BasePage {
         click(logoutDropDownLocator);
         click(signOutButtonLocator);
     }
+
+    public MyTicketsPage getMyTicketsPage(){
+        click(myTicketsNavBarLocator);
+        return new MyTicketsPage(driver);
+    }
+
 
 
     public void checkDashboardOpened(){
@@ -69,12 +80,17 @@ public class DashboardPage extends BasePage {
     public void getFaveoDashboard(){
         driver.get(APP_URL.concat("/dashboard"));
     }
+
+
     @Step("Navigate to create new ticket")
     public NewTicketPage getNewCreateTicket(){
         click(navbarTicketsLocator);
         click(navBarCreateTicketLocator);
         return newTicketPage = new NewTicketPage(driver);
     }
+
+
+
     private AdminPanelDashboardPanel adminPanelDashboardPanel;
 
     @Step("Navigate to Admin Panel DashboardPage")

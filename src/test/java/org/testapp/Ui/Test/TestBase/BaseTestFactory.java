@@ -19,6 +19,7 @@ public class BaseTestFactory extends DriverManager {
         //getDriver("chrome-headless");
         //a
         getDriver(browserName);
+//        getDriver("opera-grid");
     }
 
 
