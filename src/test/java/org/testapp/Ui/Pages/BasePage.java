@@ -65,7 +65,6 @@ public class BasePage {
         }else if(selected.getClass().getName().equalsIgnoreCase("integer")){
             selectGeneric.selectByIndex((Integer)selected);
         }
-
     }
 
 

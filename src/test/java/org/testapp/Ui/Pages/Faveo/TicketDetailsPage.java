@@ -58,7 +58,7 @@ public class TicketDetailsPage extends BasePage {
         click(internalNotesNavLinkLocator);
         setText(internalNoteTextAreaLocator, internalNote);
         scrollDown();
-//        click(updateInternalNoteButtonLocator);
+        click(updateInternalNoteButtonLocator);
     }
 
 

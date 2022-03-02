@@ -62,6 +62,7 @@ public class NewTicketPage extends BasePage {
     }
 
     public void selectPriority(String priority){
+
         prioritySelect = new Select(findBy(priorityDropDown));
 
         if(priority.equalsIgnoreCase("low")){
@@ -126,6 +127,10 @@ public class NewTicketPage extends BasePage {
     }
 
     public void selectHelpTopic(String helpTopicName) {
+//        select();
+
+
+
         helpTopicSelect = new Select(findBy(helpTopicDropDown));
 
         if (helpTopicName.equalsIgnoreCase("support query")){

@@ -19,7 +19,12 @@ public class BaseTestFactory extends DriverManager {
         //getDriver("chrome-headless");
         //a
 //        getDriver(browserName);
-        getDriver("chrome-grid");
+
+        if(browserName == null){
+            getDriver("chrome-grid");
+        }else{
+            getDriver(browserName);
+        }
     }
 
 
