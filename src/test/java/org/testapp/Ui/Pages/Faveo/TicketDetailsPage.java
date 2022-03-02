@@ -34,7 +34,7 @@ public class TicketDetailsPage extends BasePage {
     private By internalNotesNavLinkLocator = By.xpath("//a[normalize-space()='Internal notes']");
     private By internalNoteTextAreaLocator = By.xpath("//form[@method='POST']//div[@role='textbox']");
     private By updateInternalNoteButtonLocator = By.xpath("//*[@id=\"t4\"]/div[2]/div/div[2]/button");
-
+    private By cannedResponseDropdown = By.xpath("//*[@id=\"select\"]");
 
     public void updateTicketDetail(String ticketDetailTitle){
         click(editTicketButton);
@@ -50,6 +50,7 @@ public class TicketDetailsPage extends BasePage {
 
     public void addReplyToTicket(String replyContent){
         setText(replyContentTextAreaLocator, replyContent);
+//        select(cannedResponseDropdown, 1);
         click(updateActionButtonLocator);
     }
 

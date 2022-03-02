@@ -4,8 +4,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Quotes;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testapp.Ui.DataProvider.PropertyManager;
+
+import java.util.List;
 
 public class BasePage {
     public WebDriver driver;
@@ -18,9 +22,6 @@ public class BasePage {
         wait = new WebDriverWait(driver, 20);
         js = (JavascriptExecutor)driver;
     }
-
-//    JavascriptExecutor js2 = (JavascriptExecutor) this.driver;
-
 
     public void waitForLocator(By locator){
         wait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -54,6 +55,19 @@ public class BasePage {
     public void scrollDown(){
         js.executeScript("window.scrollBy(0,600)");
     }
+
+    Select selectGeneric;
+    public <T> void select(By locator, T selected ){
+        selectGeneric = new Select(findBy(locator));
+
+        if (selected.getClass().getName().equalsIgnoreCase("String")){
+            selectGeneric.selectByValue((String) selected);
+        }else if(selected.getClass().getName().equalsIgnoreCase("integer")){
+            selectGeneric.selectByIndex((Integer)selected);
+        }
+
+    }
+
 
 
     //generic methods

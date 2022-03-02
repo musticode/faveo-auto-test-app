@@ -5,11 +5,12 @@ import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.Faveo.*;
 import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
 import org.testapp.Ui.Test.TestBase.BaseTest;
+import org.testapp.Ui.Test.TestBase.BaseTestFactory;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class ServiceDeskSmokeTest extends BaseTest {
+public class ServiceDeskSmokeTest extends /*BaseTest*/ BaseTestFactory {
 
     final String TEST_EMAIL = PropertyManager.getInstance().getTestEmail();
     final String TEST_PWD = PropertyManager.getInstance().getTestPassword();

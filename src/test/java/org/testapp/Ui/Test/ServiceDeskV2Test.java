@@ -225,9 +225,11 @@ public class ServiceDeskV2Test extends BaseTest {
                 "123");
 
         //ticket option selects
-        newTicketPage.selectHelpTopic("suppor1t query");
-        newTicketPage.selectStatus("open");
-        newTicketPage.selectDepartment("support");
+
+//        newTicketPage.selectHelpTopic("suppor1t query");
+//        newTicketPage.selectStatus("open");
+        newTicketPage.selectDep2(1);
+//        newTicketPage.selectDepartment("support");
         newTicketPage.selectSlaPlan("6 hours");
         newTicketPage.selectAssignToAgent("demo admin");
         newTicketPage.selectLocation("testbug");

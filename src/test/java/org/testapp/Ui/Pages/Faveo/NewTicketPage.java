@@ -136,8 +136,6 @@ public class NewTicketPage extends BasePage {
     }
 
     public void selectStatus(String statusName){
-
-
         if(statusName.equalsIgnoreCase("open")){
             statusSelect = new Select(findBy(statusDropDown));
             statusSelect.selectByIndex(0);
@@ -146,7 +144,9 @@ public class NewTicketPage extends BasePage {
             statusSelect.selectByIndex(1);
         }
     }
-
+    public void selectDep2(int value){
+        select(departmentDropdown, value);
+    }
 
 
     public void selectDepartment(String departmentName){
