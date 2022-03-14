@@ -1,4 +1,4 @@
-package org.testapp.Ui.Pages.Faveo.AdminPanel;
+package org.testapp.Ui.Pages.Faveo.AdminPanel.Tickets;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

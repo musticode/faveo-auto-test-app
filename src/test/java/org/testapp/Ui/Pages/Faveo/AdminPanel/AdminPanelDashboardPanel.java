@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
+import org.testapp.Ui.Pages.Faveo.AdminPanel.Tickets.StatusPage;
 import org.testng.Assert;
 
 public class AdminPanelDashboardPanel extends BasePage {
