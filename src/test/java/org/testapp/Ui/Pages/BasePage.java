@@ -31,6 +31,19 @@ public class BasePage {
         return driver.findElement(locator);
     }
 
+    public void getPage(String pagePath){
+
+        if (pagePath != null){
+            driver.get(APP_URL.concat(pagePath));
+        }else{
+            driver.get(APP_URL);
+        }
+    }
+
+    public void clearCookies(){
+        driver.manage().deleteAllCookies();
+    }
+
     public void click(By locator){
         waitForLocator(locator);
         findBy(locator).click();

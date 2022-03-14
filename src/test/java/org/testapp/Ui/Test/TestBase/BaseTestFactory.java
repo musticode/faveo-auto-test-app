@@ -16,6 +16,7 @@ public class BaseTestFactory extends DriverManager {
     @BeforeTest
     @Parameters(value = {"browserName"} )
     public void initializeBrowser(@Optional String browserName) throws MalformedURLException {
+
         //getDriver("chrome-headless");
         //a
 //        getDriver(browserName);

@@ -31,19 +31,21 @@ public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
-
         driver.get(APP_URL.concat("/auth/login"));
-        driver.manage().deleteAllCookies();
+        clearCookies();
     }
+
     @Step("Navigate to login page")
     public void getLoginPage(){
-        driver.get(APP_URL.concat("/auth/login"));
-        driver.manage().deleteAllCookies();
+        getPage("/auth/login");
+        clearCookies();
+
     }
+
+
     public void clickelTest(){
         clickGeneric(stafEl);
     }
-
 
 
     @Step("Client login with email {email} and password {pwd}")
@@ -61,25 +63,28 @@ public class LoginPage extends BasePage {
         setText(passwordTextAreaLocator, pwd);
         click(loginButtonLocator);
     }
+
     public DashboardPage getDashboardWithStaffLogin(String email, String pwd){
         staffLogin(email, pwd);
         return new DashboardPage(driver);
 
     }
 
-
+    //assertion
     public boolean isAlertSeenAfterInvalidLogin(){
         return isDisplayed(alertEmailNotRegisteredLocator);
     }
 
 
-
     public HomePage getHomepage(){
         return homePage = new HomePage(driver);
     }
+
     public DashboardPage getDashboardPage(){
         return dashboardPage = new DashboardPage(driver);
     }
+
+    //assertion
     public void checkLoginPageOpened(){
         Assert.assertEquals(isDisplayed(staffLoginTabLocator), true, "Login page is not opened");
     }

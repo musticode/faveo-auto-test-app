@@ -10,7 +10,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class ServiceDeskSmokeTest extends /*BaseTest*/ BaseTestFactory {
+public class ServiceDeskSmokeTest extends BaseTestFactory {
 
     final String TEST_EMAIL = PropertyManager.getInstance().getTestEmail();
     final String TEST_PWD = PropertyManager.getInstance().getTestPassword();

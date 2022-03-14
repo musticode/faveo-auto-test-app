@@ -5,10 +5,11 @@ import org.testapp.Ui.Pages.Faveo.DashboardPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
 import org.testapp.Ui.Test.TestBase.BaseTest;
+import org.testapp.Ui.Test.TestBase.BaseTestFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ServiceDeskFunctionalTest extends BaseTest {
+public class ServiceDeskFunctionalTest extends BaseTestFactory {
 
     final String TEST_EMAIL = PropertyManager.getInstance().getTestEmail();
     final String TEST_PWD = PropertyManager.getInstance().getTestPassword();

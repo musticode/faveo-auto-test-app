@@ -49,9 +49,6 @@ public class NewTicketPage extends BasePage {
 
 
 
-
-
-
     public NewTicketPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -175,10 +172,12 @@ public class NewTicketPage extends BasePage {
         setText(mobileLocator, mobileNumber);
         setText(phoneLocator, phone);
     }
+
     public void fillTicketDetail(String subject, String detail){
         setText(subjectTextAreaLocator, subject);
         setText(detailTextAreaLocator, detail);
     }
+
     public void createTicket(){
         click(createTicketButtonLocator);
     }

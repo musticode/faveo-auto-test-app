@@ -274,7 +274,7 @@ public class ServiceDeskV2Test extends BaseTest {
     @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void editTicketDetailsTest(){
         ticketInboxPage = new TicketInboxPage(driver);
-        ticketInboxPage.getTicketInboxPage().getTicketDetailsPage().closeTicketDetail("BEYZOŞ");
+        ticketInboxPage.getTicketInboxPage().getTicketDetailsPage().closeTicketDetail("test");
     }
 
     @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
@@ -288,6 +288,28 @@ public class ServiceDeskV2Test extends BaseTest {
         ticketInboxPage = new TicketInboxPage(driver);
         ticketInboxPage.getTicketInboxPage().getTicketDetailsPage().addInternalNoteToTicket("Test Internal Note");
     }
+
+
+    //create test ticket
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void createTestTicketWithValidCredentials(){
+        newTicketPage = new NewTicketPage(driver);
+
+        newTicketPage.getTicketCreate();
+        newTicketPage.fillUserDetails(
+                "mustafa@yopmail.com",
+                "mustafa",
+                "karatas",
+                "90",
+                "5434593612",
+                "123");
+
+        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.createTicket();
+    }
+
+
 
 
 

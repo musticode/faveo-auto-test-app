@@ -19,10 +19,6 @@ public class DriverManager {
     public RemoteWebDriver remoteWebDriver;
 
 
-
-
-
-
     public void getDriver(String browserName) throws MalformedURLException {
         driverOptions = new DriverOptions();
 
