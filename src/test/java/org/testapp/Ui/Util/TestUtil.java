@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.testapp.Ui.DriverManager.DriverManager;
 import org.testapp.Ui.Test.TestBase.BaseTest;
 
 import java.io.File;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class TestUtil extends BaseTest {
+public class TestUtil extends DriverManager {
     public static String filePath = "src/test/java/org/testapp/Ui/ScreenShots";
     public static String screenshotpath;
 
@@ -27,7 +28,7 @@ public class TestUtil extends BaseTest {
     }
 
 
-    public static void captureScreenshot(String methodName) throws IOException {
+    public void captureScreenshot(String methodName) throws IOException {
         //Using GregorianCalendar to fetch the time details
         Calendar cal = new GregorianCalendar();
         //Month value is always 1 less than actual. For February, MONTH would return 1

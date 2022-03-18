@@ -36,6 +36,9 @@ public class DashboardPage extends BasePage {
 
     private By myTicketsNavBarLocator = By.id("load-myticket");
 
+
+
+
     private NewTicketPage newTicketPage;
     private MyTicketsPage myTicketsPage;
 
@@ -43,6 +46,7 @@ public class DashboardPage extends BasePage {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
 
     @Step("Sign out")
     public void signOut(){

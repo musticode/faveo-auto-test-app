@@ -51,13 +51,13 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     }
 
 
-    NavBar navBar;
+/*    NavBar navBar;
     @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void getTicketInbox(){
         navBar = new NavBar(driver);
         navBar.getMyTicketsPage().checkMyticketsPageOpened();
     }
-
+    */
     LandingPage landingPage;
 
     @Test

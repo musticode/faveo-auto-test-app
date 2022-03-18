@@ -82,6 +82,14 @@ public class BasePage {
 
 
 
+
+
+
+
+
+
+
+
     //generic methods
     public <T> WebElement getElement(T elementAttr){
         if(elementAttr.getClass().getName().contains("By")){

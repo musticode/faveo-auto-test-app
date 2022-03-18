@@ -1,19 +1,39 @@
-# faveo-auto-test-app
+# Faveo Auto Test App
 Faveo Test ui-api
-
+```
 mvn clean test -DsuiteXmlFile=TestNG.xml
+```
 
 Allure report <br>
+```
 mvn allure:serve
+```
 
 ###Parallel Test Execution
 1-Install selenium standalone jar <br>
-2-Execute selenium "jar java -jar sele... standalone" <br>
-3-Execute command: mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
-a
+
+2-Execute 
+```
+jar java -jar sele... standalone
+```
+Execute command
+```
+mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
+```
 
 ###Grid Test Run
+####Parallel Test Execution
 
-1-cd grid <br>
-2-type in local terminal1: java -jar selenium-server-4.0.0.jar standalone <br>
-3-type in local terminal2: mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
+```
+cd grid
+```
+```
+java -jar selenium-server-4.0.0.jar standalone
+```
+```
+mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
+```
+```
+mvn allure:serve
+```
+

@@ -310,6 +310,16 @@ public class ServiceDeskV2Test extends BaseTest {
     }
 
 
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void checkTicketInboxPageViaUrl(){
+        ticketInboxPage = new TicketInboxPage(driver);
+        ticketInboxPage
+                .getTicketInboxPage()
+                .getTicketDetailsPage()
+                .checkTicketDetailsPageOpened();
+    }
+
+
 
 
 
