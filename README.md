@@ -9,7 +9,7 @@ Allure report <br>
 mvn allure:serve
 ```
 
-###Parallel Test Execution
+### Parallel Test Execution
 1-Install selenium standalone jar <br>
 
 2-Execute 
@@ -21,8 +21,8 @@ Execute command
 mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 ```
 
-###Grid Test Run
-####Parallel Test Execution
+### Grid Test Run
+#### Parallel Test Execution
 
 ```
 cd grid
@@ -37,7 +37,7 @@ mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 mvn allure:serve
 ```
 
-####uiConfig.properties 
+#### uiConfig.properties 
 ```
 app_url=
 test_email=
@@ -45,7 +45,7 @@ test_password=
 
 wait=
 ```
-####apiConfig.properties
+#### apiConfig.properties
 ```
 api_key=
 url=
