@@ -1,4 +1,4 @@
 # Project exclude paths
 /target/
-/src/test/resources/apiConfig.properties
-/src/test/resources/uiConfig.properties
+*.apiConfig.properties
+*.uiConfig.properties
