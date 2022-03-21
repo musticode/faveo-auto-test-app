@@ -37,3 +37,24 @@ mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 mvn allure:serve
 ```
 
+####uiConfig.properties 
+```
+app_url=
+test_email=
+test_password=
+
+wait=
+```
+####apiConfig.properties
+```
+api_key=
+url=
+msp_id=
+id=
+company_id=
+staff_unique_id=
+user_unique_id=
+staff_id_url=
+user_id_url=
+```
+
