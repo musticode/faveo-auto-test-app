@@ -36,7 +36,8 @@ mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 ```
 mvn allure:serve
 ```
-
+### Ignored files
+uiConfig and apiConfig property files are ignored while adding to git. Please create config files in resources/configuration path
 #### uiConfig.properties 
 ```
 app_url=
