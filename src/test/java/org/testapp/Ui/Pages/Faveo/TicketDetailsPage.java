@@ -37,6 +37,20 @@ public class TicketDetailsPage extends BasePage {
     private By updateInternalNoteButtonLocator = By.xpath("//*[@id=\"t4\"]/div[2]/div/div[2]/button");
     private By cannedResponseDropdown = By.xpath("//*[@id=\"select\"]");
 
+
+    //worktime actions
+
+    private By workTimeAddingCollapseLocator = By.xpath("/html/body/div[1]/div[1]/section/div[1]/div[6]/div[2]/div[9]/div/button");
+    private By addWorkTimeTrackerButtonLocator= By.cssSelector("button[data-target='#timeTracker']");
+    private By workTimeHourInputTextLocator = By.id("hour");
+    private By workTimeMinuteInputTextLocator = By.id("min");
+    private By timeTrackDescriptionInputLocator = By.id("description");
+    private By saveTimeTrackSubmitButtonLocator = By.xpath("//*[@id=\"timeTracker\"]/div/div/div[4]/button[2]");
+    private By editWorkTimeButtonLocator = By.xpath("//*[@id=\"hide2\"]/div/div/button[1]");
+    private By deleteWorkTimeButtonLocator = By.xpath("//*[@id=\"hide2\"]/div/div/button[2]");
+
+
+
     @Step("Update ticket details with {ticketDetailTitle}")
     public void updateTicketDetail(String ticketDetailTitle){
         click(editTicketButton);
@@ -66,6 +80,57 @@ public class TicketDetailsPage extends BasePage {
         click(updateInternalNoteButtonLocator);
     }
 
+    @Step("Add work time to ticket with {hourWorkTime} {minuteWorkTime} {workTimeDescription}")
+    public TicketDetailsPage addWorkTime(String hourWorkTime, String minuteWorkTime, String workTimeDescription) throws InterruptedException {
+        scrollDownDoc();
+        scrollDownDoc();
+        click(workTimeAddingCollapseLocator);
+//        scrollDownDoc();
+//        Thread.sleep(3000);
+        click(addWorkTimeTrackerButtonLocator);
+        setText(workTimeHourInputTextLocator, hourWorkTime);
+        setText(workTimeMinuteInputTextLocator, minuteWorkTime);
+        setText(timeTrackDescriptionInputLocator, workTimeDescription);
+        click(saveTimeTrackSubmitButtonLocator);
+//        Thread.sleep(3000);
+
+        return this;
+
+    }
+
+    @Step("Update work time")
+    public TicketDetailsPage editWorkTime(String hourWorkTime, String minuteWorkTime, String workTimeDescription){
+
+        //end of the page
+        //scrollDownDoc();
+        //click(workTimeAddingCollapseLocator);
+
+        //scrollDown();
+        click(editWorkTimeButtonLocator);
+
+        //edit time track modal
+        setText(workTimeHourInputTextLocator, hourWorkTime);
+        setText(workTimeMinuteInputTextLocator, minuteWorkTime);
+        setText(timeTrackDescriptionInputLocator, workTimeDescription);
+        click(saveTimeTrackSubmitButtonLocator);
+
+        return this;
+    }
+
+    @Step("Delete work time")
+    public TicketDetailsPage deleteWorkTime(){
+
+        //end of the page
+        scrollDownDoc();
+        click(workTimeAddingCollapseLocator);
+        scrollDown();
+
+        //click delete
+        click(deleteWorkTimeButtonLocator);
+        alertAccept();
+
+        return this;
+    }
 
 
 

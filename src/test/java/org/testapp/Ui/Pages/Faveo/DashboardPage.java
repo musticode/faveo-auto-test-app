@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
-import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
+import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPage;
 import org.testng.Assert;
 
 public class DashboardPage extends BasePage {
@@ -95,15 +95,15 @@ public class DashboardPage extends BasePage {
 
 
 
-    private AdminPanelDashboardPanel adminPanelDashboardPanel;
+    private AdminPanelDashboardPage adminPanelDashboardPage;
 
     @Step("Navigate to Admin Panel DashboardPage")
-    public AdminPanelDashboardPanel navigateToAdminPanelDashboardPage(){
+    public AdminPanelDashboardPage navigateToAdminPanelDashboardPage(){
         click(adminPanelNavItemLocator);
-        if(adminPanelDashboardPanel == null){
-            adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
+        if(adminPanelDashboardPage == null){
+            adminPanelDashboardPage = new AdminPanelDashboardPage(driver);
         }
-        return adminPanelDashboardPanel;
+        return adminPanelDashboardPage;
     }
 
 

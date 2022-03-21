@@ -1,14 +1,12 @@
 package org.testapp.Ui.Test;
 
 import org.testapp.Ui.DataProvider.PropertyManager;
-import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.Faveo.*;
-import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
+import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPage;
 import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-@Listeners(TestListener.class)
+//@Listeners(TestListener.class)
 public class ServiceDeskV2Test extends BaseTest {
 
     final String TEST_EMAIL = PropertyManager.getInstance().getTestEmail();
@@ -37,8 +35,8 @@ public class ServiceDeskV2Test extends BaseTest {
 
     @Test
     public void addStatusTicketTest(){
-        adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
-        adminPanelDashboardPanel.getStatusPage().createStatus("Delete", "3","#f1627e" );
+        adminPanelDashboardPage = new AdminPanelDashboardPage(driver);
+        adminPanelDashboardPage.getStatusPage().createStatus("Delete", "3","#f1627e" );
 
     }
 /*
@@ -112,13 +110,13 @@ public class ServiceDeskV2Test extends BaseTest {
 
     }
 
-    AdminPanelDashboardPanel adminPanelDashboardPanel;
+    AdminPanelDashboardPage adminPanelDashboardPage;
     @Test (priority = 4)
     public void redirectToAdminPanelAfterLogin(){
-        adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
-        adminPanelDashboardPanel.getAdminPanelDashboardPage();
+        adminPanelDashboardPage = new AdminPanelDashboardPage(driver);
+        adminPanelDashboardPage.getAdminPanelDashboardPage();
 
-        boolean adminPanelOpenedStatus = adminPanelDashboardPanel.isAdminPanelDashboardPageOpened();
+        boolean adminPanelOpenedStatus = adminPanelDashboardPage.isAdminPanelDashboardPageOpened();
 
         Assert.assertEquals(adminPanelOpenedStatus,
                 false,
@@ -156,9 +154,9 @@ public class ServiceDeskV2Test extends BaseTest {
 
     @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void getAdminPanel(){
-        adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
-        adminPanelDashboardPanel.getAdminPanelDashboardPage();
-        adminPanelDashboardPanel.checkAdminPanelOpened();
+        adminPanelDashboardPage = new AdminPanelDashboardPage(driver);
+        adminPanelDashboardPage.getAdminPanelDashboardPage();
+        adminPanelDashboardPage.checkAdminPanelOpened();
     }
 
     NavBar navBar;
@@ -318,6 +316,30 @@ public class ServiceDeskV2Test extends BaseTest {
                 .getTicketDetailsPage()
                 .checkTicketDetailsPageOpened();
     }
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void addTimeToTicket() throws InterruptedException {
+
+        /*
+        there must'n be any work time
+
+        * login
+        * ticket inbox
+        * edit ticket detail
+        * add work time to ticket */
+        ticketInboxPage = new TicketInboxPage(driver);
+        ticketInboxPage
+                .getTicketInboxPage()
+                .getTicketDetailsPage()
+                .addWorkTime("1", "1", "Test Description");
+
+
+
+
+
+    }
+
+
 
 
 

@@ -14,6 +14,7 @@ public class PropertyManager {
     private String appUrl;
     private String testEmail;
     private String testPassword;
+    private long wait;
 
     public static PropertyManager getInstance(){
         if(instance == null){
@@ -35,6 +36,7 @@ public class PropertyManager {
         appUrl = properties.getProperty("app_url");
         testEmail  = properties.getProperty("test_email");
         testPassword = properties.getProperty("test_password");
+        wait = Long.parseLong(properties.getProperty("wait"));
     }
 
     public String getAppUrl(){
@@ -42,5 +44,5 @@ public class PropertyManager {
     }
     public String getTestEmail(){return testEmail;}
     public String getTestPassword(){return  testPassword;}
-
+    public Long getWait(){return  wait;}
 }

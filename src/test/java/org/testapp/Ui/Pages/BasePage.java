@@ -15,11 +15,13 @@ public class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
     public String APP_URL = PropertyManager.getInstance().getAppUrl();
+    public Long WAIT = PropertyManager.getInstance().getWait();
+
     JavascriptExecutor js;
 
     public BasePage(WebDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver, 20);
+        wait = new WebDriverWait(driver, WAIT);
         js = (JavascriptExecutor)driver;
     }
 
@@ -32,7 +34,6 @@ public class BasePage {
     }
 
     public void getPage(String pagePath){
-
         if (pagePath != null){
             driver.get(APP_URL.concat(pagePath));
         }else{
@@ -40,8 +41,15 @@ public class BasePage {
         }
     }
 
+    public void alertAccept(){
+        driver.switchTo().alert().accept();
+    }
+
     public void clearCookies(){
         driver.manage().deleteAllCookies();
+    }
+    public void maximizeWindow(){
+        driver.manage().window().maximize();
     }
 
     public void click(By locator){
@@ -65,9 +73,21 @@ public class BasePage {
         return findBy(locator).isDisplayed();
     }
 
+    //scrolldown functions
     public void scrollDown(){
         js.executeScript("window.scrollBy(0,600)");
     }
+
+    public void scrollDownByValue(int value){
+        String script = "window.scrollBy(0,"+ value + ")";
+        js.executeScript(script);
+    }
+
+    public void scrollDownDoc(){
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+    }
+
+
 
     Select selectGeneric;
     public <T> void select(By locator, T selected ){

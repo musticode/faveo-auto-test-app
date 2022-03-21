@@ -3,8 +3,7 @@ package org.testapp.Ui.Test.ServiceDeskV2FunctionalTest;
 import org.testapp.Ui.DataProvider.PropertyManager;
 import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.Faveo.*;
-import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
-import org.testapp.Ui.Test.TestBase.BaseTest;
+import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPage;
 import org.testapp.Ui.Test.TestBase.BaseTestFactory;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -42,12 +41,12 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     }
 
 
-    AdminPanelDashboardPanel adminPanelDashboardPanel;
+    AdminPanelDashboardPage adminPanelDashboardPage;
     @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void getAdminPanel(){
-        adminPanelDashboardPanel = new AdminPanelDashboardPanel(driver);
-        adminPanelDashboardPanel.getAdminPanelDashboardPage();
-        adminPanelDashboardPanel.checkAdminPanelOpened();
+        adminPanelDashboardPage = new AdminPanelDashboardPage(driver);
+        adminPanelDashboardPage.getAdminPanelDashboardPage();
+        adminPanelDashboardPage.checkAdminPanelOpened();
     }
 
 

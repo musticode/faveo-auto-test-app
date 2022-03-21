@@ -1,7 +1,7 @@
 package org.testapp.Ui.Test;
 
 import org.testapp.Ui.Pages.DemoQAPages.DemoPageTextBox;
-import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPanel;
+import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPage;
 import org.testapp.Ui.Pages.Faveo.LandingPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
@@ -99,13 +99,13 @@ public class ParallelTestExample extends BaseRemoteTest {
 
     }
 
-    AdminPanelDashboardPanel adminPanelDashboardPanel;
+    AdminPanelDashboardPage adminPanelDashboardPage;
     @Test (priority = 4)
     public void redirectToAdminPanelAfterLogin(){
-        adminPanelDashboardPanel = new AdminPanelDashboardPanel(getDriver());
-        adminPanelDashboardPanel.getAdminPanelDashboardPage();
+        adminPanelDashboardPage = new AdminPanelDashboardPage(getDriver());
+        adminPanelDashboardPage.getAdminPanelDashboardPage();
 
-        boolean adminPanelOpenedStatus = adminPanelDashboardPanel.isAdminPanelDashboardPageOpened();
+        boolean adminPanelOpenedStatus = adminPanelDashboardPage.isAdminPanelDashboardPageOpened();
 
         Assert.assertEquals(adminPanelOpenedStatus,
                 false,

@@ -6,19 +6,27 @@
     </listeners>
 
     <parameter name="browserName" value="chrome-grid"></parameter>
-    <test name="OS Ticket V2 Test Parallel Test" parallel="classes" thread-count="5">
+    <test name="OS Ticket V2 FUNCTIONAL Test" parallel="classes" thread-count="5">
         <classes>
             <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskFunctionalTest"/>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
+
         </classes>
     </test> <!-- Test -->
 
-    <test name="DemoPageScenarios Parallel Test" parallel="classes" thread-count="5">
+    <test name="OS Ticket V2 SMOKE Test" parallel="classes" thread-count="5">
         <parameter name="browserName" value="chrome-grid"></parameter>
         <classes>
-<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>-->
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
+        </classes>
+    </test>
+
+    <test name="OS Ticket V2 ADMIN Parallel Test" parallel="classes" thread-count="5">
+        <parameter name="browserName" value="chrome-grid"></parameter>
+        <classes>
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2AdminPanelTest"/>
         </classes>
 
     </test>
+
 
 </suite> <!-- Suite -->
