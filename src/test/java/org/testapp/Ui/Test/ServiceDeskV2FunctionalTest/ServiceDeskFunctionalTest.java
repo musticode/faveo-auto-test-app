@@ -16,7 +16,7 @@ public class ServiceDeskFunctionalTest extends BaseTestFactory {
 
     LoginPage loginPage;
 
-    @Test()
+    @Test(priority = 0)
     public void staffLoginWithValidCredentials(){
         loginPage = new LoginPage(driver);
         loginPage.staffLogin(TEST_EMAIL, TEST_PWD);
@@ -28,7 +28,7 @@ public class ServiceDeskFunctionalTest extends BaseTestFactory {
     }
 
     NewTicketPage newTicketPage;
-    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Test(priority = 1, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void createTestTicketWithDepartment(){
         newTicketPage = new NewTicketPage(driver);
 
@@ -50,7 +50,7 @@ public class ServiceDeskFunctionalTest extends BaseTestFactory {
 
 
     DashboardPage dashboardPage;
-    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Test(priority = 999, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void signOut(){
         dashboardPage = new DashboardPage(driver);
         dashboardPage.getFaveoDashboard();

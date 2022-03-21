@@ -17,7 +17,7 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
 
     LoginPage loginPage;
 
-    @Test()
+    @Test(priority = 0)
     public void staffLoginWithValidCredentials(){
         loginPage = new LoginPage(driver);
         loginPage.staffLogin(TEST_EMAIL, TEST_PWD);
@@ -114,6 +114,14 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
                 .getTicketInboxPage()
                 .getTicketDetailsPage()
                 .closeTicketDetail("SMOKE TEST");
+    }
+
+    @Test(priority = 999, dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void signOut(){
+        dashboardPage = new DashboardPage(driver);
+        dashboardPage.getFaveoDashboard();
+        dashboardPage.signOut();
+
     }
 
 

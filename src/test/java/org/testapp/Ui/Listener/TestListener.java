@@ -4,13 +4,14 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testapp.Ui.DriverManager.DriverManager;
 import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testapp.Ui.Util.TestUtil;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestListener extends BaseTest implements ITestListener {
+public class TestListener extends DriverManager implements ITestListener {
 //    WebDriver driver;
     String filePath = "src/test/java/org/testapp/Ui/ScreenShots";
 

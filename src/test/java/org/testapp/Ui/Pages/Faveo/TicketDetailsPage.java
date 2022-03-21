@@ -1,5 +1,6 @@
 package org.testapp.Ui.Pages.Faveo;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,24 +37,28 @@ public class TicketDetailsPage extends BasePage {
     private By updateInternalNoteButtonLocator = By.xpath("//*[@id=\"t4\"]/div[2]/div/div[2]/button");
     private By cannedResponseDropdown = By.xpath("//*[@id=\"select\"]");
 
+    @Step("Update ticket details with {ticketDetailTitle}")
     public void updateTicketDetail(String ticketDetailTitle){
         click(editTicketButton);
         setText(titleTextLocator, ticketDetailTitle);
         click(updateButtonLocator);
     }
 
+    @Step("Close ticket details with {ticketDetailTitle}")
     public void closeTicketDetail(String ticketDetailTitle){
         click(editTicketButton);
         setText(titleTextLocator, ticketDetailTitle);
         click(closeButtonLocator);
     }
 
+    @Step("Add reply to ticket {replyContent}")
     public void addReplyToTicket(String replyContent){
         setText(replyContentTextAreaLocator, replyContent);
 //        select(cannedResponseDropdown, 1);
         click(updateActionButtonLocator);
     }
 
+    @Step("Add internal note to ticket {internalNote}")
     public void addInternalNoteToTicket(String internalNote){
         click(internalNotesNavLinkLocator);
         setText(internalNoteTextAreaLocator, internalNote);
@@ -66,6 +71,7 @@ public class TicketDetailsPage extends BasePage {
 
 
     //assertion
+    @Step("Check Title Details Page opened")
     public void checkTicketDetailsPageOpened(){
         Assert.assertEquals(isDisplayed(editTicketButton), true, "Details page is not opened!");
     }

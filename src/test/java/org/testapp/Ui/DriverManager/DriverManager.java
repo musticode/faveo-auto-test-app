@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class DriverManager {
-    public WebDriver driver;
+    public static WebDriver driver;
     public DriverOptions driverOptions;
     CapabilityFactorySelenoid capabilityFactorySelenoid = new CapabilityFactorySelenoid();
     public RemoteWebDriver remoteWebDriver;

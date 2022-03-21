@@ -4,20 +4,19 @@
     <listeners>
         <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
     </listeners>
-    <parameter name="browserName" value="chrome-grid"></parameter>
 
+    <parameter name="browserName" value="chrome-grid"></parameter>
     <test name="OS Ticket V2 Test Parallel Test" parallel="classes" thread-count="5">
         <classes>
-
             <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskFunctionalTest"/>
-
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
         </classes>
     </test> <!-- Test -->
 
     <test name="DemoPageScenarios Parallel Test" parallel="classes" thread-count="5">
         <parameter name="browserName" value="chrome-grid"></parameter>
         <classes>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
+<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>-->
         </classes>
 
     </test>
