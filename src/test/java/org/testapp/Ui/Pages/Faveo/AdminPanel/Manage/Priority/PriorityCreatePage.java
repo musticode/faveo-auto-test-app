@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testapp.Ui.Pages.BasePage;
 
 public class PriorityCreatePage extends BasePage {
+
     //create page objects
     private By priorityNameInputLocator  = By.cssSelector("input[name='priority']");
     private By priorityDescriptionInputLocator = By.cssSelector("input[name='priority_desc']");

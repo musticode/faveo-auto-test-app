@@ -70,7 +70,9 @@ public class FaveoMspTest {
 
         response.log().body().extract().asString();*/
 
-        response = RestClientValidatableResponse.doPost(requestUrl.getMspCreateRequestUrl(),
+        response =
+                RestClientValidatableResponse
+                .doPost(requestUrl.getMspCreateRequestUrl(),
                 mspRequestBody.getMspCreateRequestBody(MSP_ID));
 
         //sout
