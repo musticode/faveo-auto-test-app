@@ -36,4 +36,17 @@ mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 ```
 mvn allure:serve
 ```
+#### Docker setup and test run
+@BeforeSuite <br>
+public void startContainer{ <br>
+CommonMethods.runTerminalCommand("docker-compose up", "Registered a node"); <br>
+}
+
+### Docker Selenoid
+```
+sudo network create selenoid
+```
+```
+sudo docker-compose up
+```
 
