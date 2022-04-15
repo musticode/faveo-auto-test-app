@@ -22,7 +22,7 @@ public class BaseTestFactory extends DriverManager {
 //        getDriver(browserName);
 
         if(browserName == null){
-            getDriver("chrome-grid");
+            getDriver("firefox-grid");
             System.out.println("Grid chrome is opened");
         }else{
             getDriver(browserName);
