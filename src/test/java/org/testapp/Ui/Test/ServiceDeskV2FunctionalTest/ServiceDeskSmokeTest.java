@@ -88,7 +88,7 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
         landingPage.clickMytickets().checkLoginPageOpened();
     }
 
-    @Test
+    @Test (dependsOnMethods = {"signOut"})
     public void checkKnowledgeBaseWithoutLogin(){
         landingPage = new LandingPage(driver);
         landingPage.getLandingPage();

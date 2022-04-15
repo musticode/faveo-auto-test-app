@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import org.testapp.Ui.DataProvider.PropertyManager;
 import org.testapp.Ui.Pages.Faveo.AdminPanel.AdminPanelDashboardPage;
 import org.testapp.Ui.Pages.Faveo.AdminPanel.Manage.Priority.PriorityPage;
+import org.testapp.Ui.Pages.Faveo.AdminPanel.Staff.Teams.TeamsPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testng.Assert;
@@ -18,6 +19,7 @@ public class AdminPanelTestScenarios extends BaseTest {
     LoginPage loginPage;
     AdminPanelDashboardPage adminPanelDashboardPage;
     PriorityPage priorityPage;
+    TeamsPage teamsPage;
 
 
 
@@ -96,6 +98,58 @@ public class AdminPanelTestScenarios extends BaseTest {
                 );
 
     }
+
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Description("Create department in admin panel")
+    public void createTestDepartmentTest(){
+        //page bug
+    }
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Description("Create team in admin panel")
+    public void creteTeamTest(){
+        /*
+         * login
+         * get teams page
+         * click create
+         * priority name inp
+         * adm notes inp
+         * click submit
+         *  */
+
+        teamsPage = new TeamsPage(driver);
+        teamsPage
+                .getTeamsPage()
+                .checkTeamsPageOpened()
+                .getCreateTeamPage()
+                .createTeam("Test Name", "Test Admin note");
+
+    }
+
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Description("Edit team in admin panel")
+    public void editTeamTest(){
+        /*
+         * login
+         * get teams page
+         * click create
+         * priority name inp
+         * adm notes inp
+         * click submit
+         *  */
+
+        teamsPage = new TeamsPage(driver);
+        teamsPage
+                .getTeamsPage()
+                .checkTeamsPageOpened()
+                .editTeamInActions()
+                .editTeam("Test Name", "Test Admin note");
+
+    }
+
+
+
 
 
 

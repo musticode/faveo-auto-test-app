@@ -9,7 +9,7 @@ Allure report <br>
 mvn allure:serve
 ```
 
-### Parallel Test Execution
+###Parallel Test Execution
 1-Install selenium standalone jar <br>
 
 2-Execute 
@@ -21,8 +21,8 @@ Execute command
 mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 ```
 
-### Grid Test Run
-#### Parallel Test Execution
+###Grid Test Run
+####Parallel Test Execution
 
 ```
 cd grid
@@ -36,26 +36,17 @@ mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 ```
 mvn allure:serve
 ```
-### Ignored files
-uiConfig and apiConfig property files are ignored while adding to git. Please create config files in resources/configuration path
-#### uiConfig.properties 
-```
-app_url=
-test_email=
-test_password=
+#### Docker setup and test run
+@BeforeSuite <br>
+public void startContainer{ <br>
+CommonMethods.runTerminalCommand("docker-compose up", "Registered a node"); <br>
+}
 
-wait=
+### Docker Selenoid
 ```
-#### apiConfig.properties
+sudo network create selenoid
 ```
-api_key=
-url=
-msp_id=
-id=
-company_id=
-staff_unique_id=
-user_unique_id=
-staff_id_url=
-user_id_url=
+```
+sudo docker-compose up
 ```
 
