@@ -1,4 +1,4 @@
-package org.testapp.Api.DataProvider;
+package org.testapp.Api.DataProvider.Pim;
 
 import org.json.JSONObject;
 import org.testapp.Api.PropertyManager.PropertyManager;
