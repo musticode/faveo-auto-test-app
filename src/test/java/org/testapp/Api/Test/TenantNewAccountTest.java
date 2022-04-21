@@ -36,7 +36,6 @@ public class TenantNewAccountTest {
     }
 
     @Test
-
     public void passwordChangeTenant(){
 
     }
