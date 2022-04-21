@@ -49,4 +49,15 @@ sudo network create selenoid
 ```
 sudo docker-compose up
 ```
+### Docker Selenium
+create docker compose file:
+https://github.com/SeleniumHQ/docker-selenium <br>
+start docker selenium
+```
+sudo docker-compose up
+```
+kill process:
+```
+sudo docker-compose down
+```
 
