@@ -9,10 +9,12 @@ import org.testapp.Api.DataProvider.DataGenerator.DataGenerator;
 import org.testapp.Api.DataProvider.Pim.*;
 import org.testapp.Api.PropertyManager.PropertyManager;
 import org.testapp.Api.RestClient.RestClientValidatableResponse;
+import org.testapp.Ui.Listener.TestListener;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.jayway.restassured.RestAssured.given;
-
+//@Listeners(TestListener.class)
 public class FaveoMspTest {
     private String API_KEY = PropertyManager.getInstance().getApiKey();
     private String APP_URL = PropertyManager.getInstance().getUrl();

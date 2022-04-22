@@ -8,8 +8,10 @@ import org.testapp.Api.DataProvider.Tenant.PasswordChangeRequestBody;
 import org.testapp.Api.DataProvider.Tenant.RegisterRequestBody;
 import org.testapp.Api.PropertyManager.TenantPropertyManager;
 import org.testapp.Api.RestClient.RestClientTenant;
+import org.testapp.Ui.Listener.TestListener;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+//@Listeners(TestListener.class)
 public class TenantNewAccountTest {
 
     private String TENANT_URL = TenantPropertyManager.getInstance().getTenantUrl();

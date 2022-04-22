@@ -9,7 +9,7 @@ Allure report <br>
 mvn allure:serve
 ```
 
-###Parallel Test Execution
+### Parallel Test Execution
 1-Install selenium standalone jar <br>
 
 2-Execute 
@@ -21,8 +21,8 @@ Execute command
 mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 ```
 
-###Grid Test Run
-####Parallel Test Execution
+### Grid Test Run
+#### Parallel Test Execution
 
 ```
 cd grid
@@ -59,5 +59,10 @@ sudo docker-compose up
 kill process:
 ```
 sudo docker-compose down
+```
+
+### API Test
+```
+mvn clean test -DsuiteXmlFile=APITestNG.xml
 ```
 
