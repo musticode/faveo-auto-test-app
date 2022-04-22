@@ -65,7 +65,7 @@ public class TenantNewAccountTest {
 
         //assertions
         response.assertThat().statusCode(200);
-        response.assertThat().body("status", IsEqual.equalTo(200));
+        response.assertThat().body("status", IsEqual.equalTo("success"));
         response.assertThat().body("success", IsEqual.equalTo(true));
 
     }
