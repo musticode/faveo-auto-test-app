@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testapp.Ui.DriverManager.Selenoid.CapabilityFactorySelenoid;
@@ -71,6 +72,12 @@ public class DriverManager {
                 chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
                 break;
+
+            case "firefox-headless":
+                WebDriverManager.firefoxdriver().setup();
+                FirefoxOptions firefoxOptions2 = new FirefoxOptions();
+                firefoxOptions2.setHeadless(true);
+                driver = new FirefoxDriver(firefoxOptions2);
         }
     }
 
