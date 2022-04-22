@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="API Test Suite" parallel="tests" thread-count="5" >
+    <listeners>
+        <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
+    </listeners>
+
+    <parameter name="browserName" value="firefox-grid"></parameter>
+    <test name="OS Ticket V2 FUNCTIONAL Test" parallel="classes" thread-count="5">
+        <classes>
+            <class name="org.testapp.Api.Test.FaveoMspTest"/>
+            <class name="org.testapp.Api.Test.TenantNewAccountTest"/>
+
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
