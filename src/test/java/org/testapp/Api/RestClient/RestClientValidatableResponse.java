@@ -10,13 +10,6 @@ import static com.jayway.restassured.RestAssured.given;
 public class RestClientValidatableResponse {
     private static final String API_KEY = PropertyManager.getInstance().getApiKey();
 
-//    private static String getApiKey(){
-//
-//        return
-//
-//    }
-
-
 
     public static ValidatableResponse doGet(String url){
         RequestSpecification req = RestClientValidatableResponse.getRequestSpecification(API_KEY);

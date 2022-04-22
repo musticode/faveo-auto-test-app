@@ -19,15 +19,6 @@ public class PropertyManager {
     private String staffIdurl;
     private String userIdurl;
 
-//    private String tenantUrl;
-//    private String tenantEmail;
-//    private String tenantPassword;
-//    private String tenantNewPassword;
-//    private String tenantApiKey;
-//    private String tenantCompanyName;
-//    private String tenantSubDomain;
-//    private String tenantUserName;
-
 
     public static PropertyManager getInstance(){
         if(instance == null){
