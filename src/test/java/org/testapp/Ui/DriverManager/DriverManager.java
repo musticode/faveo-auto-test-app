@@ -78,6 +78,7 @@ public class DriverManager {
                 FirefoxOptions firefoxOptions2 = new FirefoxOptions();
                 firefoxOptions2.setHeadless(true);
                 driver = new FirefoxDriver(firefoxOptions2);
+                break;
         }
     }
 
