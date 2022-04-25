@@ -79,6 +79,11 @@ public class DriverManager {
                 firefoxOptions2.setHeadless(true);
                 driver = new FirefoxDriver(firefoxOptions2);
                 break;
+
+            case "jenkins-chrome":
+                driver = new RemoteWebDriver(new URL("http://172.17.0.2:4444/wd/hub"),driverOptions.getOperaOptions());
+                break;
+
         }
     }
 
