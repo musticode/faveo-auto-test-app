@@ -7,6 +7,11 @@ import org.testapp.Api.PropertyManager.TenantPropertyManager;
 public class RestClientTenant extends RestClientValidatableResponse{
     private static final String TENANT_API_KEY = TenantPropertyManager.getInstance().getTenantApiKey();
 
+    public static ValidatableResponse doGetWithBody(String url, String body){
+        RequestSpecification req = RestClientValidatableResponse.getRequestSpecification(TENANT_API_KEY);
+        req.body(body);
+        return RestClientValidatableResponse.getResponse("GET",req,url);
+    }
 
 
     public static ValidatableResponse doGet(String url /*,String body*/){
