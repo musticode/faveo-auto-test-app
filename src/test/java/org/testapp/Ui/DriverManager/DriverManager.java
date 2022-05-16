@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testapp.Ui.DriverManager.Selenoid.CapabilityFactorySelenoid;
 
@@ -87,7 +88,11 @@ public class DriverManager {
 //                chromeOptions.addArguments("--headless");
                 DriverOptions options = new DriverOptions();
                 driver = new ChromeDriver(options.getJenkinsChromeOptions());
+                break;
 
+            case "jenkins-docker":
+                DesiredCapabilities dc = DesiredCapabilities.chrome();
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
                 break;
 
         }

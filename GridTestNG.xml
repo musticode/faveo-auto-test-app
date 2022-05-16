@@ -5,7 +5,7 @@
         <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
     </listeners>
 
-    <parameter name="browserName" value="jenkins-chrome"></parameter>
+    <parameter name="browserName" value="jenkins-docker"></parameter>
     <test name="OS Ticket V2 FUNCTIONAL Test" parallel="classes" thread-count="5">
         <classes>
             <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskFunctionalTest"/>
