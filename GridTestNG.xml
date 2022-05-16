@@ -8,7 +8,7 @@
     <parameter name="browserName" value="firefox-grid"></parameter>
     <test name="OS Ticket V2 FUNCTIONAL Test" parallel="classes" thread-count="5">
         <classes>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskFunctionalTest"/>
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
 
             <!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
                         <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2AdminPanelTest"/>-->
