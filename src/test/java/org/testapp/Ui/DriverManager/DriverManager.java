@@ -91,8 +91,7 @@ public class DriverManager {
                 break;
 
             case "jenkins-docker":
-                DesiredCapabilities dc = DesiredCapabilities.chrome();
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),driverOptions.getChromeOptions());
                 break;
 
         }
