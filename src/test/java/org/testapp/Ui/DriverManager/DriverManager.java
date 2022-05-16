@@ -81,7 +81,7 @@ public class DriverManager {
                 break;
 
             case "jenkins-chrome":
-                driver = new RemoteWebDriver(new URL("http://172.17.0.2:4444/wd/hub"),driverOptions.getChromeOptions());
+                driver = new RemoteWebDriver(new URL("http://172.17.0.2:4444/wd/hub"),driverOptions.getJenkinsChromeOptions());
                 break;
 
         }
