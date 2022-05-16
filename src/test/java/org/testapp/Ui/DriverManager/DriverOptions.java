@@ -7,7 +7,17 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.opera.OperaOptions;
 
 public class DriverOptions {
-
+    public static ChromeOptions getJenkinsChromeOptions(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("headless");
+        chromeOptions.addArguments("disable-gpu");
+        chromeOptions.addArguments("window-size=1200,1100");
+        chromeOptions.addArguments("ignore-certificate-errors");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-popup-blocking");
+        return chromeOptions;
+    }
     public static ChromeOptions getChromeOptions(){
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("start-maximized");
