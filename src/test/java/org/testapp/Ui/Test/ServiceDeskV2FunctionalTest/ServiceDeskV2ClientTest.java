@@ -1,6 +1,7 @@
 package org.testapp.Ui.Test.ServiceDeskV2FunctionalTest;
 
 import org.testapp.Ui.DataProvider.PropertyManager;
+import org.testapp.Ui.Pages.Faveo.Client.TicketCreatePage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Test.TestBase.BaseTestFactory;
 import org.testng.annotations.Test;
@@ -21,6 +22,15 @@ public class ServiceDeskV2ClientTest extends BaseTestFactory {
         loginPage.clientlogin(CLIENT_EMAIL, CLIENT_PASSWORD);
 
     }
+
+    TicketCreatePage ticketCreatePage;
+    @Test(dependsOnMethods = {"clientLogin"})
+    public void submitTicketClient(){
+        ticketCreatePage = new TicketCreatePage(driver);
+        ticketCreatePage.getTicketCreatePage()
+                .submitTicket("mustafa", "test");
+    }
+
 
 
 }
