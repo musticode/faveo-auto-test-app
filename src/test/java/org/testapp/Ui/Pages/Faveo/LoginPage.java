@@ -21,6 +21,13 @@ public class LoginPage extends BasePage {
 
     private By alertEmailNotRegisteredLocator = By.xpath("//*[@id=\"main\"]/div/div/div[2]/div[1]");
 
+    //client
+    private By clientEmailTextAreaLocator = By.xpath("//*[@id=\"client-login\"]/div/form/div[1]/input");
+    private By clientPasswordTextAreaLocator = By.xpath("//*[@id=\"client-login\"]/div/form/div[2]/input");
+    private By clientLoginButtonLocator = By.xpath("//*[@id=\"client-login\"]/div/form/div[3]/button");
+
+
+
     @FindBy (id = "staff-login-tab")
     WebElement stafEl;
 
@@ -51,9 +58,9 @@ public class LoginPage extends BasePage {
     @Step("Client login with email {email} and password {pwd}")
     public void clientlogin(String email, String pwd){
         click(clientLoginTabLocator);
-        setText(emailTextAreaLocator, email);
-        setText(passwordTextAreaLocator, pwd);
-        click(loginButtonLocator);
+        setText(clientEmailTextAreaLocator, email);
+        setText(clientPasswordTextAreaLocator, pwd);
+        click(clientLoginButtonLocator);
     }
 
     @Step("Staff login with email {email} and password {pwd}")
