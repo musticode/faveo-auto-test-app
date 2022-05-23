@@ -31,6 +31,15 @@ public class HomePage extends BasePage {
     private By dashboardLoc = By.xpath("//*[@id=\"dropdown_content\"]/a[2]");
 
 
+    //client page elements
+    private By submitTicketButtonLocator = By.xpath("//*[@id=\"wbox\"]/span[1]/a");
+    private By myTicketsButtonLocator = By.xpath("//*[@id=\"wbox\"]/span[2]/a");
+    private By knowledgeBaseButtonLocator = By.xpath("//*[@id=\"wbox\"]/span[3]/a");
+
+//    private By myTicketsButtonLocator = By.xpath("");
+//    private By myTicketsButtonLocator = By.xpath("");
+//    private By myTicketsButtonLocator = By.xpath("");
+
 
 
     DashboardPage dashboardPage;
