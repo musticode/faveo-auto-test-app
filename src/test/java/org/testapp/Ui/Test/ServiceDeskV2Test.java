@@ -342,11 +342,13 @@ public class ServiceDeskV2Test extends BaseTest {
 
     private String CLIENT_EMAIL = PropertyManager.getInstance().getTestClientEmail();
     private String CLIENT_PASSWORD = PropertyManager.getInstance().getTestClientPassword();
+    HomePage homePage;
     @Test
     public void clientLogin(){
         loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
         loginPage.clientlogin(CLIENT_EMAIL, CLIENT_PASSWORD);
-
+        homePage.homePageOpened();
     }
 
     TicketCreatePage ticketCreatePage;
@@ -355,6 +357,12 @@ public class ServiceDeskV2Test extends BaseTest {
         ticketCreatePage = new TicketCreatePage(driver);
         ticketCreatePage.getTicketCreatePage()
                 .submitTicket("mustafa", "test");
+    }
+
+    @Test(dependsOnMethods = {"clientLogin"})
+    public void clientLogOut(){
+        homePage = new HomePage(driver);
+        homePage.signOutFromHomePage();
     }
 
 

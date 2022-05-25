@@ -6,11 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testapp.Ui.Pages.BasePage;
+import org.testng.Assert;
 
 import java.util.List;
 
 public class HomePage extends BasePage {
     private By myProfileDropDownLocator = By.xpath("//*[@id=\"navbarDropdown\"]");
+
+
 /*    private By dropdownDashboardButtonLocator = By.xpath("//*[@id=\"dropdown_content\"]/a[2]");
 
     private By dropdownLogoutButtonLocator = By.cssSelector("#dropdown_content > a:nth-child(1)");*/
@@ -36,6 +39,9 @@ public class HomePage extends BasePage {
     private By myTicketsButtonLocator = By.xpath("//*[@id=\"wbox\"]/span[2]/a");
     private By knowledgeBaseButtonLocator = By.xpath("//*[@id=\"wbox\"]/span[3]/a");
 
+    private By getMyProfileDropDownLocator2 = By.xpath("//a[contains(.,'My profile')]");
+    private By logOutButtonLocator = By.xpath("//*[@id=\"dropdown_content\"]/a[1]");
+
 //    private By myTicketsButtonLocator = By.xpath("");
 //    private By myTicketsButtonLocator = By.xpath("");
 //    private By myTicketsButtonLocator = By.xpath("");
@@ -59,7 +65,15 @@ public class HomePage extends BasePage {
         click(myProfileDropDownLocator);
 //        click(dropdownLogoutButtonLocator);
     }
+    public void signOutFromHomePage(){
+        click(getMyProfileDropDownLocator2);
+        click(logOutButtonLocator);
+    }
 
+
+    public void homePageOpened(){
+        Assert.assertEquals(isDisplayed(myProfileDropDownLocator), true, "Home Page is not opened");
+    }
 
     public boolean isHomePageOpened(){
         if(isDisplayed(myProfileDropDownLocator)){
