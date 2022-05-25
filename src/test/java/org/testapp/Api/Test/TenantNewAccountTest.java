@@ -45,7 +45,7 @@ public class TenantNewAccountTest {
     @Test
     @Description("register tenant with valid credentials")
     public void registerTenant(){
-        response = RestClientTenant.doPost(TENANT_URL.concat("api/v1/tenant/status/test"),
+        response = RestClientTenant.doPost(TENANT_URL.concat("api/v1/tenant/register"),
                 registerRequestBody
                 .getTenantRegisterRequestBody(tenantUserName, tenantNewPassword, tenantEmail,tenantCompanyName, tenantSubdomain));
 

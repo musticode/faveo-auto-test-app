@@ -5,13 +5,27 @@
         <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
     </listeners>
 
+    <test name="OS Ticket V2 FUNCTIONAL Test - Smoke Test">
     <parameter name="browserName" value="firefox-grid"></parameter>
-    <test name="OS Ticket V2 FUNCTIONAL Test" parallel="classes" thread-count="5">
+
         <classes>
             <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2ClientTest"></class>
             <!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
                         <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2AdminPanelTest"/>-->
         </classes>
     </test> <!-- Test -->
+
+    <test name="OS Ticket V2 FUNCTIONAL Test - Client" >
+        <parameter name="browserName" value="firefox-grid"></parameter>
+        <classes>
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2ClientTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+
+
+
+
+
+
 </suite> <!-- Suite -->
