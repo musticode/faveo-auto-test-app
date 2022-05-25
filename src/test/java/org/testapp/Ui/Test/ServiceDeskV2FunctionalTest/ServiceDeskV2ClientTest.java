@@ -1,5 +1,6 @@
 package org.testapp.Ui.Test.ServiceDeskV2FunctionalTest;
 
+import io.qameta.allure.Description;
 import org.testapp.Ui.DataProvider.PropertyManager;
 import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.Faveo.Client.TicketCreatePage;
@@ -21,6 +22,7 @@ public class ServiceDeskV2ClientTest extends BaseTestFactory {
     HomePage homePage;
 
     @Test
+    @Description("Client login")
     public void clientLogin(){
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
@@ -30,6 +32,7 @@ public class ServiceDeskV2ClientTest extends BaseTestFactory {
 
     TicketCreatePage ticketCreatePage;
     @Test(dependsOnMethods = {"clientLogin"})
+    @Description("Submit ticket as client")
     public void submitTicketClient(){
         ticketCreatePage = new TicketCreatePage(driver);
         ticketCreatePage.getTicketCreatePage()
@@ -37,6 +40,7 @@ public class ServiceDeskV2ClientTest extends BaseTestFactory {
     }
 
     @Test(dependsOnMethods = {"clientLogin"}, priority = 999)
+    @Description("Logout as client")
     public void clientLogOut(){
         homePage = new HomePage(driver);
         homePage.signOutFromHomePage();

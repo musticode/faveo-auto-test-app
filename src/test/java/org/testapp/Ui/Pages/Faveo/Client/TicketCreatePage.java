@@ -1,5 +1,6 @@
 package org.testapp.Ui.Pages.Faveo.Client;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -21,11 +22,13 @@ public class TicketCreatePage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Get ticket create page")
     public TicketCreatePage getTicketCreatePage(){
         driver.get(APP_URL.concat("/create-ticket"));
         return this;
     }
 
+    @Step("Submit ticket with {subject} and {message}")
     public void submitTicket( String subject, String message){
         select(chooseHelpTopicDropdownLocator, 1);
         select(statusDropdownLocator, 1);
