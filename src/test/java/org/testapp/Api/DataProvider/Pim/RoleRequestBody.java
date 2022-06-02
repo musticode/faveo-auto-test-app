@@ -19,7 +19,7 @@ public class RoleRequestBody {
 //        paramsObject.put("camLogin", "");
         paramsObject.put("name","Account User");
 
-        paramsObject.put("baseRoleId","3-Technician");
+        paramsObject.put("baseRoleId","3");
 
 //        paramsObject.put("timeZone","GMT+03:00");
 //        paramsObject.put("roleId",5);
