@@ -20,7 +20,7 @@ public class CompanyRequestBody {
         paramsObject.put("mspId",mspId);
         paramsObject.put("name","one-two");
         paramsObject.put("types",typesArr);
-        paramsObject.put("contactemail","test@email.com");
+        paramsObject.put("contactEmail","test@email.com");
         paramsObject.put("authenticatedAdminIds",typesArr2);
 
 
@@ -51,7 +51,7 @@ public class CompanyRequestBody {
         paramsObject.put("mspId",mspId);
         paramsObject.put("name","one-two-three");
         paramsObject.put("types",typesArr);
-        paramsObject.put("contactemail","test1@email.com");
+        paramsObject.put("contactEmail","test1@email.com");
         paramsObject.put("authenticatedAdminIds",typesArr2);
 
         JSONObject requestBody = new JSONObject();
@@ -75,7 +75,7 @@ public class CompanyRequestBody {
         paramsObject.put("mspId",mspId);
         paramsObject.put("name","one-two");
         paramsObject.put("types",typesArr);
-        paramsObject.put("contactemail","test@email.com");
+        paramsObject.put("contactEmail","test@email.com");
         paramsObject.put("authenticatedAdminIds",typesArr2);
 
 

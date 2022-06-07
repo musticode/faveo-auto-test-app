@@ -37,7 +37,7 @@ public class UserRequestBody {
         JSONObject paramsObject = new JSONObject();
         paramsObject.put("companyId", companyId);
 
-        paramsObject.put("name","onur göker");
+        paramsObject.put("name","onur goker");
         paramsObject.put("email","test16@user.com");
         paramsObject.put("userType","c1-azure-user");
 

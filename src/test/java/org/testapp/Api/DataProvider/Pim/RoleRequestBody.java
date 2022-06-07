@@ -14,11 +14,7 @@ public class RoleRequestBody {
 
         JSONObject paramsObject = new JSONObject();
         paramsObject.put("id",mspId);
-//        paramsObject.put("mspId",mspId);
-//        paramsObject.put("email","beyza.ince.zahirfaveaao@yopmail.com");
-//        paramsObject.put("camLogin", "");
         paramsObject.put("name","Account User");
-
         paramsObject.put("baseRoleId","3");
 
 //        paramsObject.put("timeZone","GMT+03:00");
@@ -37,7 +33,6 @@ public class RoleRequestBody {
         requestBody.put("eventName","roleCreated");
         requestBody.put("mspId",mspId);
         requestBody.put("params",paramsObject);
-        requestBody.put("requestId","6afcc4e0-7e95-11ec-b6c2-5bb1dd946257");
         requestBody.put("eventDispatcherNameSpace","ComodoOnePortal");
         requestBody.put("serNameSpace","ComodoOnePortal");
         requestBody.put("additionalData",additionalDataObject);

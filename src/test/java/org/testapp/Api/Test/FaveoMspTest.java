@@ -38,9 +38,9 @@ public class FaveoMspTest {
 
     @Test
     public void testString(){
-        System.out.println(fakeMspId);
-        System.out.println(fakeCompanyId);
-        System.out.println(fakeStaffUniqueUserId);
+        System.out.println("fake msp id: "+fakeMspId);
+        System.out.println("fake company id: "+fakeCompanyId);
+        System.out.println("fake staff unique user id:" +fakeStaffUniqueUserId);
 
 
 //        String ciguli = DataGenerator.getDataGenerator().getRandomData();
@@ -98,7 +98,8 @@ public class FaveoMspTest {
     @Test(priority = 2)
     @Severity(SeverityLevel.BLOCKER)
     @Description("Update MSP with PATCH operation")
-    public void updateMsp(){
+    public void updateMsp() throws InterruptedException {
+        Thread.sleep(10000);
         mspRequestBody= new MspRequestBody();
         response = RestClientValidatableResponse.doPatch(requestUrl.getMspUpdateRequestUrl(),
                 mspRequestBody.getMspUpdateBody(fakeMspId));
@@ -116,7 +117,8 @@ public class FaveoMspTest {
     @Test(priority = 2)
     @Severity(SeverityLevel.BLOCKER)
     @Description("Hold MSP with PATCH operation")
-    public void holdMsp(){
+    public void holdMsp() throws InterruptedException {
+        Thread.sleep(10000);
         mspRequestBody= new MspRequestBody();
         response = RestClientValidatableResponse.doPatch(requestUrl.getMspHoldRequestUrl(),
                 mspRequestBody.getMspHoldBody(fakeMspId));
@@ -135,7 +137,8 @@ public class FaveoMspTest {
     @Test(priority = 3)
     @Severity(SeverityLevel.BLOCKER)
     @Description("Unhold MSP with PATCH operation")
-    public void unholdMsp(){
+    public void unholdMsp() throws InterruptedException {
+        Thread.sleep(10000);
         mspRequestBody= new MspRequestBody();
         response = RestClientValidatableResponse.doPatch(requestUrl.getMspUnholdRequestUrl(),
                 mspRequestBody.getMspUnholdRequestBody(fakeMspId));
@@ -152,7 +155,10 @@ public class FaveoMspTest {
 
     }
     @Test(priority = 4)
-    public void createRole(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("create role")
+    public void createRole()throws InterruptedException {
+        Thread.sleep(10000);
         roleRequestBody = new RoleRequestBody();
 
         //sending request
@@ -162,15 +168,17 @@ public class FaveoMspTest {
         //sout
         RestClientValidatableResponse.responseAsString(response);
 
-        //assertions
-        response.assertThat().statusCode(200);
+        //assertions beyzatest1auto23yvo6
         response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
         response.assertThat().body("code", IsEqual.equalTo(201));
         response.assertThat().body("message", IsEqual.equalTo("Role Created"));
 
     }
     @Test(priority = 5)
-    public void createAdmin(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("create admin")
+    public void createAdmin()throws InterruptedException {
+        Thread.sleep(10000);
         adminRequestBody = new AdminRequestBody();
 
         response = RestClientValidatableResponse.doPost(requestUrl.getAdminCreateRequestUrl(),
@@ -180,10 +188,16 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("Admin Created"));
 
     }
     @Test(priority = 6)
-    public void createCompany(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("create company")
+    public void createCompany()throws InterruptedException {
+        Thread.sleep(10000);
         companyRequestBody = new CompanyRequestBody();
 
         response = RestClientValidatableResponse.doPost(requestUrl.getCompanyCreateRequestUrl(),
@@ -193,11 +207,18 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("Company Created"));
+
 
 
     }
     @Test(priority = 7)
-    public void updateCompany(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("update company")
+    public void updateCompany()throws InterruptedException {
+        Thread.sleep(10000);
         companyRequestBody = new CompanyRequestBody();
 
         response = RestClientValidatableResponse.doPatch(requestUrl.getCompanyUpdateRequestUrl(),
@@ -207,11 +228,17 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("Company Updated"));
 
 
     }
     @Test(priority = 8)
-    public void createStaff(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("create staff")
+    public void createStaff()throws InterruptedException {
+        Thread.sleep(10000);
         staffRequestBody = new StaffRequestBody();
 
         response = RestClientValidatableResponse.doPost(requestUrl.getStaffCreateRequestUrl(),
@@ -221,13 +248,19 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("Admin Created"));
 
 
 
-
+    //77638
     }
     @Test(priority = 9)
-    public void updateStaff(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("update staff")
+    public void updateStaff()throws InterruptedException {
+        Thread.sleep(10000);
         staffRequestBody = new StaffRequestBody();
 
         response = RestClientValidatableResponse.doPatch(requestUrl.getStaffUpdateRequestUrl(),
@@ -237,10 +270,16 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("Admin Updated"));
 
     }
     @Test(priority = 10)
-    public void createUser(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("create user")
+    public void createUser()throws InterruptedException {
+        Thread.sleep(10000);
         userRequestBody = new UserRequestBody();
 
         response = RestClientValidatableResponse.doPost(requestUrl.getUserCreateRequestUrl(),
@@ -250,10 +289,16 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
+        response.assertThat().body("message", IsEqual.equalTo("User Created"));
 
     }
     @Test(priority = 11)
-    public void updateUser(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("update user")
+    public void updateUser()throws InterruptedException {
+        Thread.sleep(10000);
         userRequestBody = new UserRequestBody();
 
         response = RestClientValidatableResponse.doPatch(requestUrl.getUserUpdateRequestUrl(),
@@ -266,7 +311,10 @@ public class FaveoMspTest {
 
     }
     @Test(priority = 12)
-    public void deleteUser(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("delete user")
+    public void deleteUser()throws InterruptedException {
+        Thread.sleep(10000);
         userRequestBody = new UserRequestBody();
 
         response = RestClientValidatableResponse.doDelete(requestUrl.getUserDeleteRequestUrl(),
@@ -278,7 +326,8 @@ public class FaveoMspTest {
         //assertions
     }
     @Test(priority = 13)
-    public void deleteStaff(){
+    public void deleteStaff()throws InterruptedException {
+        Thread.sleep(10000);
         staffRequestBody = new StaffRequestBody();
 
         response = RestClientValidatableResponse.doDelete(requestUrl.getStaffDeleteRequestUrl(),
@@ -291,7 +340,10 @@ public class FaveoMspTest {
 
     }
     @Test(priority = 14)
-    public void deleteCompany(){
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("delete company")
+    public void deleteCompany()throws InterruptedException {
+        Thread.sleep(10000);
         companyRequestBody = new CompanyRequestBody();
 
         response = RestClientValidatableResponse.doDelete(requestUrl.getCompanyDeleteRequestUrl(),
@@ -306,7 +358,8 @@ public class FaveoMspTest {
     @Test(priority = 15)
     @Severity(SeverityLevel.BLOCKER)
     @Description("Delete MSP with DELETE operation")
-    public void deleteMsp(){
+    public void deleteMsp() throws InterruptedException {
+        Thread.sleep(10000);
         mspRequestBody= new MspRequestBody();
 
         response = RestClientValidatableResponse.doDelete(requestUrl.getMspDeleteRequestUrl(),
