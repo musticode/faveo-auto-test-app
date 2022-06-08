@@ -17,17 +17,20 @@ public class TestUtil extends DriverManager {
     public static String filePath = "src/test/java/org/testapp/Ui/ScreenShots";
     public static String screenshotpath;
 
+    //allure attachment page screenshot
     @Attachment(value = "Page screenshot ", type = "image/png")
     public static byte [] saveScreenShotAsPNG(WebDriver driver){
         return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
     }
 
+    //allure attachment test error
     @Attachment(value = "{0}", type = "text/plain")
     public static String saveTextLog(String message){
         return message;
     }
 
 
+    //screenshot capture to project files with calendar name
     public void captureScreenshot(String methodName) throws IOException {
         //Using GregorianCalendar to fetch the time details
         Calendar cal = new GregorianCalendar();

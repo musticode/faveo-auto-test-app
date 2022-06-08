@@ -337,6 +337,8 @@ public class FaveoMspTest {
         RestClientValidatableResponse.responseAsString(response);
 
         //assertions
+        response.assertThat().body("status", IsEqual.equalTo("SUCCESS"));
+        response.assertThat().body("code", IsEqual.equalTo(201));
 
     }
     @Test(priority = 14)
