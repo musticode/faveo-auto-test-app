@@ -17,12 +17,13 @@ public class DashboardPage extends BasePage {
 
     private By dropdownUserMenuLocator = By.cssSelector(".nav-item.dropdown.user-menu");
 
-    private By userNameProfileNavbarLocator = By.xpath("/html/body/div[1]/aside/div/div[4]/div/div/div");
-
+    //private By userNameProfileNavbarLocator = By.xpath("/html/body/div[1]/aside/div/div[4]/div/div/div");
+    private By serviceDeskV2MavbarBrandLocator = By.xpath("//*[@id=\"app\"]/div/aside/a");
     private By adminPanelNavItemLocator = By.xpath("/html/body/div[1]/nav/ul[3]/li[1]/a");
 
-    private By logoutDropDownLocator = By.xpath("/html/body/div[1]/nav/ul[3]/li[5]/a");
-    private By signOutButtonLocator = By.xpath("/html/body/div[1]/nav/ul[3]/li[5]/ul/li[2]/a[2]");
+    //logout locator
+    private By logoutDropDownLocator = By.xpath("//*[@id=\"app\"]/div/nav/ul[3]/li[5]/a");
+    private By signOutButtonLocator = By.xpath("//*[@id=\"app\"]/div/nav/ul[3]/li[5]/ul/li[2]/a[2]");
 
     private By mailTexy = By.xpath("/html/body/div[1]/aside/div/div[4]/div/div/div");
 
@@ -62,11 +63,11 @@ public class DashboardPage extends BasePage {
 
 
     public void checkDashboardOpened(){
-        Assert.assertTrue(isDisplayed(userNameProfileNavbarLocator),"Dashboard is not opened");
+        Assert.assertTrue(isDisplayed(serviceDeskV2MavbarBrandLocator),"Dashboard is not opened");
     }
 
     public void checkLogin(){
-        Assert.assertTrue(isDisplayed(userNameProfileNavbarLocator),"Dashboard is not opened, not logged in");
+        Assert.assertTrue(isDisplayed(serviceDeskV2MavbarBrandLocator),"Dashboard is not opened, not logged in");
     }
 
     public void checkWithString(String mail){
@@ -77,12 +78,12 @@ public class DashboardPage extends BasePage {
     @Step("Is dashboard page opened")
     public boolean isDashboardPageOpened(){
 
-        return isDisplayed(userNameProfileNavbarLocator);
+        return isDisplayed(serviceDeskV2MavbarBrandLocator);
     }
 
     @Step("Navigate to dashboard page")
     public void getFaveoDashboard(){
-        driver.get(APP_URL.concat("/dashboard"));
+        driver.get(APP_URL.concat("/idashboard"));
     }
 
 
