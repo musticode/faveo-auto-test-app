@@ -7,7 +7,7 @@ public class PasswordChangeRequestBody {
         JSONObject tenantPasswordChangeRequestObject = new JSONObject();
         tenantPasswordChangeRequestObject.put("email", tenantEmail);
         tenantPasswordChangeRequestObject.put("current_password", tenantPassword);
-        tenantPasswordChangeRequestObject.put("password", tenantPassword);
+        tenantPasswordChangeRequestObject.put("password", tenantNewPassword);
         tenantPasswordChangeRequestObject.put("password_confirmation", tenantNewPassword);
 
         return tenantPasswordChangeRequestObject.toString();

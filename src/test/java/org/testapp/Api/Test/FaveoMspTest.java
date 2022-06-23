@@ -43,8 +43,6 @@ public class FaveoMspTest {
         System.out.println("fake staff unique user id:" +fakeStaffUniqueUserId);
 
 
-//        String ciguli = DataGenerator.getDataGenerator().getRandomData();
-//        System.out.println(ciguli);
 
     }
     @Test
