@@ -5,6 +5,7 @@
     <test name="OS Ticket V2 PIM API Test">
         <classes>
             <class name="org.testapp.Api.Test.FaveoMspTest"/>
+            <class name="org.testapp.Api.Test.TenantNewAccountTest"/>
         </classes>
     </test> <!-- Test -->
 

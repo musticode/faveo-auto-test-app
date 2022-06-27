@@ -22,5 +22,15 @@ public class FakeDataGenerator {
         return faker.numerify("#####");
     }
 
+    public String fakeTenantSubdomain(String subdomain){
+        FakeValuesService faker = new FakeValuesService(new Locale("en-US"), new RandomService());
+        return faker.regexify(subdomain+"[a-z1-9]{5}");
+    }
+
+    public String fakeTenantEmail(String email){
+        FakeValuesService faker = new FakeValuesService(new Locale("en-US"), new RandomService());
+        return faker.regexify(email + "[a-z1-9]{5}").concat("@yopmail.com");
+    }
+
 
 }
