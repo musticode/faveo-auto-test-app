@@ -39,7 +39,7 @@ public class MspRequestBody {
         JSONObject paramsObject = new JSONObject();
         paramsObject.put("id",mspId);
         paramsObject.put("name","test_update_name");
-        paramsObject.put("subdomain","test_update_subdomainaabb_testToplanti11"+mspId);
+        paramsObject.put("subdomain",mspId);
         paramsObject.put("types",typesArr);
         paramsObject.put("contactEmail","mail@test.com");
         paramsObject.put("chapterId","mspId");
