@@ -35,7 +35,7 @@ public class BaseTestFactory extends DriverManager {
     @AfterTest
     public void terminateBrowser(){
         tearDown();
-        driver.close();
+//        driver.close();
         System.out.println("Driver is removed");
     }
 

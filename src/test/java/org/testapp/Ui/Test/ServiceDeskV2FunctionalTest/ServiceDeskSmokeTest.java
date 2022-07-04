@@ -33,9 +33,14 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     }
 
     ProfilePage profilePage;
-    @Test (priority = 2, dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Test //(priority = 2, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void getProfilePage(){
         profilePage = new ProfilePage(driver);
+        loginPage = new LoginPage(driver);
+
+        //login as staff
+        loginPage.staffLogin(TEST_EMAIL, TEST_PWD);
+        //go to profile page
         profilePage.getProfilePage();
         profilePage.checkProfilePageOpened();
     }
