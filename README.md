@@ -61,8 +61,23 @@ kill process:
 sudo docker-compose down
 ```
 
-### API Test
+### API Test Execution
 ```
 mvn clean test -DsuiteXmlFile=APITestNG.xml
 ```
+### UI Test Execution in Jenkins
+Start jenkins service <br>
+Start selenium hub via: 
+```
+docker-compose up
+```
+Selenium hub containers should be running <br>
+Go to localhost:4444 <br>
+UI Tests will be run in 4444 port in a browser containers
+
+```
+mvn clean test -DsuiteXmlFile=JenkinsBuild.xml
+```
+
+
 

@@ -8,7 +8,7 @@
     <test name="Jenkins CI CD Tool Test Run" parallel="classes" thread-count="5">
         <classes>
 
-            <class name="org.testapp.Ui.Test.TestWithBaseFactory"/>
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
 
         </classes>
     </test> <!-- Testahhhhaaa a a-->

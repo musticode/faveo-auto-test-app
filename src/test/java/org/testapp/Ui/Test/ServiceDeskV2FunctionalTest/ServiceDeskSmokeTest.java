@@ -25,7 +25,7 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     }
 
     DashboardPage dashboardPage;
-    @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Test (priority = 1, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void getDashboardPage(){
         dashboardPage = new DashboardPage(driver);
         dashboardPage.getFaveoDashboard();
@@ -33,7 +33,7 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     }
 
     ProfilePage profilePage;
-    @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Test (priority = 2, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void getProfilePage(){
         profilePage = new ProfilePage(driver);
         profilePage.getProfilePage();
@@ -42,7 +42,7 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
 
 
     AdminPanelDashboardPage adminPanelDashboardPage;
-    @Test (dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Test (priority = 3, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void getAdminPanel(){
         adminPanelDashboardPage = new AdminPanelDashboardPage(driver);
         adminPanelDashboardPage.getAdminPanelDashboardPage();
@@ -59,7 +59,7 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     */
     LandingPage landingPage;
 
-    @Test
+    @Test (priority = 4)
     public void landingPageNavigationLogin(){
         landingPage = new LandingPage(driver);
         loginPage = new LoginPage(driver);
@@ -71,7 +71,7 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     }
 
     RegisterPage registerPage;
-    @Test
+    @Test (priority = 5 )
     public void landingPageNavigationRegister(){
         landingPage = new LandingPage(driver);
         registerPage = new RegisterPage(driver);
@@ -81,14 +81,14 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
         registerPage.checkRegistrationPageOpened();
     }
 
-    @Test
+    @Test (priority = 7 )
     public void checkMyTicketsPageWithoutLogin(){
         landingPage = new LandingPage(driver);
         landingPage.getLandingPage();
         landingPage.clickMytickets().checkLoginPageOpened();
     }
 
-    @Test (/*dependsOnMethods = {"signOut"}*/)
+    @Test  (priority = 6 )
     public void checkKnowledgeBaseWithoutLogin(){
         landingPage = new LandingPage(driver);
         landingPage.getLandingPage();
@@ -96,7 +96,7 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     }
 
     TicketInboxPage ticketInboxPage;
-    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    @Test(priority = 8, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void ticketDetailsTest(){
         ticketInboxPage = new TicketInboxPage(driver);
 
@@ -106,8 +106,9 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
                 .checkTicketDetailsPageOpened();
     }
 
-    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
-    public void editTicketDetailsTest(){
+    @Test(priority = 9, dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void editTicketDetailsTest() throws InterruptedException {
+        Thread.sleep(Long.parseLong("10000"));
         ticketInboxPage = new TicketInboxPage(driver);
         ticketInboxPage
                 .getTicketInboxPage()
@@ -116,7 +117,8 @@ public class ServiceDeskSmokeTest extends BaseTestFactory {
     }
 
     @Test(priority = 999, dependsOnMethods = {"staffLoginWithValidCredentials"})
-    public void signOut(){
+    public void signOut() throws InterruptedException {
+        Thread.sleep(Long.parseLong("10000"));
         dashboardPage = new DashboardPage(driver);
         dashboardPage.getFaveoDashboard();
         dashboardPage.signOut();
