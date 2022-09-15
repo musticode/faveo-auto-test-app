@@ -109,9 +109,10 @@ public class Api {
         response.assertThat().statusCode(200);
     }
 
+    RestClient rest = new SubRestClient();
     @Test
     public void tesrtttt2Abstract(){
-        RestClient rest = new SubRestClient();
+
         response = rest.doGet("https://api.servicedeskv2.dmdemo.comodo.com/api/v1/tickets");
         response.log().body().extract().asString();
         response.assertThat().statusCode(200);
