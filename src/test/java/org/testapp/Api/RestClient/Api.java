@@ -2,6 +2,8 @@ package org.testapp.Api.RestClient;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
+import org.testapp.Api.RestClient.abstraction.RestClient;
+import org.testapp.Api.RestClient.abstraction.SubRestClient;
 import org.testng.annotations.Test;
 
 import static com.jayway.restassured.RestAssured.given;
@@ -54,6 +56,12 @@ public class Api {
     }
 
     @Test
+    public void test2FaveoApi(){
+
+
+    }
+
+    @Test
     public void testReqres(){
         ValidatableResponse resp1 = getRequest("https://reqres.in/api/users?page=2");
         responseAsString(resp1);
@@ -79,6 +87,34 @@ public class Api {
     @Test
     public void test1(){
         System.out.println("aaa");
+    }
+
+    @Test
+    public void faveoApiGetTest(){
+        response = given()
+                .contentType(ContentType.JSON)
+                .header("Authorization","Basic dGVzdGFjY291bnRtc3AzOmVUdk9oQW55UFpubm5kczIzUWk1bEJUOERRM2xnaXI4")
+                .get("https://api.servicedeskv2.dmdemo.comodo.com/api/v1/tickets")
+                .then();
+        response.log().body().extract().asString();
+        response.assertThat().statusCode(200);
+
+
+    }
+
+    @Test
+    public void tesrtttt(){
+        response = RestClientFaveoApi.doGet("https://api.servicedeskv2.dmdemo.comodo.com/api/v1/tickets");
+        response.log().body().extract().asString();
+        response.assertThat().statusCode(200);
+    }
+
+    @Test
+    public void tesrtttt2Abstract(){
+        RestClient rest = new SubRestClient();
+        response = rest.doGet("https://api.servicedeskv2.dmdemo.comodo.com/api/v1/tickets");
+        response.log().body().extract().asString();
+        response.assertThat().statusCode(200);
     }
 
 }
