@@ -19,7 +19,7 @@ public class SubRestClient extends RestClient{
     public ValidatableResponse doPost(String url, String body) {
         RequestSpecification req = RestClient.getRequestSpecification(FAVEO_AUTH_KEY);
         req.body(body);
-        return RestClientValidatableResponse.getResponse("POST",req,url);
+        return getResponse("POST",req,url);
 
     }
 
@@ -27,20 +27,20 @@ public class SubRestClient extends RestClient{
     public ValidatableResponse doPatch(String url, String body) {
         RequestSpecification req = RestClient.getRequestSpecification(FAVEO_AUTH_KEY);
         req.body(body);
-        return RestClientValidatableResponse.getResponse("PATCH",req,url);
+        return getResponse("PATCH",req,url);
     }
 
     @Override
     public ValidatableResponse doPut(String url, String body) {
         RequestSpecification req = RestClient.getRequestSpecification(FAVEO_AUTH_KEY);
         req.body(body);
-        return RestClientValidatableResponse.getResponse("PUT",req,url);
+        return getResponse("PUT",req,url);
     }
 
     @Override
     public ValidatableResponse doDelete(String url, String body) {
         RequestSpecification req = RestClient.getRequestSpecification(FAVEO_AUTH_KEY);
         req.body(body);
-        return RestClientValidatableResponse.getResponse("DELETE",req,url);
+        return getResponse("DELETE",req,url);
     }
 }
