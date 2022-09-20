@@ -3,7 +3,7 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
 import org.testapp.Api.RestClient.abstraction.RestClient;
-import org.testapp.Api.RestClient.abstraction.SubRestClient;
+import org.testapp.Api.RestClient.abstraction.FaveoApiRestClient;
 import org.testng.annotations.Test;
 
 import static com.jayway.restassured.RestAssured.given;
@@ -109,7 +109,7 @@ public class Api {
         response.assertThat().statusCode(200);
     }
 
-    RestClient rest = new SubRestClient();
+    RestClient rest = new FaveoApiRestClient();
     @Test
     public void tesrtttt2Abstract(){
 

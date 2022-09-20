@@ -3,9 +3,8 @@ package org.testapp.Api.RestClient.abstraction;
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
 import org.testapp.Api.PropertyManager.FaveoApiPropertyManager;
-import org.testapp.Api.RestClient.RestClientValidatableResponse;
 
-public class SubRestClient extends RestClient{
+public class FaveoApiRestClient extends RestClient{
     private static final String FAVEO_AUTH_KEY = FaveoApiPropertyManager.getInstance().getAuthorization();
 
     @Override
