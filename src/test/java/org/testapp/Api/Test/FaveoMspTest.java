@@ -254,6 +254,8 @@ public class FaveoMspTest {
 
     //77638
     }
+
+    //id'ler karışıyor, update yaparken create'den dönen cevaptaki id alınıp o id update edilecek
     @Test(priority = 9)
     @Severity(SeverityLevel.BLOCKER)
     @Description("update staff")
