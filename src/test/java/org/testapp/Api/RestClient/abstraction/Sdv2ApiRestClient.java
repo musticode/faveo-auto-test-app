@@ -4,7 +4,7 @@ import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
 import org.testapp.Api.PropertyManager.Sdv2ApiPropertyManager;
 
-public class FaveoApiRestClient extends RestClient{
+public class Sdv2ApiRestClient extends RestClient{
     private static final String FAVEO_AUTH_KEY = Sdv2ApiPropertyManager.getInstance().getAuthorization();
 
     @Override

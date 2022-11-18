@@ -3,7 +3,7 @@ package org.testapp.Api.Test;
 import com.jayway.restassured.response.ValidatableResponse;
 import org.testapp.Api.PropertyManager.Sdv2ApiPropertyManager;
 import org.testapp.Api.RestClient.abstraction.RestClient;
-import org.testapp.Api.RestClient.abstraction.FaveoApiRestClient;
+import org.testapp.Api.RestClient.abstraction.Sdv2ApiRestClient;
 import org.testng.annotations.Test;
 
 public class FaveoApiTest {
@@ -12,7 +12,7 @@ public class FaveoApiTest {
 
 
     ValidatableResponse response;
-    RestClient faveoApiRestClient = new FaveoApiRestClient();
+    RestClient faveoApiRestClient = new Sdv2ApiRestClient();
 
     @Test
     public void getAllMspTickets(){
