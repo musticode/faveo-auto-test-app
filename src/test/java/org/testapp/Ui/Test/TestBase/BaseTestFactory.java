@@ -22,7 +22,7 @@ public class BaseTestFactory extends DriverManager {
 //        getDriver(browserName);
 
         if(browserName == null){
-            getDriver("firefox-grid");
+            getDriver("chrome-local");
             System.out.println("Grid firefox is opened");
             driver.manage().window().maximize();
         }else{
