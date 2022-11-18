@@ -1,6 +1,5 @@
 package org.testapp.Api.Test;
 
-import com.github.javafaker.service.FakeValuesService;
 import com.jayway.restassured.response.ValidatableResponse;
 import io.qameta.allure.Description;
 import org.hamcrest.core.IsEqual;
@@ -8,21 +7,19 @@ import org.testapp.Api.DataProvider.DataGenerator.FakeDataGenerator;
 import org.testapp.Api.DataProvider.Tenant.LoginRequestBody;
 import org.testapp.Api.DataProvider.Tenant.PasswordChangeRequestBody;
 import org.testapp.Api.DataProvider.Tenant.RegisterRequestBody;
-import org.testapp.Api.PropertyManager.TenantPropertyManager;
+import org.testapp.Api.PropertyManager.TenantSaasPropertyManager;
 import org.testapp.Api.RestClient.RestClientTenant;
-import org.testapp.Ui.Listener.TestListener;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 //@Listeners(TestListener.class)
 public class TenantNewAccountTest {
 
-    private String TENANT_URL = TenantPropertyManager.getInstance().getTenantUrl();
-    private String tenantUserName = TenantPropertyManager.getInstance().getTenantUserName();
-    private String tenantPassword = TenantPropertyManager.getInstance().getTenantPassword();
-    private String tenantCompanyName = TenantPropertyManager.getInstance().getTenantSubDomain();
-    private static String tenantSubdomain = TenantPropertyManager.getInstance().getTenantSubDomain();
-    private static String tenantEmail = TenantPropertyManager.getInstance().getTenantEmail();
-    private String tenantNewPassword = TenantPropertyManager.getInstance().getTenantNewPassword();
+    private String TENANT_URL = TenantSaasPropertyManager.getInstance().getTenantUrl();
+    private String tenantUserName = TenantSaasPropertyManager.getInstance().getTenantUserName();
+    private String tenantPassword = TenantSaasPropertyManager.getInstance().getTenantPassword();
+    private String tenantCompanyName = TenantSaasPropertyManager.getInstance().getTenantSubDomain();
+    private static String tenantSubdomain = TenantSaasPropertyManager.getInstance().getTenantSubDomain();
+    private static String tenantEmail = TenantSaasPropertyManager.getInstance().getTenantEmail();
+    private String tenantNewPassword = TenantSaasPropertyManager.getInstance().getTenantNewPassword();
 
     //fake data
     static FakeDataGenerator fakeDataGenerator = new FakeDataGenerator();

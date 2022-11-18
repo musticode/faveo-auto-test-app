@@ -3,12 +3,12 @@ package org.testapp.Api.RestClient;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.testapp.Api.PropertyManager.PropertyManager;
+import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 
 import static com.jayway.restassured.RestAssured.given;
 
 public class RestClientValidatableResponse {
-    private static final String API_KEY = PropertyManager.getInstance().getApiKey();
+    private static final String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
 
 
     public static ValidatableResponse doGet(String url){

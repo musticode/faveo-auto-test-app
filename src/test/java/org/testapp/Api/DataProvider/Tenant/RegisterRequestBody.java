@@ -1,7 +1,6 @@
 package org.testapp.Api.DataProvider.Tenant;
 
 import org.json.JSONObject;
-import org.testapp.Api.PropertyManager.TenantPropertyManager;
 
 public class RegisterRequestBody {
 

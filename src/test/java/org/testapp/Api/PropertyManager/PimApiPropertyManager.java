@@ -4,8 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class PropertyManager {
-    private static PropertyManager instance;
+public class PimApiPropertyManager {
+    private static PimApiPropertyManager instance;
     private static final Object lock = new Object();
     private String configFilePath = "src/test/resources/apiConfig.properties";
 
@@ -20,10 +20,10 @@ public class PropertyManager {
     private String userIdurl;
 
 
-    public static PropertyManager getInstance(){
+    public static PimApiPropertyManager getInstance(){
         if(instance == null){
             synchronized (lock){
-                instance = new PropertyManager();
+                instance = new PimApiPropertyManager();
                 instance.loadData();
             }
         }

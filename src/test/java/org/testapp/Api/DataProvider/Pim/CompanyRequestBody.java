@@ -2,10 +2,10 @@ package org.testapp.Api.DataProvider.Pim;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.testapp.Api.PropertyManager.PropertyManager;
+import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 
 public class CompanyRequestBody {
-    private String API_KEY = PropertyManager.getInstance().getApiKey();
+    private String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
 
 
     public String getCompanyCreateRequestBody(String mspId, String companyId){

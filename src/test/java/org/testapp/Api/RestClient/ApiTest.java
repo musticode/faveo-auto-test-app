@@ -1,11 +1,10 @@
 package org.testapp.Api.RestClient;
 
-import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.ValidatableResponse;
-import org.testapp.Api.PropertyManager.PropertyManager;
+import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 import org.testng.annotations.Test;
 
 import java.util.Locale;
@@ -13,13 +12,13 @@ import java.util.Locale;
 import static com.jayway.restassured.RestAssured.given;
 
 public class ApiTest {
-    private String API_KEY = PropertyManager.getInstance().getApiKey();
-    private String APP_URL = PropertyManager.getInstance().getUrl();
-    private static String MSP_ID = PropertyManager.getInstance().getMspId();
-    private String ID = PropertyManager.getInstance().getId();
-    private String COMPANY_ID = PropertyManager.getInstance().getCompanyId();
-    private String STAFF_UNIQUE_ID = PropertyManager.getInstance().getStaffUniqueId();
-    private String USER_UNIQUE_ID = PropertyManager.getInstance().getUserUniqueId();
+    private String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
+    private String APP_URL = PimApiPropertyManager.getInstance().getUrl();
+    private static String MSP_ID = PimApiPropertyManager.getInstance().getMspId();
+    private String ID = PimApiPropertyManager.getInstance().getId();
+    private String COMPANY_ID = PimApiPropertyManager.getInstance().getCompanyId();
+    private String STAFF_UNIQUE_ID = PimApiPropertyManager.getInstance().getStaffUniqueId();
+    private String USER_UNIQUE_ID = PimApiPropertyManager.getInstance().getUserUniqueId();
 
     ValidatableResponse response;
 

@@ -1,10 +1,10 @@
 package org.testapp.Api.DataProvider.Pim;
 
 import org.json.JSONObject;
-import org.testapp.Api.PropertyManager.PropertyManager;
+import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 
 public class UserRequestBody {
-    private String API_KEY = PropertyManager.getInstance().getApiKey();
+    private String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
 
     public String getUserCreateRequestBody(String mspId, String companyId, String userUniqueId){
         JSONObject paramsObject = new JSONObject();

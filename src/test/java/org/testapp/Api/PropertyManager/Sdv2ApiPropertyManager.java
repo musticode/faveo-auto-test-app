@@ -4,18 +4,18 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class FaveoApiPropertyManager {
-    private static FaveoApiPropertyManager instance;
+public class Sdv2ApiPropertyManager {
+    private static Sdv2ApiPropertyManager instance;
     private static final Object lock = new Object();
     private String configFilePath = "src/test/resources/apiConfig.properties";
 
     private String faveoApiUrl;
     private String authorization;
 
-    public static FaveoApiPropertyManager getInstance(){
+    public static Sdv2ApiPropertyManager getInstance(){
         if (instance == null){
             synchronized (lock){
-                instance = new FaveoApiPropertyManager();
+                instance = new Sdv2ApiPropertyManager();
                 instance.loadData();
             }
         }

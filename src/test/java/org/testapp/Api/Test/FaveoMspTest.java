@@ -1,33 +1,26 @@
 package org.testapp.Api.Test;
 
-import com.github.javafaker.service.FakeValuesService;
-import com.github.javafaker.service.RandomService;
 import com.jayway.restassured.response.ValidatableResponse;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.hamcrest.core.IsEqual;
-import org.testapp.Api.DataProvider.DataGenerator.DataGenerator;
 import org.testapp.Api.DataProvider.DataGenerator.FakeDataGenerator;
 import org.testapp.Api.DataProvider.Pim.*;
-import org.testapp.Api.PropertyManager.PropertyManager;
+import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 import org.testapp.Api.RestClient.RestClientValidatableResponse;
-import org.testapp.Ui.Listener.TestListener;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
-import java.util.Locale;
 
 import static com.jayway.restassured.RestAssured.given;
 //@Listeners(TestListener.class)
 public class FaveoMspTest {
-    private String API_KEY = PropertyManager.getInstance().getApiKey();
-    private String APP_URL = PropertyManager.getInstance().getUrl();
-    static private String MSP_ID = PropertyManager.getInstance().getMspId();
-    private String ID = PropertyManager.getInstance().getId();
-    private String COMPANY_ID = PropertyManager.getInstance().getCompanyId();
-    private String STAFF_UNIQUE_ID = PropertyManager.getInstance().getStaffUniqueId();
-    private String USER_UNIQUE_ID = PropertyManager.getInstance().getUserUniqueId();
+    private String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
+    private String APP_URL = PimApiPropertyManager.getInstance().getUrl();
+    static private String MSP_ID = PimApiPropertyManager.getInstance().getMspId();
+    private String ID = PimApiPropertyManager.getInstance().getId();
+    private String COMPANY_ID = PimApiPropertyManager.getInstance().getCompanyId();
+    private String STAFF_UNIQUE_ID = PimApiPropertyManager.getInstance().getStaffUniqueId();
+    private String USER_UNIQUE_ID = PimApiPropertyManager.getInstance().getUserUniqueId();
 
 
     //fake data

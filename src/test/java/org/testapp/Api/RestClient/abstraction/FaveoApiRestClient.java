@@ -2,10 +2,10 @@ package org.testapp.Api.RestClient.abstraction;
 
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.testapp.Api.PropertyManager.FaveoApiPropertyManager;
+import org.testapp.Api.PropertyManager.Sdv2ApiPropertyManager;
 
 public class FaveoApiRestClient extends RestClient{
-    private static final String FAVEO_AUTH_KEY = FaveoApiPropertyManager.getInstance().getAuthorization();
+    private static final String FAVEO_AUTH_KEY = Sdv2ApiPropertyManager.getInstance().getAuthorization();
 
     @Override
     public ValidatableResponse doGet(String url) {

@@ -1,19 +1,18 @@
 package org.testapp.Api.DataProvider.Pim;
 
-import org.testapp.Api.PropertyManager.PropertyManager;
-import org.testng.annotations.Test;
+import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 
 public class RequestUrl {
 
-    private String API_KEY = PropertyManager.getInstance().getApiKey();
-    private String APP_URL = PropertyManager.getInstance().getUrl();
-    private String MSP_ID = PropertyManager.getInstance().getMspId();
-    private String ID = PropertyManager.getInstance().getId();
-    private String COMPANY_ID = PropertyManager.getInstance().getCompanyId();
-    private String STAFF_UNIQUE_ID = PropertyManager.getInstance().getStaffUniqueId();
-    private String USER_UNIQUE_ID = PropertyManager.getInstance().getUserUniqueId();
-    private String USER_ID_URL = PropertyManager.getInstance().getUserIdUrl();
-    private String STAFF_ID_URL = PropertyManager.getInstance().getStaffIdUrl();
+    private String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
+    private String APP_URL = PimApiPropertyManager.getInstance().getUrl();
+    private String MSP_ID = PimApiPropertyManager.getInstance().getMspId();
+    private String ID = PimApiPropertyManager.getInstance().getId();
+    private String COMPANY_ID = PimApiPropertyManager.getInstance().getCompanyId();
+    private String STAFF_UNIQUE_ID = PimApiPropertyManager.getInstance().getStaffUniqueId();
+    private String USER_UNIQUE_ID = PimApiPropertyManager.getInstance().getUserUniqueId();
+    private String USER_ID_URL = PimApiPropertyManager.getInstance().getUserIdUrl();
+    private String STAFF_ID_URL = PimApiPropertyManager.getInstance().getStaffIdUrl();
 
     public String getMspCreateRequestUrl(){
         return APP_URL.concat("/pim/msps");

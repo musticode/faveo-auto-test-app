@@ -4,8 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class TenantPropertyManager {
-    private static TenantPropertyManager instance;
+public class TenantSaasPropertyManager {
+    private static TenantSaasPropertyManager instance;
     private static final Object lock = new Object();
     private String configFilePath = "src/test/resources/apiConfig.properties";
 
@@ -21,10 +21,10 @@ public class TenantPropertyManager {
 
 
 
-    public static TenantPropertyManager getInstance(){
+    public static TenantSaasPropertyManager getInstance(){
         if(instance == null){
             synchronized (lock){
-                instance = new TenantPropertyManager();
+                instance = new TenantSaasPropertyManager();
                 instance.loadData();
             }
         }

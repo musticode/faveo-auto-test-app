@@ -2,10 +2,10 @@ package org.testapp.Api.RestClient;
 
 import com.jayway.restassured.response.ValidatableResponse;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.testapp.Api.PropertyManager.TenantPropertyManager;
+import org.testapp.Api.PropertyManager.TenantSaasPropertyManager;
 
 public class RestClientTenant extends RestClientValidatableResponse{
-    private static final String TENANT_API_KEY = TenantPropertyManager.getInstance().getTenantApiKey();
+    private static final String TENANT_API_KEY = TenantSaasPropertyManager.getInstance().getTenantApiKey();
 
     public static ValidatableResponse doGetWithBody(String url, String body){
         RequestSpecification req = RestClientValidatableResponse.getRequestSpecification(TENANT_API_KEY);

@@ -2,11 +2,11 @@ package org.testapp.Api.DataProvider.Pim;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.testapp.Api.PropertyManager.PropertyManager;
+import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 import org.testng.annotations.Test;
 
 public class MspRequestBody {
-    private String API_KEY = PropertyManager.getInstance().getApiKey();
+    private String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
 
     public String getMspCreateRequestBody(String mspId){
         JSONArray typesArr = new JSONArray();
