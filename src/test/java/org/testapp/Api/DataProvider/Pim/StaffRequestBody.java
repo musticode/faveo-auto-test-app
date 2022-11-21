@@ -6,6 +6,23 @@ import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 
 public class StaffRequestBody {
     private String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
+    private String staffIdEndpoint;
+
+    public StaffRequestBody(){
+
+    }
+    public StaffRequestBody(String staffIdEndpoint){
+        this.staffIdEndpoint = staffIdEndpoint;
+    }
+
+    public String getStaffIdEndpoint(){
+        return  staffIdEndpoint;
+    }
+
+    public void setStaffIdEndpoint(String staffIdEndpoint) {
+        this.staffIdEndpoint = staffIdEndpoint;
+    }
+
 
     public String getStaffCreateRequestBody(String mspId, String staffUniqueId){
         JSONArray typesArr = new JSONArray();

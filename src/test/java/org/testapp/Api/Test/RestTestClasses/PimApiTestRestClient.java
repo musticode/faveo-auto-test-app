@@ -5,6 +5,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.hamcrest.core.IsEqual;
+import org.json.JSONObject;
 import org.testapp.Api.DataProvider.DataGenerator.FakeDataGenerator;
 import org.testapp.Api.DataProvider.Pim.*;
 import org.testapp.Api.PropertyManager.PimApiPropertyManager;
@@ -16,6 +17,7 @@ import org.testng.annotations.Test;
 public class PimApiTestRestClient {
 
     RestClient pimApiRestClient = new PimApiRestClient();
+
 
     private String API_KEY = PimApiPropertyManager.getInstance().getApiKey();
     private String APP_URL = PimApiPropertyManager.getInstance().getUrl();
@@ -55,7 +57,7 @@ public class PimApiTestRestClient {
     AdminRequestBody adminRequestBody;
     CompanyRequestBody companyRequestBody;
     RoleRequestBody roleRequestBody;
-    StaffRequestBody staffRequestBody;
+    StaffRequestBody staffRequestBody = new StaffRequestBody();
 
     UserRequestBody userRequestBody;
 
@@ -233,7 +235,7 @@ public class PimApiTestRestClient {
     @Description("create staff")
     public void createStaff()throws InterruptedException {
         Thread.sleep(10000);
-        staffRequestBody = new StaffRequestBody();
+        //staffRequestBody = new StaffRequestBody();
 
         response = pimApiRestClient.doPost(requestUrl.getStaffCreateRequestUrl(),
                 staffRequestBody.getStaffCreateRequestBody(fakeMspId,fakeStaffUniqueUserId));
@@ -246,7 +248,12 @@ public class PimApiTestRestClient {
         response.assertThat().body("code", IsEqual.equalTo(201));
         response.assertThat().body("message", IsEqual.equalTo("Admin Created"));
 
+//        JSONObject idObject = new JSONObject(response.log().body().extract().toString());
+//        System.out.println(idObject.getString());
 
+
+//        String responseEndpoint = response.log().body("code").extract().asString();
+//        staffRequestBody.setStaffIdEndpoint();
 
         //77638
     }
@@ -257,7 +264,7 @@ public class PimApiTestRestClient {
     @Description("update staff")
     public void updateStaff()throws InterruptedException {
         Thread.sleep(10000);
-        staffRequestBody = new StaffRequestBody();
+        //staffRequestBody = new StaffRequestBody();
 
         response = pimApiRestClient.doPatch(requestUrl.getStaffUpdateRequestUrl(),
                 staffRequestBody.getStaffUpdateRequestBody(fakeMspId,fakeStaffUniqueUserId));

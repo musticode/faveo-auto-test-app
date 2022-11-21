@@ -4,6 +4,9 @@ import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.ValidatableResponse;
+import org.json.JSONObject;
+import org.openqa.selenium.json.Json;
+import org.testapp.Api.DataProvider.Pim.StaffRequestBody;
 import org.testapp.Api.PropertyManager.PimApiPropertyManager;
 import org.testng.annotations.Test;
 
@@ -30,6 +33,13 @@ public class ApiTest {
                 .then();
         response.log().body().extract().asString();
         response.assertThat().statusCode(200);
+
+
+        //response id object
+
+        JSONObject idObject = new JSONObject(response.log().body().toString());
+        System.out.println("email from json object" + idObject.getString("email"));
+
     }
 
     static FakeValuesService faker = new FakeValuesService(new Locale("en-US"), new RandomService());
@@ -50,6 +60,53 @@ public class ApiTest {
         System.out.println(fakeRegexCompanyId);
 
 
+    }
+
+    //test data set
+    StaffRequestBody staffRequestBody = new StaffRequestBody();
+    @Test
+    public void test1(){
+        staffRequestBody.setStaffIdEndpoint("update staff2");
+
+    }
+
+    @Test
+    public void test2(){
+        System.out.println(staffRequestBody.getStaffIdEndpoint());
+        System.out.println();
+        System.out.println(staffRequestBody.getStaffUpdateRequestBody("update staff2","update staff2"));
+
+
+
+
+    }
+
+    @Test
+    public void jsonObjectTest(){
+        //https://www.javatpoint.com/how-to-get-value-from-json-object-in-java-example
+
+        JSONObject obj = new JSONObject("{" +
+                "Employee ID: 092789," +
+                "Employee Name: Helen Mirren," +
+                "Age: 27, " +
+                "Designation: Assistant Manager," +
+                "City: Florida," +
+                "Salary: 67000.00, " +
+                "Experience: 26 " +
+                "}"
+        );
+
+
+
+        System.out.println("Employee ID: "+obj.getInt("Employee ID"));
+        System.out.println("Employee Name: "+obj.getString("Employee Name"));
+        System.out.println("Age: "+obj.getInt("Age"));
+        System.out.println("Designation: "+obj.getString("Designation"));
+        System.out.println("City: "+obj.getString("City"));
+        System.out.println("Salary: "+obj.getDouble("Salary"));
+        System.out.println("Experience: "+obj.getInt("Experience") +" Months");
+
+        System.out.println(obj.toString());
     }
 
 

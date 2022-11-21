@@ -17,10 +17,6 @@ public class BaseTestFactory extends DriverManager {
     @Parameters(value = {"browserName"} )
     public void initializeBrowser(@Optional String browserName) throws MalformedURLException {
 
-        //getDriver("chrome-headless");
-        //a
-//        getDriver(browserName);
-
         if(browserName == null){
             getDriver("chrome-local");
             System.out.println("Grid firefox is opened");
@@ -35,7 +31,6 @@ public class BaseTestFactory extends DriverManager {
     @AfterTest
     public void terminateBrowser(){
         tearDown();
-//        driver.close();
         System.out.println("Driver is removed");
     }
 
