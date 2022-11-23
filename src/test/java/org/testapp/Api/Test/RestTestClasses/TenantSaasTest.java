@@ -34,7 +34,7 @@ public class TenantSaasTest {
     @Test( priority = 0)
     public void test(){
         System.out.println("test data fake tenant subdomain:" + fakeTenantSubdomain);
-        System.out.println("test fake email" + fakeEmail);
+        System.out.println("test fake email " + fakeEmail);
     }
 
 

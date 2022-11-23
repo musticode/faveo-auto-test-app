@@ -6,6 +6,7 @@ import org.testapp.Api.PropertyManager.Sdv2ApiPropertyManager;
 
 public class Sdv2ApiRestClient extends RestClient{
     private static final String FAVEO_AUTH_KEY = Sdv2ApiPropertyManager.getInstance().getAuthorization();
+    private static final String FAVEO_PROD_AUTH_KEY = Sdv2ApiPropertyManager.getInstance().getProdAuthorization();
 
     @Override
     public ValidatableResponse doGet(String url) {

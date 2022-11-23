@@ -42,6 +42,28 @@ public class ApiTest {
 
     }
 
+    @Test
+    public void testReqresPost(){
+        response = given()
+                .contentType(ContentType.JSON)
+                .body("{\n" +
+                        "    \"name\": \"morpheus\",\n" +
+                        "    \"job\": \"leader\"\n" +
+                        "}")
+                .post("https://reqres.in/api/users")
+                .then();
+        response.log().body().extract().asString();
+
+
+
+        //response id object
+        JSONObject idObject = new JSONObject(response.log().body().extract().asString());
+
+        System.out.println("email from json object" + idObject.get("name"));
+    }
+
+
+
     static FakeValuesService faker = new FakeValuesService(new Locale("en-US"), new RandomService());
     String fakeCompanyId =  faker.numerify(MSP_ID+"####");
     static String fakeRegexCompanyId = faker.regexify(MSP_ID+"[a-z1-9]{5}");
@@ -58,8 +80,6 @@ public class ApiTest {
         System.out.println(MSP_ID);
         System.out.println(fakeCompanyId);
         System.out.println(fakeRegexCompanyId);
-
-
     }
 
     //test data set
@@ -96,6 +116,8 @@ public class ApiTest {
                 "}"
         );
 
+        System.out.println(obj.get("Employee ID"));
+        System.out.println(obj.get("Age"));
 
 
         System.out.println("Employee ID: "+obj.getInt("Employee ID"));

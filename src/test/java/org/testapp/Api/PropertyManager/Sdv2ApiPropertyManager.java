@@ -11,6 +11,8 @@ public class Sdv2ApiPropertyManager {
 
     private String faveoApiUrl;
     private String authorization;
+    private String faveoProdUrl;
+    private String prodAuthorization;
 
     public static Sdv2ApiPropertyManager getInstance(){
         if (instance == null){
@@ -32,13 +34,23 @@ public class Sdv2ApiPropertyManager {
         }
         faveoApiUrl = properties.getProperty("faveo_api_url");
         authorization = (String) properties.get("authorization_key");
+        faveoProdUrl = properties.getProperty("faveo_api_prod_url");
+        prodAuthorization = properties.getProperty("faveo_api_prod_auth_key");
+
     }
 
     public String getFaveoApiUrl() {
         return faveoApiUrl;
     }
-
     public String getAuthorization() {
         return authorization;
+    }
+
+    public String getFaveoProdUrl() {
+        return faveoProdUrl;
+    }
+
+    public String getProdAuthorization() {
+        return prodAuthorization;
     }
 }

@@ -3,15 +3,10 @@ package org.testapp.Api.DataProvider.FaveoApi.User;
 import org.json.JSONObject;
 
 public class UserCreateBody {
+    JSONObject jsonObject;
+
     public String getUserCreatebody(String userProviderId, String userEmail){
-        JSONObject dataObject = new JSONObject();
-
-        dataObject.put("type", "users");
-
-
-        JSONObject attributesObject = new JSONObject();
-
-
+        jsonObject = new JSONObject();
 
         return "{\n" +
                 "  \"data\": {\n" +

@@ -266,7 +266,7 @@ public class PimApiTestRestClient {
         Thread.sleep(10000);
         //staffRequestBody = new StaffRequestBody();
 
-        response = pimApiRestClient.doPatch(requestUrl.getStaffUpdateRequestUrl(),
+        response = pimApiRestClient.doPatch(requestUrl.getStaffUpdateRequestUrl(), //3
                 staffRequestBody.getStaffUpdateRequestBody(fakeMspId,fakeStaffUniqueUserId));
 
         //sout
@@ -320,7 +320,7 @@ public class PimApiTestRestClient {
         Thread.sleep(10000);
         userRequestBody = new UserRequestBody();
 
-        response = pimApiRestClient.doDelete(requestUrl.getUserDeleteRequestUrl(),
+        response = pimApiRestClient.doDelete(requestUrl.getUserDeleteRequestUrl(), //4  requestUrl.getUserDeleteRequestUrl()
                 userRequestBody.getUserDeleteRequestBody(fakeMspId,USER_UNIQUE_ID));
 
         //sout
@@ -355,6 +355,7 @@ public class PimApiTestRestClient {
                 companyRequestBody.getCompanyDeleteRequestBody(fakeMspId,fakeCompanyId));
 
         //sout
+        pimApiRestClient.responseAsString(response);
         //RestClientValidatableResponse.responseAsString(response);
 
         //assertions
@@ -365,12 +366,13 @@ public class PimApiTestRestClient {
     @Description("Delete MSP with DELETE operation")
     public void deleteMsp() throws InterruptedException {
         Thread.sleep(10000);
-        mspRequestBody= new MspRequestBody();
+        mspRequestBody = new MspRequestBody();
 
         response = pimApiRestClient.doDelete(requestUrl.getMspDeleteRequestUrl(),
                 mspRequestBody.getMspDeleteRequestBody(fakeMspId));
 
         //RestClientValidatableResponse.responseAsString(response);
+        pimApiRestClient.responseAsString(response);
 
         //assertions
         response.assertThat().statusCode(200);
@@ -379,7 +381,6 @@ public class PimApiTestRestClient {
         response.assertThat().body("message", IsEqual.equalTo("MSP Deleted"));
 
     }
-
 
 
 
