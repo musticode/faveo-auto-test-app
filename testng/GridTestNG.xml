@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Service Desk V2 Test Suite"  >
+
+
+
+    <listeners>
+        <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
+    </listeners>
+
+    <test name="OS Ticket V2 FUNCTIONAL Test - Smoke Test">
+    <parameter name="browserName" value="firefox-grid"></parameter>
+        <classes>
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="OS Ticket V2 FUNCTIONAL Test - Client" >
+        <parameter name="browserName" value="firefox-grid"></parameter>
+        <classes>
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2ClientTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <suite-files>
+        <suite-file path="APITestNG.xml"></suite-file>
+    </suite-files>
+
+
+
+
+
+
+
+
+</suite> <!-- Suite -->

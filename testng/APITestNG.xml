@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="API Test Suite" parallel="tests" thread-count="5" >
+
+    <test name="SD V2 PIM API Test">
+        <classes>
+            <class name="org.testapp.Api.Test.RestTestClasses.PimApiTestRestClient"/>
+            <class name="org.testapp.Api.Test.RestTestClasses.TenantSaasTest"/>
+            <class name="org.testapp.Api.Test.RestTestClasses.Sdv2ApiTest"></class>
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
