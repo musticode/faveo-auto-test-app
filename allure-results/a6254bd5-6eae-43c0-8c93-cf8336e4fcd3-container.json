@@ -1,1 +1,0 @@
-{"uuid":"a6254bd5-6eae-43c0-8c93-cf8336e4fcd3","name":"faveo-auto-test-app","children":["18e8615c-c3ac-4835-97c0-911acf82fa6f"],"befores":[],"afters":[{"name":"terminate","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1646148495991,"stop":1646148495991}],"start":1646148484312,"stop":1646148495991}
