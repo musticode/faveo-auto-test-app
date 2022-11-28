@@ -7,7 +7,7 @@ import java.util.Properties;
 public class PimApiPropertyManager {
     private static PimApiPropertyManager instance;
     private static final Object lock = new Object();
-    private String configFilePath = "src/test/resources/apiConfig.properties";
+    private String configFilePath = "src/test/resources/configuration/apiConfig.properties";
 
     private String apiKey;
     private String url;

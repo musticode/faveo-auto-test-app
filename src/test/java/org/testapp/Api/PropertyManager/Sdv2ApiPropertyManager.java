@@ -7,7 +7,7 @@ import java.util.Properties;
 public class Sdv2ApiPropertyManager {
     private static Sdv2ApiPropertyManager instance;
     private static final Object lock = new Object();
-    private String configFilePath = "src/test/resources/apiConfig.properties";
+    private String configFilePath = "src/test/resources/configuration/apiConfig.properties";
 
     private String faveoApiUrl;
     private String authorization;
