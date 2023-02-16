@@ -21,7 +21,7 @@ public class ServiceDeskV2ClientTest extends BaseTestFactory {
     LoginPage loginPage;
     HomePage homePage;
 
-    @Test
+    @Test(priority = 0)
     @Description("Client login")
     public void clientLogin(){
         loginPage = new LoginPage(driver);
@@ -31,7 +31,7 @@ public class ServiceDeskV2ClientTest extends BaseTestFactory {
     }
 
     TicketCreatePage ticketCreatePage;
-    @Test(dependsOnMethods = {"clientLogin"})
+    @Test(priority = 1, dependsOnMethods = {"clientLogin"})
     @Description("Submit ticket as client")
     public void submitTicketClient(){
         ticketCreatePage = new TicketCreatePage(driver);

@@ -8,9 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testapp.Ui.DataProvider.PropertyManager;
-import org.testapp.Ui.DriverManager.DriverManager;
-
-import java.time.Duration;
 
 public class BasePage {
     public WebDriver driver;

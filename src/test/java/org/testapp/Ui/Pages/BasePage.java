@@ -73,9 +73,13 @@ public class BasePage {
         return findBy(locator).isDisplayed();
     }
 
-    //scrolldown functions
+    //scroll functions
     public void scrollDown(){
         js.executeScript("window.scrollBy(0,600)");
+    }
+
+    public void scrollUp(){
+        js.executeScript("window.scrollBy(0, -500)");
     }
 
     public void scrollDownByValue(int value){

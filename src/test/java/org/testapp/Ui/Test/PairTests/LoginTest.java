@@ -3,6 +3,7 @@ package org.testapp.Ui.Test.PairTests;
 import org.jboss.aerogear.security.otp.Totp;
 import org.testapp.Ui.Pages.Pair.LoginPage;
 import org.testapp.Ui.Test.TestBase.BaseTestFactory;
+import org.testapp.Ui.Test.TestBase.ThreadLocalBaseTestFactory;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTestFactory {
@@ -14,6 +15,7 @@ public class LoginTest extends BaseTestFactory {
     @Test(priority = 0)
     public void pairLoginTest() throws InterruptedException {
         loginPage = new LoginPage(driver);
+
         loginPage.getLoginPage();
         loginPage.login("overlaytest2@numsp.com", "comodo456*");
 

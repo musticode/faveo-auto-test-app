@@ -4,16 +4,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testapp.Ui.DriverManager.DriverManager;
 import org.testapp.Ui.DriverManager.DriverOptions;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 
 public class BaseTestFactory extends DriverManager {
 
-    @BeforeTest
+    @BeforeMethod
     @Parameters(value = {"browserName"} )
     public void initializeBrowser(@Optional String browserName) throws MalformedURLException {
 
@@ -28,7 +25,7 @@ public class BaseTestFactory extends DriverManager {
     }
 
 
-    @AfterTest
+    @AfterMethod
     public void terminateBrowser(){
         tearDown();
         System.out.println("Driver is removed");

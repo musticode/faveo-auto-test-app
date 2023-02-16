@@ -37,10 +37,13 @@ mvn clean test -DsuiteXmlFile=ParallelTestNG.xml
 mvn allure:serve
 ```
 #### Docker setup and test run
-@BeforeSuite <br>
-public void startContainer{ <br>
-CommonMethods.runTerminalCommand("docker-compose up", "Registered a node"); <br>
+
+```
+@BeforeSuite
+public void startContainer{
+    CommonMethods.runTerminalCommand("docker-compose up", "Registered a node"); 
 }
+```
 
 ### Docker Selenoid
 ```
@@ -79,5 +82,9 @@ UI Tests will be run in 4444 port in a browser containers
 mvn clean test -DsuiteXmlFile=JenkinsBuild.xml
 ```
 
+## Test Suite Planning in project 
+- class name: BaseTestFactory (extends DriverManager)
+- Setup method initialized before methods, this usage make test **dependent** with login etc
+- Teardown methods works after each methods
 
 

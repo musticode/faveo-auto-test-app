@@ -1,93 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
+<suite name="Test Suites"  >
+<!--    <listeners>-->
+<!--        <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>-->
+<!--    </listeners>-->
 
-<suite name="Test Suites" parallel="tests" >
-    <listeners>
-        <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
-    </listeners>
-    <test name="Service Desk V2 Smoke Test" parallel="classes" thread-count="5">
+
+    <parameter name="browserName" value="firefox-grid"></parameter>
+    <test name="SDV2-TNS-PAIR Automation">
         <classes>
-<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>-->
-<!--            <class name="org.testapp.Ui.Test.TestWithBaseFactory"></class>-->
-            <class name="org.testapp.Api.Test.FaveoMspTest"></class>
+<!--            <class name="org.testapp.Ui.Test.PairTests.LoginTest"></class>-->
+            <class name="org.testapp.Ui.Test.TnsTests.TnsTestLogin"></class>
         </classes>
     </test>
 
-<!--
-    <test name="OS Ticket V2 Test" parallel="classes" thread-count="5">
+
+    <parameter name="browserName" value="firefox-grid"></parameter>
+    <test name="SDV2">
         <classes>
-&lt;!&ndash;            <class name="org.testapp.Api.Test.FaveoMspTest"></class>&ndash;&gt;
-&lt;!&ndash;            <class name="org.testapp.Ui.Test.DemoPageScenarios"></class>&ndash;&gt;
-&lt;!&ndash;            <class name="org.testapp.Ui.Test.ServiceDeskV2Test"></class>&ndash;&gt;
-            <class name="org.testapp.Ui.Test.ParallelTestExample">
-                <methods>
-                    <include name="staffLoginWithValidCredentials"/>
-                    <include name="staffLoginWithInvalidCredentials"/>
-                </methods>
-&lt;!&ndash;                <methods>
-                    <include name="scenario1"/>
-&lt;!&ndash;                    <include name="staffLoginWithInvalidCredentials"/>
-                    <include name="createTestTicket"/>
-                    <include name="navigateToAdminPanelAfterLogin"/>
-                    <include name="redirectToAdminPanelAfterLogin"/>
-                    <include name="landingPageNavigations"/>&ndash;&gt;
-                </methods>&ndash;&gt;
-            </class>
-         </classes>
-    </test> &lt;!&ndash; Test &ndash;&gt;
-
-    <test name="org.testapp.Ui.Test.DemoPageScenarios" parallel="classes" thread-count="5">
-        <classes>
-            <class name="org.testapp.Ui.Test.DemoPageScenarios">
-&lt;!&ndash;                <methods>
-                    <include name="textBoxTest"/>
-                    <include name="radioButtonTest"/>
-                    <include name="radioButtonTest2_ImpressiveButtonSelected"/>
-                    <include name="demoPageWebTablesTest1"/>
-                </methods>&ndash;&gt;
-            </class>
-        </classes>
-
-
-    </test>
-    -->
-
-
-<!--
-
-    <test name="API MSP Operations" >
-        <classes>
-            <class name="org.testapp.Api.Test.FaveoMspTest">
-                <methods>
-                    <include name="createMsp" />
-                    <include name="updateMsp" />
-                    <include name="holdMsp" />
-                    <include name="unholdMsp" />
-                    <include name="deleteMsp" />
-
-                </methods>
-            </class>
+            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"></class>
         </classes>
     </test>
--->
 
-<!--    <test name="TEst req" >
-        <classes>
-            <class name="org.testapp.Api.RestClient.Api">
-                <methods>
-                    <include name="testReqres" />
-&lt;!&ndash;                    <include name="updateMsp" />&ndash;&gt;
-&lt;!&ndash;                    <include name="holdMsp" />&ndash;&gt;
-&lt;!&ndash;                    <include name="unholdMsp" />&ndash;&gt;
-&lt;!&ndash;                    <include name="deleteMsp" />&ndash;&gt;
-
-                </methods>
-            </class>
-        </classes>
-    </test>-->
-
-
-
-
-</suite> <!-- Suite -->
+</suite>

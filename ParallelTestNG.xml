@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Parallel Test Suite" parallel="tests" thread-count="5" >
-    <listeners>
-        <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>
-    </listeners>
+<suite name="Parallel Test Suite" parallel="tests" thread-count="2" >
+<!--    <listeners>-->
+<!--        <listener class-name="org.testapp.Ui.Listener.TestListener"></listener>-->
+<!--    </listeners>-->
 
-    <parameter name="browserName" value="firefox-grid"></parameter>
-    <test name="OS Ticket V2 FUNCTIONAL Test" parallel="classes" thread-count="5">
+    <parameter name="browserName" value="firefox-local"></parameter>
+    <test name="ServiceDesk V2 Functional Tests" parallel="methods" thread-count="3">
         <classes>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskFunctionalTest"/>
 
-<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2AdminPanelTest"/>-->
-        </classes>
-    </test> <!-- Test -->
 
-    <test name="OS Ticket V2 SMOKE Test" parallel="classes" thread-count="5">
-        <parameter name="browserName" value="firefox-grid"></parameter>
-        <classes>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>
+<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskFunctionalTest"/>-->
+<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>-->
+<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2AdminPanelTest"/>-->
+<!--            <class name="org.testapp.Ui.Test.PairTests.LoginTest"></class>-->
+
+            <class name="org.testapp.Ui.Test.TnsTests.TnsTestLogin">
+                <methods>
+                    <include name="loginWithItarianValidAccountTest"/>
+                    <include name="GOOGLE4"/>
+                    <include name="YANDEX"/>
+                </methods>
+
+            </class>
         </classes>
     </test>
 
-    <test name="OS Ticket V2 ADMIN Parallel Test" parallel="classes" thread-count="5">
-        <parameter name="browserName" value="chrome-grid"></parameter>
-        <classes>
-            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2AdminPanelTest"/>
-        </classes>
 
-    </test>
-<!--aaa-->
 
-</suite> <!-- Suite -->
+</suite>
