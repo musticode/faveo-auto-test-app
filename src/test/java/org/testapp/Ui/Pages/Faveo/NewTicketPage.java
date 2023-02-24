@@ -9,43 +9,33 @@ import org.testapp.Ui.Pages.BasePage;
 
 public class NewTicketPage extends BasePage {
 
-    private By emailLocator = By.id("email");
-    private By firstNameLocator = By.id("first_name");
-    private By lastNameLocator = By.id("last_name");
-    private By countryCodeLocator = By.id("country_code");
-    private By mobileLocator = By.id("mobile");
-    private By phoneLocator = By.id("phone_number");
+    private By emailLocator = By.xpath("//input[contains(@id,'search')]");
+    private By firstNameLocator = By.xpath("//input[contains(@name,'first_name')]");
 
-    private By subjectTextAreaLocator = By.cssSelector("input[name='subject']");
-    private By detailTextAreaLocator = By.cssSelector("div[role='textbox']");
+    private By lastNameLocator = By.xpath("//input[contains(@name,'last_name')]");
 
-    private By createTicketButtonLocator = By.cssSelector("input[value='Create ticket']");
+    private By countryCodeLocator = By.xpath("//input[@name='code']");
 
-    public By departmentDropdown = By.xpath("/html/body/div[1]/div[1]/section/div/form/div/div[2]/div[2]/div[2]/div/div[1]/div[3]/div/select");
-    Select departmentSelect;
+    private By mobileLocator = By.xpath("//input[contains(@name,'mobile')]");
 
-    public By helpTopicDropDown = By.cssSelector("#help_topic_id");
-    Select helpTopicSelect;
+    private By phoneLocator = By.xpath("//input[contains(@type,'tel')]");
 
-    //public By statusDropDown = By.cssSelector("#status_id");
-    public By statusDropDown = By.cssSelector("select[name='status']");
+    private By helpTopicTextFieldLocator = By.xpath("//input[contains(@aria-labelledby,'vs1__combobox')]"); ////input[contains(@aria-labelledby,'vs1__combobox')]
 
-    Select statusSelect;
+    private By statusTextFieldLocator = By.xpath("//input[@aria-controls='vs2__listbox']");
 
-    public By slaDropDown = By.id("sla_plan_id");
-    Select slaPlanSelect;
+    private By departmentTextFieldLocator = By.xpath("//input[contains(@aria-controls,'vs3__listbox')]");
 
-    public By assignToDropDown = By.id("agent_id");
-    Select assignToAgentSelect;
+    private By slaPlanTextFieldLocator = By.xpath("//input[contains(@aria-controls,'vs4__listbox')]");
 
-    public By locationDropDown = By.id("location_id");
-    Select locationSelect;
+    // ticket details locators
+    private By subjectTextFieldLocator = By.xpath("//input[contains(@name,'subject')]");
+    private By detailTextFieldLocator = By.xpath("//div[contains(@role,'textbox')]");
+    private By priorityTextFieldLocator = By.xpath("//input[contains(@aria-controls,'vs9__listbox')]");
 
-    public By ticketTypeDropDown = By.id("ticket_type_id");
-    Select ticketTypeSelect;
 
-    public By priorityDropDown = By.id("priority_id");
-    Select prioritySelect;
+    //create ticket button locator
+    private By createTicketButtonLocator = By.xpath("//input[contains(@value,'Create ticket')]");
 
 
 
@@ -54,114 +44,48 @@ public class NewTicketPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    public void createTicketButton(){
+        click(createTicketButtonLocator);
+    }
+
+    public void setPriorityTextField(String priority){
+        setText(priorityTextFieldLocator, priority);
+        setEnter(priorityTextFieldLocator);
+    }
+
+    public void setSubjectTextField(String subject){
+        setText(subjectTextFieldLocator, subject);
+    }
+
+    public void setDetail(String detail){
+        setText(detailTextFieldLocator, detail);
+    }
+
+    public void setTextSlaPlanTextField(String slaPlanText){
+        setText(slaPlanTextFieldLocator, slaPlanText);
+        setEnter(slaPlanTextFieldLocator);
+    }
+    public void setTextDepartmentTextField(String departmentText) {
+        setText(departmentTextFieldLocator, departmentText);
+        setEnter(departmentTextFieldLocator);
+    }
+
+    public void setTextStatusTextField(String statusText){
+        setText(statusTextFieldLocator, statusText);
+        setEnter(statusTextFieldLocator);
+    }
+
+
+
+    public void setTextHelpTopicTextField(String helpTopicText){
+        setText(helpTopicTextFieldLocator, helpTopicText);
+        setEnter(helpTopicTextFieldLocator);
+    }
+
+
+
     public void getTicketCreate(){
         driver.get(APP_URL.concat("/newticket"));
-    }
-
-    public void selectPriority(String priority){
-
-        prioritySelect = new Select(findBy(priorityDropDown));
-
-        if(priority.equalsIgnoreCase("low")){
-            prioritySelect.selectByIndex(0);
-        }else if (priority.equalsIgnoreCase("normal")){
-            prioritySelect.selectByIndex(1);
-        }else if (priority.equalsIgnoreCase("high")){
-            prioritySelect.selectByIndex(2);
-        }else if(priority.equalsIgnoreCase("critical")){
-            prioritySelect.selectByIndex(3);
-        }
-    }
-
-
-
-    public void selectTicketType(String ticketType){
-        ticketTypeSelect = new Select(findBy(ticketTypeDropDown));
-
-        if (ticketType.equalsIgnoreCase("test type")){
-            ticketTypeSelect.selectByIndex(0);
-        }else{
-            ticketTypeSelect.selectByValue("1");
-        }
-    }
-
-
-
-
-    public void selectLocation(String locationName){
-        locationSelect = new Select(findBy(locationDropDown));
-
-        if (locationName.equalsIgnoreCase("testbug")){
-            locationSelect.selectByIndex(0);
-        }else{
-            locationSelect.selectByIndex(0);
-        }
-    }
-
-
-    public void selectAssignToAgent(String agentMail){
-        assignToAgentSelect = new Select(findBy(assignToDropDown));
-
-        if (agentMail.equalsIgnoreCase("demo admin")){
-            assignToAgentSelect.selectByIndex(0);
-        }else{
-            System.out.println("No available agent name");
-        }
-    }
-
-
-
-    public void selectSlaPlan(String slaPlan){
-        slaPlanSelect = new Select(findBy(slaDropDown));
-
-        if (slaPlan.equalsIgnoreCase("6 hours")){
-            slaPlanSelect.selectByIndex(0);
-        }else if (slaPlan.equalsIgnoreCase("12 hours")){
-            slaPlanSelect.selectByIndex(1);
-        }else if(slaPlan.equalsIgnoreCase("24 hours")){
-            slaPlanSelect.selectByIndex(2);
-        }
-    }
-
-    public void selectHelpTopic(String helpTopicName) {
-//        select();
-
-
-
-        helpTopicSelect = new Select(findBy(helpTopicDropDown));
-
-        if (helpTopicName.equalsIgnoreCase("support query")){
-            helpTopicSelect.selectByIndex(0);
-        }else{
-            helpTopicSelect.selectByValue("1");
-        }
-    }
-
-    public void selectStatus(String statusName){
-        if(statusName.equalsIgnoreCase("open")){
-            statusSelect = new Select(findBy(statusDropDown));
-            statusSelect.selectByIndex(0);
-        }else if(statusName.equalsIgnoreCase("resolved")){
-            statusSelect = new Select(findBy(statusDropDown));
-            statusSelect.selectByIndex(1);
-        }
-    }
-    public void selectDep2(int value){
-        select(departmentDropdown, value);
-    }
-
-
-    public void selectDepartment(String departmentName){
-        if (departmentName.equalsIgnoreCase("support")){
-            departmentSelect = new Select(findBy(departmentDropdown));
-            departmentSelect.selectByIndex(1);
-        }else if(departmentName.equalsIgnoreCase("sales")){
-            departmentSelect = new Select(findBy(departmentDropdown));
-            departmentSelect.selectByIndex(2);
-        }else if(departmentName.equalsIgnoreCase("maintenance")){
-            departmentSelect = new Select(findBy(departmentDropdown));
-            departmentSelect.selectByIndex(3);
-        }
     }
 
     public void fillUserDetails(String email, String firstName, String lastName, String code, String mobileNumber, String phone){
@@ -172,16 +96,6 @@ public class NewTicketPage extends BasePage {
         setText(mobileLocator, mobileNumber);
         setText(phoneLocator, phone);
     }
-
-    public void fillTicketDetail(String subject, String detail){
-        setText(subjectTextAreaLocator, subject);
-        setText(detailTextAreaLocator, detail);
-    }
-
-    public void createTicket(){
-        click(createTicketButtonLocator);
-    }
-
 
 
 }

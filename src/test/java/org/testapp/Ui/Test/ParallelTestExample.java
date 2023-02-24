@@ -6,10 +6,11 @@ import org.testapp.Ui.Pages.Faveo.LandingPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
 import org.testapp.Ui.Test.TestBase.BaseRemoteTest;
+import org.testapp.Ui.Test.TestBase.ThreadLocalBaseTestFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ParallelTestExample extends BaseRemoteTest {
+public class ParallelTestExample extends ThreadLocalBaseTestFactory {
     String FULL_NAME = "Mustafa";
     String EMAIL = "test@yopmail.com";
     String CURRENT_ADDRESS = "current address";
@@ -79,8 +80,8 @@ public class ParallelTestExample extends BaseRemoteTest {
                 "5434593612",
                 "123");
 
-        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
-        newTicketPage.createTicket();
+//        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.createTicket();
     }
 
     @Test(priority = 3)

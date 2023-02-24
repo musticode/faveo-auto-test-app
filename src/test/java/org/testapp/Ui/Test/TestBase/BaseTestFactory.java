@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 
 public class BaseTestFactory extends DriverManager {
 
-    @BeforeMethod
+    @BeforeClass
     @Parameters(value = {"browserName"} )
     public void initializeBrowser(@Optional String browserName) throws MalformedURLException {
 
@@ -25,7 +25,7 @@ public class BaseTestFactory extends DriverManager {
     }
 
 
-    @AfterMethod
+    @AfterClass
     public void terminateBrowser(){
         tearDown();
         System.out.println("Driver is removed");

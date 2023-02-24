@@ -1,14 +1,13 @@
 package org.testapp.Ui.Pages;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Quotes;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testapp.Ui.DataProvider.PropertyManager;
 
+import java.security.Key;
 import java.util.List;
 
 public class BasePage {
@@ -23,6 +22,7 @@ public class BasePage {
         this.driver = driver;
         wait = new WebDriverWait(driver, WAIT);
         js = (JavascriptExecutor)driver;
+        PageFactory.initElements(driver,this);
     }
 
     public void waitForLocator(By locator){
@@ -62,6 +62,12 @@ public class BasePage {
         findBy(locator).clear();
         findBy(locator).sendKeys(text);
     }
+
+    public void setEnter(By locator){
+        waitForLocator(locator);
+        findBy(locator).sendKeys(Keys.ENTER);
+    }
+
 
     public String getText(By locator){
         waitForLocator(locator);

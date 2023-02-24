@@ -16,8 +16,15 @@ public class TnsTestLogin extends BaseTestFactory {
     TnsMainPage tnsMainPage;
     TnsDashboardPage tnsDashboardPage;
 
-    private final String TNS_USERNAME = "testaccount21nov@yopmail.com";
-    private final String TNS_PASSWORD = "Comodo456*";
+    private final String TNS_VALID_USERNAME = "testaccount21nov@yopmail.com";
+    private final String TNS_VALID_PASSWORD = "Comodo456*";
+
+    public void loginWithValidCredentials(){
+        tnsMainPage = new TnsMainPage(driver);
+        tnsMainPage.getMainPage();
+        tnsMainPage.login(TNS_VALID_USERNAME, TNS_VALID_PASSWORD);
+    }
+
 
     @Test
     public void loginWithItarianValidAccountTest(){
@@ -26,14 +33,39 @@ public class TnsTestLogin extends BaseTestFactory {
 
 
         tnsMainPage.getMainPage();
-        tnsMainPage.login(TNS_USERNAME, TNS_PASSWORD);
+        tnsMainPage.login(TNS_VALID_USERNAME, TNS_VALID_PASSWORD);
         Assert.assertEquals(
                 tnsDashboardPage.isTnsDashBoardPageOpened(),
                 true,
-                "Dashboard page is not opened");
+                "Dashboard page is not opened"
+        );
+
+    }
+
+
+    @Test
+    public void logOutTest(){
+
+        tnsMainPage = new TnsMainPage(driver);
+        tnsDashboardPage = new TnsDashboardPage(driver);
+
+
+        loginWithValidCredentials();
+
+        tnsDashboardPage.logOut();
+
+        Assert.assertEquals(
+                tnsMainPage.isMainPageDisplayed(),
+                true,
+                "Log out can't be done"
+        );
+
+
 
 
     }
+
+
 
 
 

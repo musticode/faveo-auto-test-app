@@ -34,7 +34,7 @@ public class TestListener extends DriverManager implements ITestListener {
 
         //allure screenshot
         TestUtil.saveScreenShotAsPNG(driver);
-
+        saveTextLog(result.getMethod().getId());
     }
 
 

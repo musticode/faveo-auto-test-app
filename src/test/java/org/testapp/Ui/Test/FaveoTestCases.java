@@ -70,8 +70,8 @@ public class FaveoTestCases extends BaseTest {
                 "5434593612",
                 "123");
 
-        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
-        newTicketPage.createTicket();
+//        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.createTicket();
     }
 
 

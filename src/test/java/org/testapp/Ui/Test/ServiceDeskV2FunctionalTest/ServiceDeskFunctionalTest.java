@@ -4,6 +4,7 @@ import org.testapp.Ui.DataProvider.PropertyManager;
 import org.testapp.Ui.Pages.Faveo.DashboardPage;
 import org.testapp.Ui.Pages.Faveo.LoginPage;
 import org.testapp.Ui.Pages.Faveo.NewTicketPage;
+import org.testapp.Ui.Pages.Faveo.TicketInboxPage;
 import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testapp.Ui.Test.TestBase.BaseTestFactory;
 import org.testng.Assert;
@@ -40,11 +41,28 @@ public class ServiceDeskFunctionalTest extends BaseTestFactory {
                 "90",
                 "5434593612",
                 "123");
-        newTicketPage.selectDepartment("support");
-        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
-//        newTicketPage.createTicket();
+        newTicketPage.setTextHelpTopicTextField("Support query");
+        newTicketPage.setTextStatusTextField("Open");
+        newTicketPage.setTextDepartmentTextField("Support");
+        newTicketPage.setTextSlaPlanTextField("Default");
+
+        newTicketPage.setSubjectTextField("Test Subject");
+        newTicketPage.setDetail("Test Detail");
+        newTicketPage.setPriorityTextField("Low");
+
+        newTicketPage.createTicketButton();
+
     }
 
+
+    TicketInboxPage ticketInboxPage;
+    @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
+    public void tableTest(){
+        ticketInboxPage = new TicketInboxPage(driver);
+
+        ticketInboxPage.navigateToTicketDetailsWithElementIndex(1);
+
+    }
 
 
 

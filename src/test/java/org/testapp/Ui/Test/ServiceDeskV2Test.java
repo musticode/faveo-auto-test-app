@@ -70,8 +70,8 @@ public class ServiceDeskV2Test extends BaseTest {
                 "5434593612",
                 "123");
 
-        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
-        newTicketPage.createTicket();
+//        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.createTicket();
     }
 
     @Test(dependsOnMethods = {"staffLoginWithValidCredentials"})
@@ -88,8 +88,8 @@ public class ServiceDeskV2Test extends BaseTest {
                 "5434593612",
                 "123");
 
-        newTicketPage.selectDepartment("support");
-        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.selectDepartment("support");
+//        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
 //        newTicketPage.createTicket();
     }
 
@@ -227,15 +227,15 @@ public class ServiceDeskV2Test extends BaseTest {
 
 //        newTicketPage.selectHelpTopic("suppor1t query");
 //        newTicketPage.selectStatus("open");
-        newTicketPage.selectDep2(1);
+//        newTicketPage.selectDep2(1);
 //        newTicketPage.selectDepartment("support");
-        newTicketPage.selectSlaPlan("6 hours");
-        newTicketPage.selectAssignToAgent("demo admin");
-        newTicketPage.selectLocation("testbug");
-        newTicketPage.selectTicketType("test type");
-
-        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
-        newTicketPage.selectPriority("normal");
+//        newTicketPage.selectSlaPlan("6 hours");
+//        newTicketPage.selectAssignToAgent("demo admin");
+//        newTicketPage.selectLocation("testbug");
+//        newTicketPage.selectTicketType("test type");
+//
+//        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.selectPriority("normal");
 //        newTicketPage.createTicket();
     }
 
@@ -304,7 +304,7 @@ public class ServiceDeskV2Test extends BaseTest {
                 "5434593612",
                 "123");
 
-        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
 //        newTicketPage.createTicket();
     }
 

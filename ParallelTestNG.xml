@@ -8,21 +8,8 @@
     <parameter name="browserName" value="firefox-local"></parameter>
     <test name="ServiceDesk V2 Functional Tests" parallel="methods" thread-count="3">
         <classes>
-
-
-<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskFunctionalTest"/>-->
-<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskSmokeTest"/>-->
-<!--            <class name="org.testapp.Ui.Test.ServiceDeskV2FunctionalTest.ServiceDeskV2AdminPanelTest"/>-->
-<!--            <class name="org.testapp.Ui.Test.PairTests.LoginTest"></class>-->
-
-            <class name="org.testapp.Ui.Test.TnsTests.TnsTestLogin">
-                <methods>
-                    <include name="loginWithItarianValidAccountTest"/>
-                    <include name="GOOGLE4"/>
-                    <include name="YANDEX"/>
-                </methods>
-
-            </class>
+<!--            <class name="org.testapp.Ui.Test.TnsTests.TnsTestLogin"/>-->
+            <class name="org.testapp.Ui.Test.ParallelTestExample"></class>
         </classes>
     </test>
 

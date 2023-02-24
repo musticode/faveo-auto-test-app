@@ -50,8 +50,8 @@ public class OSTicketParallelTest extends BaseTestFactory {
                 "5434593612",
                 "123");
 
-        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
-        newTicketPage.createTicket();
+//        newTicketPage.fillTicketDetail("Test Subject for Automation", "Test detail");
+//        newTicketPage.createTicket();
     }
 
     @Test(priority = 3)

@@ -14,13 +14,20 @@ import java.net.URL;
 public class ThreadLocalBaseTestFactory {
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
     public DriverOptions driverOptions = new DriverOptions();
+    protected static ThreadLocal<WebDriver> localDriver = new ThreadLocal<>();
 
 
-    @BeforeClass
+    @BeforeMethod
     @Parameters(value={"browserName"})
     public void setup (@Optional String browserName) throws MalformedURLException {
         //Set Browser to ThreadLocalMap
-        driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), driverOptions.getFirefoxOptions()));
+        //driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), driverOptions.getFirefoxOptions()));
+
+
+        if (browserName == null){
+            WebDriverManager.chromedriver().setup();
+            localDriver.set(new ChromeDriver());
+        }
 
 //        if (browserName.equals("firefox-grid")){
 //            driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), driverOptions.getFirefoxOptions()));
@@ -34,7 +41,8 @@ public class ThreadLocalBaseTestFactory {
 
     public WebDriver getDriver() {
         //Get driver from ThreadLocalMap
-        return driver.get();
+
+        return localDriver.get();
     }
 
     @AfterMethod

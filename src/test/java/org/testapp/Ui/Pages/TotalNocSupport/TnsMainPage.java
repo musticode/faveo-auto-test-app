@@ -2,12 +2,9 @@ package org.testapp.Ui.Pages.TotalNocSupport;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testapp.Ui.Listener.TestListener;
 import org.testapp.Ui.Pages.BasePage;
-import org.testng.annotations.Listeners;
+
 
 
 public class TnsMainPage extends BasePage {
@@ -36,6 +33,10 @@ public class TnsMainPage extends BasePage {
         setText(emailTextFieldLocator, userName);
         setText(passwordTextFieldXpathLocator, password);
         click(signInButtonLocator);
+    }
+
+    public boolean isMainPageDisplayed(){
+        return isDisplayed(signInButtonLocator);
     }
 
 
