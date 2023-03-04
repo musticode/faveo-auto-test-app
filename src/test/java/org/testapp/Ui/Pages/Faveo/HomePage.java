@@ -11,6 +11,18 @@ import org.testng.Assert;
 import java.util.List;
 
 public class HomePage extends BasePage {
+
+
+    private By logOutDropdownButtonLocator = By.xpath("//a[contains(@class,'nav-link dropdown-toggle')]");
+    private By signOutButton = By.xpath("//a[contains(.,'Sign Out')]");
+
+
+
+
+
+
+
+
     private By myProfileDropDownLocator = By.xpath("//*[@id=\"navbarDropdown\"]");
 
 
@@ -42,10 +54,6 @@ public class HomePage extends BasePage {
     private By getMyProfileDropDownLocator2 = By.xpath("//a[contains(.,'My profile')]");
     private By logOutButtonLocator = By.xpath("//*[@id=\"dropdown_content\"]/a[1]");
 
-//    private By myTicketsButtonLocator = By.xpath("");
-//    private By myTicketsButtonLocator = By.xpath("");
-//    private By myTicketsButtonLocator = By.xpath("");
-
 
 
     DashboardPage dashboardPage;
@@ -54,6 +62,12 @@ public class HomePage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+
+
+    public void signOut(){
+        click(logOutDropdownButtonLocator);
+        click(signOutButton);
+    }
 
     public DashboardPage getDashboardPage(){
         click(profileDropdownLoc);
@@ -75,11 +89,4 @@ public class HomePage extends BasePage {
         Assert.assertEquals(isDisplayed(myProfileDropDownLocator), true, "Home Page is not opened");
     }
 
-    public boolean isHomePageOpened(){
-        if(isDisplayed(myProfileDropDownLocator)){
-            return true;
-        }else{
-            return false;
-        }
-    }
 }

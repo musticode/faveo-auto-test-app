@@ -1,10 +1,7 @@
 package org.testapp.Ui.Test.ServiceDeskV2FunctionalTest;
 
 import org.testapp.Ui.DataProvider.PropertyManager;
-import org.testapp.Ui.Pages.Faveo.DashboardPage;
-import org.testapp.Ui.Pages.Faveo.LoginPage;
-import org.testapp.Ui.Pages.Faveo.NewTicketPage;
-import org.testapp.Ui.Pages.Faveo.TicketInboxPage;
+import org.testapp.Ui.Pages.Faveo.*;
 import org.testapp.Ui.Test.TestBase.BaseTest;
 import org.testapp.Ui.Test.TestBase.BaseTestFactory;
 import org.testng.Assert;
@@ -66,13 +63,13 @@ public class ServiceDeskFunctionalTest extends BaseTestFactory {
 
 
 
-
-    DashboardPage dashboardPage;
+    HomePage homePage;
     @Test(priority = 999, dependsOnMethods = {"staffLoginWithValidCredentials"})
     public void signOut(){
-        dashboardPage = new DashboardPage(driver);
-        dashboardPage.getFaveoDashboard();
-        dashboardPage.signOut();
+        homePage = new HomePage(driver);
+        homePage.signOut();
+
+
 
     }
 
